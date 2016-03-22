@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CBehaviorBuff id="AcidSalivaSlowed">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="4"/>
+        <Modification MoveSpeedMultiplier="0.4" AttackSpeedMultiplier="0.4"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AcidSalivaSlowedHeroic">
+        <Tooltip value="Behavior/Tooltip/AcidSalivaSlowed"/>
+        <Alignment value="Negative"/>
+        <Cost>
+            <Charge Link="Behavior/AcidSalivaSlowed"/>
+            <Cooldown Link="Behavior/AcidSalivaSlowed"/>
+        </Cost>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="4"/>
+        <Modification MoveSpeedMultiplier="0.7" AttackSpeedMultiplier="0.7"/>
+        <DamageResponse>
+            <Cost>
+                <Charge Link="Behavior/AcidSalivaSlowed"/>
+                <Cooldown Link="Behavior/AcidSalivaSlowed"/>
+            </Cost>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HotSRaptorCharging">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-charge.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Modification MoveSpeedMultiplier="0.01">
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <AbilClassEnableArray index="CAbilMove" value="1"/>
+            <AbilLinkEnableArray value="attack"/>
+            <AbilLinkEnableArray value="stop"/>
+            <WeaponDisableArray value="HotSRaptorClaws"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorJump id="HotSRaptorJump">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <TriggerHeightDeltaMin value="1.5"/>
+        <TriggerHeightDeltaMax value="4.5"/>
+        <InitiateRangeUp value="0.5"/>
+        <InitiateRangeDown value="0.5"/>
+        <JumpRangeMax value="12"/>
+        <Mover value="CliffJumper"/>
+        <MoverUp value="RaptorJumpUp"/>
+        <MoverDown value="RaptorJumpDown"/>
+        <DurationMoveOut value="0.6"/>
+        <Placeholder value="HotSRaptorPlaceholder"/>
+        <LandAdjustmentUp value="1.5"/>
+        <LandAdjustmentDown value="1.5"/>
+        <LandArrivalRange value="0.05"/>
+        <LandCheckRadius value="5"/>
+    </CBehaviorJump>
+    <CBehaviorCreepSource id="MakeCreepCerebrate">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <Period value="0.8332"/>
+        <Start value="CreepGrowthCerebrateStart"/>
+        <Birth value="CreepGrowthCerebrateStart"/>
+        <Grown value="CreepGrowthCerebrate"/>
+    </CBehaviorCreepSource>
+    <CBehaviorBuff id="VileAcidSaliva">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="VileAcidSalivaSearchArea"/>
+    </CBehaviorBuff>
+</Catalog>

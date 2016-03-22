@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CWeaponLegacy id="HeroZerglingClaws" parent="Claws">
+        <Name value="Weapon/Name/HeroZerglingClaws2"/>
+        <DisplayEffect value="HeroZerglingClawsDamage"/>
+        <Period value="0.496"/>
+        <Effect value="HeroZerglingClawsDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HeroRoachMelee">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="HeroRoachUMelee"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.5"/>
+        <Period value="2"/>
+        <Effect value="HeroRoachUMelee"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SpellEfficiency">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-spellefficiency-level0.dds"/>
+        <TargetFilters value="Visible;Player,Ally,Neutral,Enemy,Air,Ground,Missile,Hidden,Invulnerable"/>
+        <Range value="0"/>
+        <Period value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HeroHydraliskMelee">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="HeroHydraliskMeleeDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.5"/>
+        <Period value="0.75"/>
+        <DamagePoint value="0.3"/>
+        <Effect value="HeroHydraliskMeleeDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HeroHydraliskNeedleSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="HeroHydraliskNeedleSpinesDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="6.5"/>
+        <Range value="6"/>
+        <Period value="0.75"/>
+        <DamagePoint value="0.208"/>
+        <Effect value="HeroHydraliskNeedleSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+</Catalog>

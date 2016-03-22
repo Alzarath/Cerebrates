@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CButton id="AcidSaliva">
+        <Icon value="Assets\Textures\btn-ability-zerg-vileacidsaliva.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-vileacidsaliva.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="HeroZerglingCharge">
+        <Icon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="HotSRaptorCharge"/>
+    </CButton>
+    <CButton id="HunterKiller">
+        <Icon value="Assets\Textures\btn-unit-zerg-hydralisk.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-hydralisk-impaler.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="DevouringOne">
+        <Icon value="Assets\Textures\btn-unit-zerg-zergling-raptor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling-raptor.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="HeroZerglingCliffJumper">
+        <Icon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="RaptorCliffJumper"/>
+    </CButton>
+</Catalog>

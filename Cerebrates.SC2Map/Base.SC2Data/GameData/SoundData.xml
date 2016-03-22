@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CSound id="HeroZergling_Jump" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Raptor_Jump00.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Raptor_Jump01.wav" Pitch="-1.000000,0.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Raptor_Jump02.wav" FacialGroup=""/>
+        <Pitch value="-7.000000,0.000000"/>
+        <Volume value="-22.000000,-7.000000"/>
+    </CSound>
+</Catalog>

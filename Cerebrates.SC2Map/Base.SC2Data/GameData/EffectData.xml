@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CEffectLaunchMissile id="AbilityAcidSalivaLM">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="AbilityAcidSalivaDamage"/>
+        <AmmoUnit value="WeaponAcidSalivaAbility"/>
+        <ImpactLocation Value="TargetPoint"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="AbilityAcidSalivaDamage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="32"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
+    <CEffectDamage id="HeroZerglingClawsDamage" parent="Claws">
+        <Name value="Effect/Name/HeroZerglingClawsDamage"/>
+        <Amount value="10"/>
+    </CEffectDamage>
+    <CEffectDamage id="HeroHydraliskMeleeDamage" parent="HydraliskMelee">
+        <Name value="Effect/Name/HeroHydraliskMeleeDamage"/>
+        <Amount value="24"/>
+    </CEffectDamage>
+    <CEffectDamage id="HeroHydraliskNeedleSpinesDamage" parent="NeedleSpinesDamage">
+        <Name value="Effect/Name/HeroHydraliskNeedleSpinesDamage"/>
+        <Amount value="24"/>
+    </CEffectDamage>
+    <CEffectDamage id="HeroRoachUMelee" parent="AcidSalivaU">
+        <Name value="Effect/Name/Claws"/>
+        <Kind value="Melee"/>
+        <Death value="Eviscerate"/>
+        <Amount value="32"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="HeroHydraliskNeedleSpinesLaunchMissile" parent="NeedleSpinesLaunchMissile">
+        <Name value="Effect/Name/HeroHydraliskNeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="HeroHydraliskNeedleSpinesDamage"/>
+    </CEffectLaunchMissile>
+    <CEffectCreateUnit id="HotSRaptorLeap">
+        <ValidatorArray value="ChargeMinTriggerDistance"/>
+        <ValidatorArray value="HasVision"/>
+        <ValidatorArray value="HotSRaptorChargeMaxDistance"/>
+        <EditorCategories value="Race:Zerg"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="HotSRaptorLeapSet"/>
+        <SpawnUnit value="HeroZergling"/>
+        <SpawnRange value="1"/>
+        <SpawnOffset value="0,-1"/>
+    </CEffectCreateUnit>
+    <CEffectLaunchMissile id="HotSRaptorLeapLM">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <FinishEffect value="HotSRaptorLeapRemove"/>
+        <Movers Link="HotSRaptorChargeMissile"/>
+        <DeathType value="Unknown"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="HotSRaptorLeapRemove">
+        <ImpactLocation Value="TargetUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Death value="Remove"/>
+    </CEffectDamage>
+    <CEffectSet id="HotSRaptorLeapSet">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="HotSRaptorLeapSwitch"/>
+        <EffectArray value="MakePrecursor"/>
+        <EffectArray value="TempTimeout"/>
+    </CEffectSet>
+    <CEffectSwitch id="HotSRaptorLeapSwitch">
+        <EditorCategories value="Race:Zerg"/>
+        <CaseArray Validator="TargetIsPathable" Effect="HotSRaptorLeapLM"/>
+        <CaseDefault value="HotSRaptorLeapRemove"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSwitch>
+    <CEffectDamage id="SpellEfficiency">
+        <EditorCategories value="Race:Zerg"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="VileAcidSalivaApplyBehavior">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="AcidSalivaSlowedHeroic"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="VileAcidSalivaApplyBehaviorHeroic">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="AcidSalivaSlowedHeroic"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="VileAcidSalivaCreatePersistent">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="CasterPoint"/>
+        <ExpireEffect value="AbilityAcidSalivaLM"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="AbilityAcidSalivaLM"/>
+        <PeriodicOffsetArray value="0,-8,0.25"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="VileAcidSalivaSearchArea">
+        <EditorCategories value="Race:Zerg"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Missile,Dead,Hidden,Invulnerable"/>
+        <AreaArray>
+            <Arc value="239.9963"/>
+            <MaxCount value="1"/>
+            <Radius value="0.25"/>
+            <Effect value="VileAcidSalivaSet"/>
+        </AreaArray>
+    </CEffectEnumArea>
+    <CEffectSet id="VileAcidSalivaSet">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="KillCaster"/>
+        <EffectArray value="AbilityAcidSalivaDamage"/>
+        <EffectArray value="VileAcidSalivaSwitch"/>
+    </CEffectSet>
+    <CEffectSwitch id="VileAcidSalivaSwitch">
+        <EditorCategories value="Race:Zerg"/>
+        <CaseArray Validator="TargetIsHeroic" Effect="VileAcidSalivaApplyBehaviorHeroic"/>
+        <CaseArray Effect="VileAcidSalivaApplyBehavior"/>
+    </CEffectSwitch>
+</Catalog>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CAbilMorph id="BurrowHunterKillerDown" parent="BurrowHydraliskDown">
+        <Name value="Abil/Name/BurrowHunterKillerDown"/>
+        <InfoArray index="0" Unit="HeroHydraliskBurrowed"/>
+        <CmdButtonArray index="Execute" Requirements=""/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHunterKillerUp" parent="BurrowHydraliskUp">
+        <Name value="Abil/Name/BurrowHunterKillerUp"/>
+        <InfoArray index="0" Unit="HeroHydralisk"/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHeroZerglingDown" parent="BurrowZerglingDown">
+        <Name value="Abil/Name/BurrowHeroZerglingDown"/>
+        <CmdButtonArray index="Execute" Requirements=""/>
+        <InfoArray index="0" Unit="HeroZerglingBurrowed"/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHeroRoachDown" parent="BurrowRoachDown">
+        <Name value="Abil/Name/BurrowHeroRoachDown"/>
+        <InfoArray index="0" Unit="HeroRoachBurrowed"/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHeroRoachUp" parent="BurrowRoachUp">
+        <Name value="Abil/Name/BurrowHeroRoachUp"/>
+        <InfoArray index="0" Unit="HeroRoach"/>
+    </CAbilMorph>
+    <CAbilInteract id="CerebrateInteract">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Flags index="AutoCast" value="1"/>
+        <TargetFilters value="Visible;Player,Neutral,Enemy,Missile,Hidden"/>
+    </CAbilInteract>
+    <CAbilTrain id="CerebrateTrain">
+        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <Activity value="UI/Spawning"/>
+        <InfoArray index="Train1" Time="30" Effect="QueenBirth">
+            <Button DefaultButtonFace="DevouringOne">
+                <Flags index="ToSelection" value="1"/>
+            </Button>
+            <Unit value="HeroZergling"/>
+        </InfoArray>
+        <InfoArray index="Train2" Time="30" Effect="QueenBirth">
+            <Button DefaultButtonFace="HunterKiller"/>
+            <Unit value="HeroHydralisk"/>
+        </InfoArray>
+    </CAbilTrain>
+    <CAbilAugment id="HotSRaptorCharge">
+        <OrderArray index="0">
+            <DisplayType value="Legacy"/>
+            <Color value="255,0,255,0"/>
+            <Model value="Assets\UI\Feedback\WayPointConfirm\WayPointConfirm.m3"/>
+            <LineTexture value="Assets\Textures\WayPointLine.dds"/>
+        </OrderArray>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HeroZerglingCharge"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <AbilCmd value="attack,Execute"/>
+        <TargetType value="UnitOrPoint"/>
+        <Cost>
+            <Cooldown Link="HotSRaptorCharge" Location="Unit" TimeUse="8"/>
+        </Cost>
+        <Effect value="HotSRaptorLeap"/>
+        <AutoCastValidatorArray value="CasterNotHoldingPosition"/>
+    </CAbilAugment>
+    <CAbilMorph id="UnburrowHeroZerglingUp" parent="BurrowZerglingUp">
+        <Name value="Abil/Name/UnburrowHeroZerglingUp"/>
+        <InfoArray index="0" Unit="HeroZergling"/>
+    </CAbilMorph>
+    <CAbilEffectTarget id="VileAcidSaliva">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="VileAcidSalivaCreatePersistent"/>
+        <Cost>
+            <Cooldown TimeUse="16"/>
+        </Cost>
+        <Range value="500"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AcidSaliva"/>
+    </CAbilEffectTarget>
+</Catalog>

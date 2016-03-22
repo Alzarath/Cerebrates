@@ -1,0 +1,3 @@
+﻿Button/Hotkey/AcidSaliva=Q
+Button/Hotkey/DevouringOne=Z
+Button/Hotkey/HunterKiller=H

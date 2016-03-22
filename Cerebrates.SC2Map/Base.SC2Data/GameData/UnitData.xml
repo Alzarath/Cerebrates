@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CUnit id="WeaponAcidSalivaAbility" parent="MISSILE">
+        <Race value="Zerg"/>
+        <Mover value="AcidSalivaWeapon"/>
+        <BehaviorArray Link="VileAcidSaliva"/>
+        <BehaviorArray Link="KillsToCaster"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="HeroHydralisk" parent="Hydralisk">
+        <Name value="Unit/Name/HeroHydralisk"/>
+        <Description value="Button/Tooltip/HeroHydralisk"/>
+        <LifeStart value="160"/>
+        <LifeMax value="160"/>
+        <LifeArmor value="2"/>
+        <Speed value="2.8125"/>
+        <SpeedMultiplierCreep value="1.2"/>
+        <Food value="0"/>
+        <CostResource index="Minerals" value="250"/>
+        <CostResource index="Vespene" value="125"/>
+        <AbilArray index="3" Link="BurrowHunterKillerDown"/>
+        <AbilArray index="4" removed="1"/>
+        <AbilArray index="5" removed="1"/>
+        <WeaponArray index="0" Link="HeroHydraliskMelee"/>
+        <WeaponArray index="1" Link="HeroHydraliskNeedleSpines"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" AbilCmd="BurrowHunterKillerDown,Execute"/>
+            <LayoutButtons index="6" removed="1"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+    </CUnit>
+    <CUnit id="HeroHydraliskBurrowed" parent="HydraliskBurrowed">
+        <Name value="Unit/Name/HunterKiller"/>
+        <Description value="Button/Tooltip/HeroHydralisk"/>
+        <LifeStart value="160"/>
+        <LifeMax value="160"/>
+        <LifeArmor value="2"/>
+        <Food value="0"/>
+        <CostResource index="Minerals" value="250"/>
+        <CostResource index="Vespene" value="125"/>
+        <AbilArray index="0" Link="BurrowHunterKillerUp"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="1" AbilCmd="BurrowHunterKillerUp,Execute"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="Cerebrate">
+        <DeathRevealRadius value="3"/>
+        <Facing value="29.9707"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="AIDefense" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="1500"/>
+        <LifeMax value="1500"/>
+        <LifeArmor value="1"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="10"/>
+        <Food value="30"/>
+        <CostCategory value="Technology"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="BuildinProgressNydusCanal"/>
+        <AbilArray Link="que5"/>
+        <AbilArray Link="Rally"/>
+        <AbilArray Link="CerebrateInteract"/>
+        <AbilArray Link="CerebrateTrain"/>
+        <BehaviorArray Link="MakeCreepCerebrate"/>
+        <BehaviorArray Link="Detector10"/>
+        <CardLayouts>
+            <LayoutButtons Face="DevouringOne" Type="AbilCmd" AbilCmd="CerebrateTrain,Train1" Row="0" Column="0"/>
+            <LayoutButtons Face="HunterKiller" Type="AbilCmd" AbilCmd="CerebrateTrain,Train2" Row="0" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <Footprint value="Footprint3x2IgnoreCreepContour"/>
+        <PlacementFootprint value="Footprint3x2IgnoreCreepContour"/>
+        <ScoreMake value="225"/>
+        <ScoreKill value="775"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="HeroZergling" parent="Zergling">
+        <Name value="Unit/Name/HeroZergling"/>
+        <Description value="Button/Tooltip/HeroZergling"/>
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
+        <LifeArmor value="1"/>
+        <Mover value="CliffJumper"/>
+        <Speed value="4.6992"/>
+        <Food value="0"/>
+        <CostResource index="Minerals" value="150"/>
+        <AbilArray index="3" Link="BurrowHeroZerglingDown"/>
+        <AbilArray index="4" Link="HotSRaptorCharge"/>
+        <AbilArray index="5" removed="1"/>
+        <BehaviorArray Link="HotSRaptorJump"/>
+        <WeaponArray index="0" Link="HeroZerglingClaws"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="BurrowDown" AbilCmd="BurrowHeroZerglingDown,Execute" Column="4"/>
+            <LayoutButtons index="6" Face="HeroZerglingCharge" AbilCmd="HotSRaptorCharge,Execute" Column="0"/>
+            <LayoutButtons Face="HeroZerglingCliffJumper" Type="Passive" Row="2" Column="1"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+    </CUnit>
+    <CUnit id="HeroZerglingBurrowed" parent="ZerglingBurrowed">
+        <Name value="Unit/Name/DevouringOne"/>
+        <Description value="Button/Tooltip/HeroZergling"/>
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
+        <LifeArmor value="1"/>
+        <Food value="0"/>
+        <CostResource index="Minerals" value="150"/>
+        <AbilArray index="0" Link="UnburrowHeroZerglingUp"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="1" AbilCmd="UnburrowHeroZerglingUp,Execute"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="HeroRoach" parent="Roach">
+        <Name value="Unit/Name/HeroRoach"/>
+        <Description value="Button/Tooltip/HeroRoach"/>
+        <AbilArray index="3" Link="BurrowHeroRoachDown"/>
+        <AbilArray index="4" Link="VileAcidSaliva"/>
+        <WeaponArray index="0" Link="SpellEfficiency"/>
+        <WeaponArray index="1" Link="HeroRoachMelee"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="6" Face="AcidSaliva" AbilCmd="VileAcidSaliva,Execute" Column="0"/>
+            <LayoutButtons index="7" removed="1"/>
+        </CardLayouts>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="50"/>
+        <Food value="0"/>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+    </CUnit>
+    <CUnit id="HeroRoachBurrowed" parent="RoachBurrowed">
+        <Name value="Unit/Name/HeroRoach"/>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="50"/>
+        <AbilArray index="0" Link="BurrowHeroRoachUp"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="1" AbilCmd="BurrowHeroRoachUp,Execute"/>
+        </CardLayouts>
+        <Food value="0"/>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="SporeCrawler">
+        <Footprint value="Footprint2x2ZergSpineCrawler"/>
+    </CUnit>
+</Catalog>

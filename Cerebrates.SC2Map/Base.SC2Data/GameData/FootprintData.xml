@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CFootprint id="CreepGrowthCerebrate">
+        <Layers index="Check" Area="-2,-2,3,2">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value="....."/>
+            <Rows value=".ooo."/>
+            <Rows value=".ooo."/>
+            <Rows value="....."/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,3,2">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value="....."/>
+            <Rows value=".ooo."/>
+            <Rows value=".ooo."/>
+            <Rows value="....."/>
+        </Layers>
+        <Shape>
+            <Radius value="2.6926"/>
+            <Offsets value="-1.5,-2;1.5,-2;-1.5,2;1.5,2;-2.5,-1;-2.5,1;2.5,-1;2.5,1"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="CreepGrowthCerebrateStart">
+        <Layers index="Check" Area="-2,-2,3,2">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value="....."/>
+            <Rows value=".ooo."/>
+            <Rows value=".ooo."/>
+            <Rows value="....."/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,3,2">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value="....."/>
+            <Rows value="....."/>
+            <Rows value="....."/>
+            <Rows value="....."/>
+        </Layers>
+        <Shape>
+            <Radius value="1.803"/>
+            <Offsets value="-1.5,-1;1.5,-1;-1.5,1;1.5,1"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint3x2IgnoreCreepContour" parent="Footprint2x2">
+        <Layers index="Check" Area="-1,-1,2,1">
+            <Sets index="0">
+                <Negative index="Creep" value="0"/>
+                <Negative index="Fogged" value="1"/>
+            </Sets>
+            <Rows index="0" value="xxx"/>
+            <Rows index="1" value="xxx"/>
+        </Layers>
+        <Layers index="Place" Area="-1,-1,2,1">
+            <Rows index="0" value="xxx"/>
+            <Rows index="1" value="xxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.5812"/>
+            <Offsets value="-1,-1;1,-1;-1,1;1,1;-1.5,-0.5;-1.5,0.5;1.5,-0.5;1.5,0.5"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+</Catalog>

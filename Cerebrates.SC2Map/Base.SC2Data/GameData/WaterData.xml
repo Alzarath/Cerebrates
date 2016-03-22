@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CWater id="ZerusPool">
+        <State index="0">
+            <Name value="[Default]"/>
+            <Height value="7.800000"/>
+            <Color value="0.000000,0.000000,0.000000,1.000000"/>
+            <ColorFallOff value="0.093000"/>
+            <CausticsFallOff value="0.000000"/>
+            <Specularity value="0.000000"/>
+            <SpecularScaler value="0.000000"/>
+            <UvRate value="-0.000626,-0.003951,0.000000,0.000000"/>
+            <UvRotate value="5.458517"/>
+            <TextureRoughness value="0.274000"/>
+            <ReflectionDistortion value="0.000000"/>
+            <RefractionDistortion value="0.000000"/>
+            <MinReflection value="0.000000"/>
+            <ReflectivityPower value="0.000000"/>
+        </State>
+    </CWater>
+</Catalog>
