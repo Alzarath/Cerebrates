@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CValidatorLocationCompareRange id="HotSRaptorChargeMaxDistance">
+    <CValidatorLocationCompareRange id="HeroUltraliskBurrowChargeDistance">
+        <WhichLocation Effect="HeroUltraliskBurrowChargeInitialSet"/>
+        <Compare value="GE"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorCombine id="HeroUltraliskBurrowChargeValidators" parent="BurrowChargeRevDValidators">
+        <CombineArray index="0" value="HeroUltraliskBurrowChargeDistance"/>
+    </CValidatorCombine>
+    <CValidatorLocationCompareRange id="HeroZerglingChargeMaxDistance">
         <ResultFailed value="TargetIsOutOfRange"/>
         <WhichLocation Value="TargetUnit"/>
         <Compare value="LT"/>

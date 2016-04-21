@@ -11,66 +11,296 @@
         <Amount value="32"/>
         <Death value="Disintegrate"/>
     </CEffectDamage>
+    <CEffectDamage id="HeroUltraliskKaiserBladesDamage" parent="KaiserBladesDamage">
+        <Name value="Effect/Name/HeroUltraliskKaiserBladesDamage"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="HeroUltraliskBurrowChargeCasterAB" parent="BurrowChargeCasterApplyBehaviorRevD">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeCasterAB2"/>
+        <Behavior value="HeroUltraliskBurrowCharging"/>
+    </CEffectApplyBehavior>
+    <CEffectLaunchMissile id="HeroUltraliskBurrowChargeCreatePH" parent="BurrowChargeCreatePHLM">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeCreatePH2"/>
+        <ImpactEffect value="HeroUltraliskBurrowChargeImpactLandSet"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="HeroUltraliskBurrowChargeCP" parent="BurrowChargeCreatePersistentRevD">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeCP2"/>
+        <InitialEffect value="HeroUltraliskBurrowChargeIssueOrder"/>
+        <FinalEffect value="HeroUltraliskBurrowChargeImpactSet"/>
+        <PeriodicValidator value="HeroUltraliskBurrowChargeValidators"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="HeroUltraliskBurrowChargeCreatePHSet" parent="BurrowChargeCreatePHSet">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeCreatePHSet2"/>
+        <EffectArray index="0" value="HeroUltraliskBurrowChargeImpactAB"/>
+        <EffectArray index="1" value="HeroUltraliskBurrowChargeKnockbackAB"/>
+        <EffectArray index="2" value="HeroUltraliskBurrowChargeCreatePH"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="HeroUltraliskBurrowChargeImpactAB">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeImpactAB2"/>
+        <Behavior value="HeroUltraliskTPrecursorBurrowChargeImpact"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="HeroUltraliskBurrowChargeImpactLandSet" parent="BurrowChargeImpactLandSet">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeImpactLandSet2"/>
+        <EffectArray index="0" value="HeroUltraliskBurrowChargeKnockbackRB"/>
+    </CEffectSet>
+    <CEffectSet id="HeroUltraliskBurrowChargeImpactSet" parent="BurrowChargeImpactSetRevD">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeImpactSet2"/>
+        <EffectArray index="0" value="HeroUltraliskBurrowChargeTargetSearchArea"/>
+        <EffectArray index="1" value="HeroUltraliskBurrowChargeCasterRB"/>
+        <EffectArray index="2" value="HeroUltraliskWeaponCooldownIssueOrder"/>
+    </CEffectSet>
+    <CEffectSet id="HeroUltraliskBurrowChargeInitialSet" parent="BurrowChargeInitialRevD">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeInitialSet"/>
+        <EffectArray index="0" value="HeroUltraliskBurrowChargeCasterAB"/>
+        <EffectArray index="1" value="HeroUltraliskBurrowChargeCP"/>
+    </CEffectSet>
+    <CEffectIssueOrder id="HeroUltraliskBurrowChargeIssueOrder" parent="BurrowChargeIssueOrderRevD">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeIssueOrder"/>
+        <Target Effect="HeroUltraliskBurrowChargeInitialSet"/>
+    </CEffectIssueOrder>
+    <CEffectCreateUnit id="HeroUltraliskBurrowChargeMPForcePersistent" parent="BurrowChargeMPForcePersistent">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeMPForcePersistent2"/>
+        <SpawnEffect value="HeroUltraliskBurrowChargeCreatePHSet"/>
+    </CEffectCreateUnit>
+    <CEffectDamage id="HeroUltraliskBurrowChargeTarget" parent="BurrowChargeMPTargetDamage">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeTarget2"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="HeroUltraliskBurrowChargeKnockbackAB" parent="BurrowChargeMPKnockbackAB">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeKnockbackAB"/>
+        <Behavior value="HeroUltraliskBurrowChargeKnockback"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="HeroUltraliskBurrowChargeTargetSet">
+        <ValidatorArray value="CasterIsNotHidden"/>
+        <ValidatorArray value="NotBurrowCharging"/>
+        <ValidatorArray value="NotBurrowChargingRevD"/>
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="HeroUltraliskBurrowChargeMPForcePersistent"/>
+        <EffectArray value="HeroUltraliskBurrowChargeTarget"/>
+    </CEffectSet>
+    <CEffectRemoveBehavior id="HeroUltraliskBurrowChargeKnockbackRB" parent="BurrowChargeMPKnockbackRB">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeKnockbackRB2"/>
+        <WhichUnit Effect="HeroUltraliskBurrowChargeMPForcePersistent"/>
+        <BehaviorLink value="HeroUltraliskBurrowChargeKnockback"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="HeroUltraliskWeaponCooldown" parent="UltraliskWeaponCooldown">
+        <Name value="Effect/Name/HeroUltraliskWeaponCooldown2"/>
+    </CEffectSet>
+    <CEffectEnumArea id="HeroUltraliskBurrowChargeTargetSearchArea" parent="BurrowChargeTargetSearchRevD">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeTargetSearchArea"/>
+        <AreaArray index="0" Radius="1.5" Effect="HeroUltraliskBurrowChargeTargetSet"/>
+    </CEffectEnumArea>
+    <CEffectRemoveBehavior id="HeroUltraliskBurrowChargeCasterRB" parent="BurrowChargeRemoveCasterBehaviorRevD">
+        <Name value="Effect/Name/HeroUltraliskBurrowChargeCasterRB"/>
+        <BehaviorLink value="HeroUltraliskBurrowCharging"/>
+    </CEffectRemoveBehavior>
+    <CEffectDamage id="HeroQueenAcidSpinesDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Ranged"/>
+        <Amount value="9"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="HeroQueenAcidSpinesLM">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="HeroQueenAcidSpinesDamage"/>
+        <AmmoUnit value="AcidSpinesWeapon"/>
+        <Movers Link="AcidSpinesWeapon"/>
+    </CEffectLaunchMissile>
     <CEffectDamage id="HeroZerglingClawsDamage" parent="Claws">
         <Name value="Effect/Name/HeroZerglingClawsDamage"/>
         <Amount value="10"/>
     </CEffectDamage>
-    <CEffectDamage id="HeroHydraliskMeleeDamage" parent="HydraliskMelee">
-        <Name value="Effect/Name/HeroHydraliskMeleeDamage"/>
-        <Amount value="24"/>
+    <CEffectDamage id="HeroHydraliskClawsDamage" parent="HydraliskMelee">
+        <Name value="Effect/Name/HeroHydraliskClawsDamage"/>
+        <Amount value="16"/>
     </CEffectDamage>
     <CEffectDamage id="HeroHydraliskNeedleSpinesDamage" parent="NeedleSpinesDamage">
         <Name value="Effect/Name/HeroHydraliskNeedleSpinesDamage"/>
-        <Amount value="24"/>
+        <Amount value="16"/>
     </CEffectDamage>
-    <CEffectDamage id="HeroRoachUMelee" parent="AcidSalivaU">
+    <CEffectDamage id="HeroRoachClawsDamage" parent="AcidSalivaU">
         <Name value="Effect/Name/Claws"/>
         <Kind value="Melee"/>
-        <Death value="Eviscerate"/>
         <Amount value="32"/>
+        <Death value="Eviscerate"/>
     </CEffectDamage>
+    <CEffectLaunchMissile id="HeroZerglingLeapLM">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <FinishEffect value="HeroZerglingLeapRemove"/>
+        <Movers Link="HotSRaptorChargeMissile"/>
+        <DeathType value="Unknown"/>
+    </CEffectLaunchMissile>
     <CEffectLaunchMissile id="HeroHydraliskNeedleSpinesLaunchMissile" parent="NeedleSpinesLaunchMissile">
         <Name value="Effect/Name/HeroHydraliskNeedleSpinesLaunchMissile"/>
         <ImpactEffect value="HeroHydraliskNeedleSpinesDamage"/>
     </CEffectLaunchMissile>
-    <CEffectCreateUnit id="HotSRaptorLeap">
+    <CEffectCreateUnit id="HeroZerglingLeap">
         <ValidatorArray value="ChargeMinTriggerDistance"/>
         <ValidatorArray value="HasVision"/>
-        <ValidatorArray value="HotSRaptorChargeMaxDistance"/>
+        <ValidatorArray value="HeroZerglingChargeMaxDistance"/>
         <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
         <CreateFlags index="UseFood" value="0"/>
-        <SpawnEffect value="HotSRaptorLeapSet"/>
+        <SpawnEffect value="HeroZerglingLeapSet"/>
         <SpawnUnit value="HeroZergling"/>
         <SpawnRange value="1"/>
         <SpawnOffset value="0,-1"/>
     </CEffectCreateUnit>
-    <CEffectLaunchMissile id="HotSRaptorLeapLM">
-        <EditorCategories value="Race:Zerg"/>
-        <LaunchLocation Value="CasterUnit"/>
-        <FinishEffect value="HotSRaptorLeapRemove"/>
-        <Movers Link="HotSRaptorChargeMissile"/>
-        <DeathType value="Unknown"/>
-    </CEffectLaunchMissile>
-    <CEffectDamage id="HotSRaptorLeapRemove">
+    <CEffectDamage id="HeroZerglingLeapRemove">
         <ImpactLocation Value="TargetUnit"/>
         <Flags index="Kill" value="1"/>
         <Death value="Remove"/>
     </CEffectDamage>
-    <CEffectSet id="HotSRaptorLeapSet">
+    <CEffectSet id="HeroZerglingLeapSet">
         <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="HotSRaptorLeapSwitch"/>
+        <EffectArray value="HeroZerglingLeapSwitch"/>
         <EffectArray value="MakePrecursor"/>
         <EffectArray value="TempTimeout"/>
     </CEffectSet>
-    <CEffectSwitch id="HotSRaptorLeapSwitch">
+    <CEffectSwitch id="HeroZerglingLeapSwitch">
         <EditorCategories value="Race:Zerg"/>
-        <CaseArray Validator="TargetIsPathable" Effect="HotSRaptorLeapLM"/>
-        <CaseDefault value="HotSRaptorLeapRemove"/>
-        <TargetLocationType value="UnitOrPoint"/>
+        <CaseArray Validator="TargetIsPathable" Effect="HeroZerglingLeapLM"/>
+        <CaseDefault value="HeroZerglingLeapRemove"/>
     </CEffectSwitch>
+    <CEffectDamage id="HeroHydraliskImpaleDamage">
+        <EditorCategories value="Race:Zerg"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Amount value="36"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="HeroHydraliskImpaleImpactSearch">
+        <EditorCategories value="Race:Zerg"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="0.2" Effect="HeroHydraliskImpaleDamage"/>
+    </CEffectEnumArea>
+    <CEffectLaunchMissile id="HeroHydraliskImpaleLM">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="HeroHydraliskImpaleImpactSearch"/>
+        <AmmoUnit value="HydraliskImpaleMissile"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="HeroLarvaRelease" parent="LarvaRelease">
+        <Name value="Effect/Name/HeroLarvaRelease2"/>
+        <EffectArray index="0" value="SpawnHeroLarvaRemoveSpawnBehavior"/>
+        <EffectArray index="1" value="HeroLarvaReleaseLM"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="HeroLarvaReleaseLM" parent="LarvaReleaseLM">
+        <Name value="Effect/Name/HeroLarvaReleaseLM"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="NoxiousCloudApplyBehavior">
+        <ValidatorArray index="0" value="TargetOnCreep"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="Poisoned"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="NoxiousCloudDamage">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="1"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="NoxiousCloudSearchArea">
+        <EditorCategories value="Race:Zerg"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Structure,Missile,Hidden,Invulnerable"/>
+        <AreaArray Radius="10" Effect="NoxiousCloudApplyBehavior"/>
+    </CEffectEnumArea>
+    <CEffectModifyUnit id="RapidTransfusion">
+        <EditorCategories value="Race:Zerg"/>
+        <VitalArray index="Life" Change="6.25"/>
+    </CEffectModifyUnit>
+    <CEffectCreatePersistent id="HeroQueenTalonsCP">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="HeroQueenTalons"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.3"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="RapidTransfusionCP">
+        <ValidatorArray value="LifeNotFull"/>
+        <ValidatorArray value="NotDisintegrating"/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <PeriodCount value="4"/>
+        <PeriodicEffectArray value="RapidTransfusion"/>
+        <PeriodicPeriodArray value="0.5"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="HeroQueenTalons" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Ranged"/>
+        <Amount value="4"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="HeroQueenTalonsMissileLM">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="HeroQueenTalonsMissileDamage"/>
+        <AmmoUnit value="TalonsMissileWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="HeroQueenTalonsMissileDamage" parent="Talons"/>
+    <CEffectCreatePersistent id="HeroQueenTalonsMissileCP">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="HeroQueenTalonsMissileLM"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.3"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="HeroRavagerCorrosiveBileCP" parent="RavagerCorrosiveBileCP">
+        <Name value="Effect/Name/HeroRavagerCorrosiveBileCP2"/>
+        <InitialEffect value="HeroRavagerCorrosiveBileLaunchUp"/>
+        <ExpireEffect value="HeroRavagerCorrosiveBileLaunchDown"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="HeroRavagerCorrosiveBileDamage" parent="RavagerCorrosiveBileDamage">
+        <Name value="Effect/Name/HeroRavagerCorrosiveBileDamage2"/>
+    </CEffectDamage>
+    <CEffectDamage id="HeroRavagerCorrosiveBileForceFieldKill" parent="RavagerCorrosiveBileForceFieldKill">
+        <Name value="Effect/Name/HeroRavagerCorrosiveBileForceFieldKill2"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="HeroRavagerCorrosiveBileLaunchDown" parent="RavagerCorrosiveBileLaunchDown">
+        <Name value="Effect/Name/HeroRavagerCorrosiveBileLaunchDown2"/>
+        <ImpactEffect value="HeroRavagerCorrosiveBileSearch"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="HeroRavagerCorrosiveBileLaunchSet" parent="RavagerCorrosiveBileLaunchSet">
+        <Name value="Effect/Name/HeroRavagerCorrosiveBileLaunchSet2"/>
+        <EffectArray index="0" value="HeroRavagerCorrosiveBileCP"/>
+        <EffectArray index="1" value="HeroRavagerCorrosiveBileWarningDummySearch"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="HeroRavagerCorrosiveBileLaunchUp" parent="RavagerCorrosiveBileLaunchUp">
+        <Name value="Effect/Name/HeroRavagerCorrosiveBileLaunchUp2"/>
+    </CEffectLaunchMissile>
+    <CEffectEnumArea id="HeroRavagerCorrosiveBileSearch" parent="RavagerCorrosiveBileSearch">
+        <Name value="Effect/Name/HeroRavagerCorrosiveBileSearch2"/>
+        <AreaArray index="0" Radius="0.5" Effect="HeroRavagerCorrosiveBileSet"/>
+    </CEffectEnumArea>
+    <CEffectSet id="HeroRavagerCorrosiveBileSet" parent="RavagerCorrosiveBileSet">
+        <Name value="Effect/Name/HeroRavagerCorrosiveBileSet2"/>
+        <EffectArray index="0" value="HeroRavagerCorrosiveBileDamage"/>
+        <EffectArray index="1" value="HeroRavagerCorrosiveBileForceFieldKill"/>
+    </CEffectSet>
+    <CEffectDamage id="HeroRavagerCorrosiveBileWarningDummyDamage" parent="RavagerCorrosiveBileWarningDummyDamage">
+        <Name value="Effect/Name/HeroRavagerCorrosiveBileWarningDummyDamage2"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="HeroRavagerCorrosiveBileWarningDummySearch" parent="RavagerCorrosiveBileWarningDummySearch">
+        <Name value="Effect/Name/HeroRavagerCorrosiveBileWarningDummySearch"/>
+        <AreaArray index="0" Radius="1" Effect="HeroRavagerCorrosiveBileWarningDummyDamage"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="HeroRavagerWeaponDamage" parent="RavagerWeaponDamage">
+        <Name value="Effect/Name/HeroRavagerWeaponDamage2"/>
+        <Amount value="32"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="HeroRavagerWeaponLM" parent="RavagerWeaponLM">
+        <Name value="Effect/Name/HeroRavagerWeaponLM2"/>
+        <ImpactEffect value="HeroRavagerWeaponDamage"/>
+    </CEffectLaunchMissile>
+    <CEffectEnumArea id="HeroHydraliskImpaleCursorDummy" parent="HeroHydraliskImpaleImpactSearch">
+        <Name value="Effect/Name/HeroHydraliskImpaleCursorDummy"/>
+        <AreaArray index="0" Radius="0.2" Effect=""/>
+    </CEffectEnumArea>
     <CEffectDamage id="SpellEfficiency">
         <EditorCategories value="Race:Zerg"/>
     </CEffectDamage>
+    <CEffectIssueOrder id="HeroUltraliskWeaponCooldownIssueOrder" parent="UltraliskWeaponCooldownIssueOrder">
+        <Name value="Effect/Name/HeroUltraliskWeaponCooldownIssueOrder"/>
+        <Abil value="HeroUltraliskWeaponCooldown"/>
+    </CEffectIssueOrder>
     <CEffectApplyBehavior id="VileAcidSalivaApplyBehavior">
         <EditorCategories value="Race:Zerg"/>
         <Behavior value="AcidSalivaSlowedHeroic"/>

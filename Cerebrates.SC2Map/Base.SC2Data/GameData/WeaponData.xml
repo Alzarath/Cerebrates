@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CWeaponLegacy id="HeroQueenAcidSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="HeroQueenAcidSpinesDamage"/>
+        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="7.5"/>
+        <Range value="7"/>
+        <Period value="1"/>
+        <Effect value="HeroQueenAcidSpinesLM"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="HeroZerglingClaws" parent="Claws">
-        <Name value="Weapon/Name/HeroZerglingClaws2"/>
+        <Name value="Weapon/Name/HeroZerglingClaws"/>
         <DisplayEffect value="HeroZerglingClawsDamage"/>
         <Period value="0.496"/>
         <Effect value="HeroZerglingClawsDamage"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="HeroRoachMelee">
+    <CWeaponLegacy id="HeroRoachClaws">
         <EditorCategories value="Race:Zerg"/>
         <Options index="Melee" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
-        <DisplayEffect value="HeroRoachUMelee"/>
+        <DisplayEffect value="HeroRoachClawsDamage"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.5"/>
         <Period value="2"/>
-        <Effect value="HeroRoachUMelee"/>
+        <Effect value="HeroRoachClawsDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HeroRavagerWeapon" parent="RavagerWeapon">
+        <Name value="Weapon/Name/HeroRavagerWeapon2"/>
+        <DisplayEffect value="HeroRavagerWeaponDamage"/>
+        <Effect value="HeroRavagerWeaponLM"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HeroUltraliskKaiserBlades" parent="KaiserBlades">
+        <Name value="Weapon/Name/HeroUltraliskKaiserBlades"/>
+        <Tip value="Weapon/Tip/HeroUltraliskKaiserBlades"/>
+        <DisplayEffect value="HeroUltraliskKaiserBladesDamage"/>
+        <Effect value="HeroUltraliskKaiserBladesDamage"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="SpellEfficiency">
         <EditorCategories value="Race:Zerg"/>
@@ -23,17 +44,20 @@
         <Range value="0"/>
         <Period value="0"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="HeroHydraliskMelee">
+    <CWeaponLegacy id="HeroHydraliskClaws">
         <EditorCategories value="Race:Zerg"/>
         <Options index="Hidden" value="1"/>
         <Options index="Melee" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
-        <DisplayEffect value="HeroHydraliskMeleeDamage"/>
+        <DisplayEffect value="HeroHydraliskClawsDamage"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.5"/>
         <Period value="0.75"/>
         <DamagePoint value="0.3"/>
-        <Effect value="HeroHydraliskMeleeDamage"/>
+        <Effect value="HeroHydraliskClawsDamage"/>
+        <PostEffectBehavior Behavior="HeroHydraliskMuscularDistensionBuff" Count="1" Duration="4">
+            <Flags index="UseDuration" value="1"/>
+        </PostEffectBehavior>
     </CWeaponLegacy>
     <CWeaponLegacy id="HeroHydraliskNeedleSpines">
         <EditorCategories value="Race:Zerg"/>
@@ -45,5 +69,24 @@
         <Period value="0.75"/>
         <DamagePoint value="0.208"/>
         <Effect value="HeroHydraliskNeedleSpinesLaunchMissile"/>
+        <PostEffectBehavior Behavior="HeroHydraliskMuscularDistensionBuff" Count="1" Duration="4">
+            <Flags index="UseDuration" value="1"/>
+        </PostEffectBehavior>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HeroQueenTalons" parent="Talons">
+        <Name value="Weapon/Name/HeroQueenTalons"/>
+        <Tip value="Weapon/Tip/HeroQueenTalons"/>
+        <DisplayEffect value="HeroQueenTalons"/>
+        <Effect value="HeroQueenTalonsCP"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HeroQueenTalonsMissile">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="HeroQueenTalonsMissileDamage"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinimumRange value="3"/>
+        <Period value="1"/>
+        <Effect value="HeroQueenTalonsMissileCP"/>
     </CWeaponLegacy>
 </Catalog>

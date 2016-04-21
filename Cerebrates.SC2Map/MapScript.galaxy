@@ -2,7 +2,7 @@
 // 
 // Generated Map Script
 // 
-// Name:   Cerebrates Alpha
+// Name:   Cerebrates (Alpha)
 // 
 //==================================================================================================
 include "TriggerLibs/NativeLib"
@@ -15,18 +15,36 @@ void InitLibs () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Global Variables
+//--------------------------------------------------------------------------------------------------
+int[3] gv_retainedResource;
+
+void InitGlobals () {
+}
+
+//--------------------------------------------------------------------------------------------------
 // Global Function Declarations
 //--------------------------------------------------------------------------------------------------
-void gf_CreateBullies (int lp_unitCount, int lp_player, string lp_unitType, point lp_point);
-void gf_Expand (point lp_point, int lp_townNumber, int lp_player, int lp_priority);
+void gf_Expand (point lp_point, int lp_player);
+void gf_ChooseExpandLocation (int lp_player);
 void gf_MilitaryReinforcement (point lp_point, int lp_unitCount, string lp_unitType, int lp_player);
-void gf_EconomicReinforcement (point lp_point, string lp_unitType, int lp_player, int lp_priority);
-void gf_EconomyCheck (point lp_point, int lp_player, int lp_priority);
+void gf_BuildStructure (point lp_point, string lp_unitType, int lp_player);
+void gf_CreateQueen (int lp_player, point lp_point, unit lp_townHall);
+void gf_DroneFill (int lp_player, point lp_point, unit lp_townHall);
+void gf_ExtractorConstruct (int lp_player, point lp_point, unit lp_townHall);
+void gf_ExtractorHarvesters (unit lp_townHall);
+void gf_OverlordFill (int lp_player, point lp_point, unit lp_townHall);
+void gf_EconomyCheck (point lp_point);
+unit gf_GetTownHall (point lp_point, bool lp_boolean);
+unitgroup gf_GetUnitsonSameLevel (int lp_player, fixed lp_radius, string lp_unitType, unit lp_unit);
+unitgroup gf_GetNonConstructingDrones (int lp_player);
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
 trigger gt_MeleeInitialization;
+trigger gt_DroneBirthed;
+trigger gt_Reconstructbuilding;
 trigger gt_CreateInitialForces;
 trigger gt_CreateSecondaryForces;
 trigger gt_AttackWave;
@@ -36,66 +54,28 @@ trigger gt_Expand;
 //--------------------------------------------------------------------------------------------------
 // Global Functions
 //--------------------------------------------------------------------------------------------------
-void gf_CreateBullies (int lp_unitCount, int lp_player, string lp_unitType, point lp_point) {
-    // Variable Declarations
-    int lv_unitNumber;
-
-    // Variable Initialization
-
-    // Implementation
-    while ((lp_unitCount > lv_unitNumber)) {
-        lv_unitNumber += 1;
-        AIAddBully(lp_player, lp_unitType, lp_point, -1);
-    }
-}
-
-trigger auto_gf_Expand_Trigger = null;
-point auto_gf_Expand_lp_point;
-int auto_gf_Expand_lp_townNumber;
-int auto_gf_Expand_lp_player;
-int auto_gf_Expand_lp_priority;
-
-void gf_Expand (point lp_point, int lp_townNumber, int lp_player, int lp_priority) {
-    auto_gf_Expand_lp_point = lp_point;
-    auto_gf_Expand_lp_townNumber = lp_townNumber;
-    auto_gf_Expand_lp_player = lp_player;
-    auto_gf_Expand_lp_priority = lp_priority;
-
-    if (auto_gf_Expand_Trigger == null) {
-        auto_gf_Expand_Trigger = TriggerCreate("auto_gf_Expand_TriggerFunc");
-    }
-
-    TriggerExecute(auto_gf_Expand_Trigger, false, false);
-}
-
-bool auto_gf_Expand_TriggerFunc (bool testConds, bool runActions) {
-    point lp_point = auto_gf_Expand_lp_point;
-    int lp_townNumber = auto_gf_Expand_lp_townNumber;
-    int lp_player = auto_gf_Expand_lp_player;
-    int lp_priority = auto_gf_Expand_lp_priority;
-
+void gf_Expand (point lp_point, int lp_player) {
     // Variable Declarations
     int lv_timer;
-    int lv_droneCount;
-    unitgroup lv_droneGroup;
+    unit lv_townHall;
 
     // Variable Initialization
-    lv_droneGroup = UnitGroupEmpty();
 
     // Implementation
-    if ((AIGetTownLocation(lp_player, lp_townNumber) != lp_point)) {
-        AIDeclareTown(lp_player, lp_townNumber, lp_point);
-    }
-    else {
-    }
     gf_MilitaryReinforcement(lp_point, 8, "Zergling", lp_player);
-    if ((UnitCount("Hatchery", lp_player, RegionCircle(lp_point, 1.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) < 1)) {
-        AIBuild(lp_player, (lp_priority - 1), lp_townNumber, "Hatchery", 1, -1);
+    gv_retainedResource[0] += UnitTypeGetCost("Hatchery", c_unitCostMinerals);
+    while ((UnitCount("Hatchery", lp_player, RegionCircle(lp_point, 1.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) < 1)) {
+        if ((lv_timer >= 60) && (PlayerGetPropertyInt(lp_player, c_playerPropMinerals) >= gv_retainedResource[0])) {
+            gv_retainedResource[0] -= UnitTypeGetCost("Hatchery", c_unitCostMinerals);
+            TriggerStop(TriggerGetCurrent());
+        }
+        else {
+            UnitIssueOrder(UnitGroupClosestToPoint(gf_GetNonConstructingDrones(lp_player), lp_point), OrderTargetingPoint(AbilityCommand("ZergBuild", 0), lp_point), c_orderQueueReplace);
+        }
+        Wait(10.0, c_timeGame);
+        lv_timer += 10;
     }
-    else {
-    }
-    gf_EconomicReinforcement(lp_point, "Extractor", lp_player, (lp_priority - 1));
-    gf_EconomicReinforcement(lp_point, "Drone", lp_player, (lp_priority - 1));
+    gv_retainedResource[0] -= UnitTypeGetCost("Hatchery", c_unitCostMinerals);
     while ((UnitCount("Hatchery", lp_player, RegionCircle(lp_point, 1.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) < 1)) {
         if ((lv_timer >= 240)) {
             TriggerStop(TriggerGetCurrent());
@@ -105,89 +85,566 @@ bool auto_gf_Expand_TriggerFunc (bool testConds, bool runActions) {
         Wait(5.0, c_timeGame);
         lv_timer += 5;
     }
-    gf_EconomicReinforcement(lp_point, "Queen", lp_player, (lp_priority - 1));
-    UnitGroupLoopBegin(UnitGroup("Drone", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), ((UnitGroupCount(UnitGroup("MineralField", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) + (UnitGroupCount(UnitGroup("VespeneGeyser", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) * 3)) - UnitCount("Drone", lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0))));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        UnitGroupAdd(lv_droneGroup, UnitGroupLoopCurrent());
+    lv_townHall = UnitGroupClosestToPoint(UnitGroup("Hatchery", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point);
+    gf_ExtractorConstruct(lp_player, lp_point, lv_townHall);
+    gf_CreateQueen(lp_player, lp_point, lv_townHall);
+}
+
+trigger auto_gf_ChooseExpandLocation_Trigger = null;
+int auto_gf_ChooseExpandLocation_lp_player;
+
+void gf_ChooseExpandLocation (int lp_player) {
+    auto_gf_ChooseExpandLocation_lp_player = lp_player;
+
+    if (auto_gf_ChooseExpandLocation_Trigger == null) {
+        auto_gf_ChooseExpandLocation_Trigger = TriggerCreate("auto_gf_ChooseExpandLocation_TriggerFunc");
     }
-    UnitGroupLoopEnd();
-    UnitGroupLoopBegin(lv_droneGroup);
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGroupCount(lv_droneGroup, c_unitCountAlive) > (((UnitGroupCount(UnitGroup("MineralField", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) + (UnitGroupCount(UnitGroup("VespeneGeyser", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) * 3)) - UnitCount("Drone", lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0)) - (UnitGroupCount(UnitGroup("Extractor", lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) * 3)))) {
-            UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingUnit(AbilityCommand("DroneHarvest", 0), UnitGroupRandomUnit(UnitGroup("Extractor", lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive)), c_orderQueueReplace);
-            UnitGroupRemove(lv_droneGroup, UnitGroupLoopCurrent());
+
+    TriggerExecute(auto_gf_ChooseExpandLocation_Trigger, false, false);
+}
+
+bool auto_gf_ChooseExpandLocation_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_gf_ChooseExpandLocation_lp_player;
+
+    // Variable Declarations
+    int lv_random;
+
+    // Variable Initialization
+    lv_random = RandomInt(0, 1);
+
+    // Implementation
+    if ((lp_player == 9)) {
+        if ((gf_GetTownHall(PointFromId(297), true) != null)) {
+            if ((gf_GetTownHall(PointFromId(258), true) != null) && (gf_GetTownHall(PointFromId(299), true) != null)) {
+                if ((gf_GetTownHall(PointFromId(266), true) != null) && (gf_GetTownHall(PointFromId(267), true) != null)) {
+                    if ((gf_GetTownHall(PointFromId(319), true) != null) && (gf_GetTownHall(PointFromId(320), true) != null)) {
+                    }
+                    else {
+                        if ((gf_GetTownHall(PointFromId(319), true) == null) && (gf_GetTownHall(PointFromId(320), true) != null)) {
+                            gf_Expand(PointFromId(319), lp_player);
+                        }
+                        else {
+                            if ((gf_GetTownHall(PointFromId(319), true) != null) && (gf_GetTownHall(PointFromId(320), true) == null)) {
+                                gf_Expand(PointFromId(320), lp_player);
+                            }
+                            else {
+                                if ((lv_random == 0)) {
+                                    gf_Expand(PointFromId(319), lp_player);
+                                }
+                                else {
+                                    gf_Expand(PointFromId(320), lp_player);
+                                }
+                            }
+                        }
+                    }
+                }
+                else {
+                    if ((gf_GetTownHall(PointFromId(266), true) == null) && (gf_GetTownHall(PointFromId(267), true) != null)) {
+                        gf_Expand(PointFromId(266), lp_player);
+                    }
+                    else {
+                        if ((gf_GetTownHall(PointFromId(266), true) != null) && (gf_GetTownHall(PointFromId(267), true) == null)) {
+                            gf_Expand(PointFromId(267), lp_player);
+                        }
+                        else {
+                            if ((lv_random == 0)) {
+                                gf_Expand(PointFromId(266), lp_player);
+                            }
+                            else {
+                                gf_Expand(PointFromId(267), lp_player);
+                            }
+                        }
+                    }
+                }
+            }
+            else {
+                if ((gf_GetTownHall(PointFromId(258), true) == null) && (gf_GetTownHall(PointFromId(299), true) != null)) {
+                    gf_Expand(PointFromId(258), lp_player);
+                }
+                else {
+                    if ((gf_GetTownHall(PointFromId(258), true) != null) && (gf_GetTownHall(PointFromId(299), true) == null)) {
+                        gf_Expand(PointFromId(299), lp_player);
+                    }
+                    else {
+                        if ((lv_random == 0)) {
+                            gf_Expand(PointFromId(258), lp_player);
+                        }
+                        else {
+                            gf_Expand(PointFromId(299), lp_player);
+                        }
+                    }
+                }
+            }
         }
         else {
-            UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingUnit(AbilityCommand("DroneHarvest", 0), UnitGroupRandomUnit(UnitGroup("MineralField", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), c_unitCountAlive)), c_orderQueueReplace);
-            UnitGroupRemove(lv_droneGroup, UnitGroupLoopCurrent());
+            UnitIssueOrder(UnitGroupClosestToPoint(UnitGroup("Drone", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), PointFromId(297)), OrderTargetingPoint(AbilityCommand("ZergBuild", 0), PointFromId(297)), c_orderQueueReplace);
         }
     }
-    UnitGroupLoopEnd();
+    else if ((lp_player == 10)) {
+        if ((gf_GetTownHall(PointFromId(307), true) != null)) {
+            if ((gf_GetTownHall(PointFromId(308), true) != null) && (gf_GetTownHall(PointFromId(317), true) != null)) {
+                if ((gf_GetTownHall(PointFromId(319), true) != null) && (gf_GetTownHall(PointFromId(320), true) != null)) {
+                    if ((gf_GetTownHall(PointFromId(266), true) != null) && (gf_GetTownHall(PointFromId(267), true) != null)) {
+                    }
+                    else {
+                        if ((gf_GetTownHall(PointFromId(266), true) == null) && (gf_GetTownHall(PointFromId(267), true) != null)) {
+                            gf_Expand(PointFromId(266), lp_player);
+                        }
+                        else {
+                            if ((gf_GetTownHall(PointFromId(266), true) != null) && (gf_GetTownHall(PointFromId(267), true) == null)) {
+                                gf_Expand(PointFromId(267), lp_player);
+                            }
+                            else {
+                                if ((lv_random == 0)) {
+                                    gf_Expand(PointFromId(266), lp_player);
+                                }
+                                else {
+                                    gf_Expand(PointFromId(267), lp_player);
+                                }
+                            }
+                        }
+                    }
+                }
+                else {
+                    if ((gf_GetTownHall(PointFromId(319), true) == null) && (gf_GetTownHall(PointFromId(320), true) != null)) {
+                        gf_Expand(PointFromId(319), lp_player);
+                    }
+                    else {
+                        if ((gf_GetTownHall(PointFromId(319), true) != null) && (gf_GetTownHall(PointFromId(320), true) == null)) {
+                            gf_Expand(PointFromId(320), lp_player);
+                        }
+                        else {
+                            if ((lv_random == 0)) {
+                                gf_Expand(PointFromId(319), lp_player);
+                            }
+                            else {
+                                gf_Expand(PointFromId(320), lp_player);
+                            }
+                        }
+                    }
+                }
+            }
+            else {
+                if ((gf_GetTownHall(PointFromId(308), true) == null) && (gf_GetTownHall(PointFromId(317), true) != null)) {
+                    gf_Expand(PointFromId(308), lp_player);
+                }
+                else {
+                    if ((gf_GetTownHall(PointFromId(308), true) != null) && (gf_GetTownHall(PointFromId(317), true) == null)) {
+                        gf_Expand(PointFromId(317), lp_player);
+                    }
+                    else {
+                        if ((lv_random == 0)) {
+                            gf_Expand(PointFromId(308), lp_player);
+                        }
+                        else {
+                            gf_Expand(PointFromId(317), lp_player);
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            UnitIssueOrder(UnitGroupClosestToPoint(UnitGroup("Drone", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), PointFromId(307)), OrderTargetingPoint(AbilityCommand("ZergBuild", 0), PointFromId(307)), c_orderQueueReplace);
+        }
+    }
     return true;
 }
 
 void gf_MilitaryReinforcement (point lp_point, int lp_unitCount, string lp_unitType, int lp_player) {
+    int autoDD8729E2_ae;
+    int autoDD8729E2_ai;
+    unitgroup auto05C10306_g;
+    int auto05C10306_u;
+
     // Variable Declarations
+    int lv_count;
+    unit lv_pickedUnit;
     int lv_timer;
 
     // Variable Initialization
+    lv_count = lp_unitCount;
 
     // Implementation
-    AITrain(lp_player, 0, AIGetClosestTown(lp_player, lp_point), lp_unitType, lp_unitCount);
-    while ((UnitCount(lp_unitType, lp_player, RegionCircle(lp_point, 4.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) < lp_unitCount)) {
+    while ((lp_unitCount > 0)) {
+        if ((lp_unitType == "Zergling")) {
+            lv_count -= 2;
+        }
+        else {
+            lv_count -= 1;
+        }
+        if ((((UnitTypeGetCost(lp_unitType, c_unitCostVespene) > 0) && (PlayerGetPropertyInt(lp_player, c_playerPropMinerals) >= (gv_retainedResource[0] + UnitTypeGetCost(lp_unitType, c_unitCostMinerals))) && (PlayerGetPropertyInt(lp_player, c_playerPropVespene) >= (gv_retainedResource[1] + UnitTypeGetCost(lp_unitType, c_unitCostVespene)))) || ((UnitTypeGetCost(lp_unitType, c_unitCostVespene) <= 0) && (PlayerGetPropertyInt(lp_player, c_playerPropMinerals) >= (gv_retainedResource[0] + UnitTypeGetCost(lp_unitType, c_unitCostMinerals)))))) {
+            UnitIssueOrder(UnitGroupClosestToPoint(UnitGroup("Larva", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point), Order(AbilityCommand("LarvaTrain", 1)), c_orderQueueReplace);
+        }
+        else {
+        }
+        Wait(5.0, c_timeGame);
+        lv_timer += 5;
+    }
+    autoDD8729E2_ae = lp_unitCount;
+    autoDD8729E2_ai = 1;
+    lv_count = 1;
+    for ( ; ( (autoDD8729E2_ai >= 0 && lv_count <= autoDD8729E2_ae) || (autoDD8729E2_ai <= 0 && lv_count >= autoDD8729E2_ae) ) ; lv_count += autoDD8729E2_ai ) {
+    }
+    while ((UnitCount(lp_unitType, lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) <= (lp_unitCount / 2))) {
         if ((lv_timer >= 80)) {
             TriggerStop(TriggerGetCurrent());
         }
         else {
-            UnitGroupLoopBegin(UnitGroupFilter(lp_unitType, lp_player, UnitGroupIdle(lp_player, false), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), (lp_unitCount - UnitGroupCount(UnitGroup(lp_unitType, lp_player, RegionCircle(lp_point, 2.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive))));
-            for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-                AISetUnitSuicide(UnitGroupLoopCurrent(), true);
-                UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionRandomPoint(RegionCircle(lp_point, 2.0))), c_orderQueueReplace);
-                UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionCircle(lp_point, 2.0))), c_orderQueueAddToEnd);
+            auto05C10306_g = UnitGroupFilter(lp_unitType, lp_player, UnitGroupIdle(lp_player, false), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), (lp_unitCount - UnitGroupCount(UnitGroup(lp_unitType, lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive)));
+            auto05C10306_u = 1;
+            for ( ; auto05C10306_u <= UnitGroupCount(auto05C10306_g, c_unitCountAll) ; auto05C10306_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(auto05C10306_g, auto05C10306_u)) ) {
+                lv_pickedUnit = UnitGroupUnit(auto05C10306_g, auto05C10306_u);
+                UnitIssueOrder(lv_pickedUnit, OrderTargetingPoint(AbilityCommand("attack", 0), RegionRandomPoint(RegionCircle(lp_point, 2.0))), c_orderQueueReplace);
+                UnitIssueOrder(lv_pickedUnit, OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionCircle(lp_point, 2.0))), c_orderQueueAddToEnd);
             }
-            UnitGroupLoopEnd();
+        }
+        Wait(10.0, c_timeGame);
+        lv_timer += 10;
+    }
+}
+
+trigger auto_gf_BuildStructure_Trigger = null;
+point auto_gf_BuildStructure_lp_point;
+string auto_gf_BuildStructure_lp_unitType;
+int auto_gf_BuildStructure_lp_player;
+
+void gf_BuildStructure (point lp_point, string lp_unitType, int lp_player) {
+    auto_gf_BuildStructure_lp_point = lp_point;
+    auto_gf_BuildStructure_lp_unitType = lp_unitType;
+    auto_gf_BuildStructure_lp_player = lp_player;
+
+    if (auto_gf_BuildStructure_Trigger == null) {
+        auto_gf_BuildStructure_Trigger = TriggerCreate("auto_gf_BuildStructure_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_BuildStructure_Trigger, false, false);
+}
+
+bool auto_gf_BuildStructure_TriggerFunc (bool testConds, bool runActions) {
+    point lp_point = auto_gf_BuildStructure_lp_point;
+    string lp_unitType = auto_gf_BuildStructure_lp_unitType;
+    int lp_player = auto_gf_BuildStructure_lp_player;
+
+    // Implementation
+    while ((UnitCount(lp_unitType, lp_player, RegionCircle(lp_point, 0.25), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) < 1)) {
+        if ((UnitGroupCount(libNtve_gf_UnitsInRegionWithAllianceToPlayerMatchingCondition(null, null, null, lp_player, c_unitAllianceEnemy, RegionCircle(lp_point, 8.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0)) {
+            UnitIssueOrder(UnitGroupClosestToPoint(gf_GetNonConstructingDrones(lp_player), lp_point), OrderTargetingPoint(TechTreeUnitProducedAbilCmd(lp_unitType, 0), lp_point), c_orderQueueReplace);
+        }
+        else {
         }
         Wait(20.0, c_timeGame);
-        lv_timer += 20;
     }
+    return true;
 }
 
-void gf_EconomicReinforcement (point lp_point, string lp_unitType, int lp_player, int lp_priority) {
+void gf_CreateQueen (int lp_player, point lp_point, unit lp_townHall) {
     // Implementation
-    if ((lp_unitType == "Extractor")) {
-        AIBuild(lp_player, lp_priority, AIGetClosestTown(lp_player, lp_point), lp_unitType, (UnitCount("VespeneGeyser", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) - UnitCount(lp_unitType, lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0)), -1);
-    }
-    else if ((lp_unitType == "Drone")) {
-        AITrain(lp_player, lp_priority, AIGetClosestTown(lp_player, lp_point), lp_unitType, ((UnitGroupCount(UnitGroup("MineralField", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) + (UnitGroupCount(UnitGroup("VespeneGeyser", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) * 3)) - UnitCount(lp_unitType, lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0)));
-    }
-    else if ((lp_unitType == "Queen")) {
-        AITrain(lp_player, lp_priority, AIGetClosestTown(lp_player, lp_point), lp_unitType, (UnitCount("Hatchery", lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) - UnitCount(lp_unitType, lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0)));
+    if ((RoundI(UnitGroupCount(UnitGroup("Queen", lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive)) <= 0) && (UnitQueueItemTypeCheck(lp_townHall, 1, c_unitProgressTypeTrain) != true)) {
+        UnitIssueOrder(lp_townHall, Order(AbilityCommand("TrainQueen", 0)), c_orderQueueReplace);
     }
 }
 
-void gf_EconomyCheck (point lp_point, int lp_player, int lp_priority) {
+void gf_DroneFill (int lp_player, point lp_point, unit lp_townHall) {
+    int init_i;
+
+    unitgroup auto6E9C2C63_g;
+    int auto6E9C2C63_u;
+
     // Variable Declarations
-    int lv_timer;
-    int lv_unitCount;
+    unit lv_pickedUnit;
+    unitgroup[4] lv_unitGroup;
+
+    // Variable Initialization
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        lv_unitGroup[init_i] = UnitGroupEmpty();
+    }
+
+    // Implementation
+    UnitGroupAddUnitGroup(lv_unitGroup[0], gf_GetUnitsonSameLevel(0, 10.0, "MineralField", lp_townHall));
+    UnitGroupAddUnitGroup(lv_unitGroup[1], gf_GetUnitsonSameLevel(0, 10.0, "VespeneGeyser", lp_townHall));
+    UnitGroupAddUnitGroup(lv_unitGroup[2], gf_GetUnitsonSameLevel(lp_player, 10.0, "Drone", lp_townHall));
+    if (((((UnitGroupCount(lv_unitGroup[0], c_unitCountAlive) + UnitGroupCount(lv_unitGroup[1], c_unitCountAlive)) * 2) - UnitGroupCount(lv_unitGroup[2], c_unitCountAlive)) > 0)) {
+        auto6E9C2C63_g = UnitGroup("Larva", lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), (((UnitGroupCount(lv_unitGroup[0], c_unitCountAlive) + UnitGroupCount(lv_unitGroup[1], c_unitCountAlive)) * 2) - UnitGroupCount(lv_unitGroup[2], c_unitCountAlive)));
+        auto6E9C2C63_u = 1;
+        for ( ; auto6E9C2C63_u <= UnitGroupCount(auto6E9C2C63_g, c_unitCountAll) ; auto6E9C2C63_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(auto6E9C2C63_g, auto6E9C2C63_u)) ) {
+            lv_pickedUnit = UnitGroupUnit(auto6E9C2C63_g, auto6E9C2C63_u);
+            UnitIssueOrder(lv_pickedUnit, Order(AbilityCommand("LarvaTrain", 0)), c_orderQueueReplace);
+        }
+    }
+    else {
+    }
+}
+
+void gf_ExtractorConstruct (int lp_player, point lp_point, unit lp_townHall) {
+    unitgroup auto05071C67_g;
+    int auto05071C67_u;
+
+    // Variable Declarations
+    unit lv_pickedUnit;
 
     // Variable Initialization
 
     // Implementation
-    if ((UnitGroupCount(UnitGroup("Hatchery", c_playerAny, RegionCircle(lp_point, 1.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) >= 1)) {
-        gf_EconomicReinforcement(lp_point, "Queen", UnitGetOwner(UnitGroupClosestToPoint(UnitGroup("Hatchery", c_playerAny, RegionCircle(lp_point, 1.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point)), 0);
-        gf_EconomicReinforcement(lp_point, "Drone", UnitGetOwner(UnitGroupClosestToPoint(UnitGroup("Hatchery", c_playerAny, RegionCircle(lp_point, 1.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point)), 0);
-        gf_EconomicReinforcement(lp_point, "Extractor", UnitGetOwner(UnitGroupClosestToPoint(UnitGroup("Hatchery", c_playerAny, RegionCircle(lp_point, 1.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point)), 0);
+    auto05071C67_g = UnitGroup("VespeneGeyser", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto05071C67_u = 1;
+    for ( ; auto05071C67_u <= UnitGroupCount(auto05071C67_g, c_unitCountAll) ; auto05071C67_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(auto05071C67_g, auto05071C67_u)) ) {
+        lv_pickedUnit = UnitGroupUnit(auto05071C67_g, auto05071C67_u);
+        if ((UnitGroupCount(UnitGroup("Extractor", c_playerAny, RegionCircle(UnitGetPosition(lv_pickedUnit), 1.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0) && (CliffLevel(UnitGetPosition(lv_pickedUnit)) == CliffLevel(UnitGetPosition(lp_townHall)))) {
+            UnitIssueOrder(UnitGroupClosestToPoint(UnitGroup("Drone", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), UnitGetPosition(lv_pickedUnit)), OrderTargetingUnit(AbilityCommand("ZergBuild", 2), lv_pickedUnit), c_orderQueueReplace);
+        }
+        else {
+        }
+    }
+}
+
+void gf_ExtractorHarvesters (unit lp_townHall) {
+    unitgroup auto3DD91283_g;
+    int auto3DD91283_u;
+    unitgroup autoCE176800_g;
+    int autoCE176800_u;
+    unitgroup auto01BF5A6F_g;
+    int auto01BF5A6F_u;
+    unitgroup autoAAB287D0_g;
+    int autoAAB287D0_u;
+
+    // Variable Declarations
+    unitgroup lv_droneCandidates;
+    unitgroup lv_extractingDrones;
+    unit lv_internalPickedUnit;
+    int lv_timeout;
+    unit lv_pickedUnit;
+
+    // Variable Initialization
+    lv_droneCandidates = UnitGroupEmpty();
+    lv_extractingDrones = UnitGroupEmpty();
+    lv_timeout = 8;
+
+    // Implementation
+    auto3DD91283_g = gf_GetUnitsonSameLevel(UnitGetOwner(lv_pickedUnit), 10.0, "Extractor", lp_townHall);
+    auto3DD91283_u = 1;
+    for ( ; auto3DD91283_u <= UnitGroupCount(auto3DD91283_g, c_unitCountAll) ; auto3DD91283_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(auto3DD91283_g, auto3DD91283_u)) ) {
+        lv_pickedUnit = UnitGroupUnit(auto3DD91283_g, auto3DD91283_u);
+        UnitGroupAddUnitGroup(lv_droneCandidates, gf_GetUnitsonSameLevel(UnitGetOwner(lv_pickedUnit), 6.0, "Drone", lv_pickedUnit));
+        autoCE176800_g = lv_droneCandidates;
+        autoCE176800_u = 1;
+        for ( ; autoCE176800_u <= UnitGroupCount(autoCE176800_g, c_unitCountAll) ; autoCE176800_u += BoolToInt(lv_internalPickedUnit == UnitGroupUnit(autoCE176800_g, autoCE176800_u)) ) {
+            lv_internalPickedUnit = UnitGroupUnit(autoCE176800_g, autoCE176800_u);
+            if ((((OrderGetAbilityCommand(UnitOrder(lv_internalPickedUnit, 0)) == AbilityCommand("DroneHarvest", 0)) && (OrderGetTargetUnit(UnitOrder(lv_internalPickedUnit, 0)) == lv_pickedUnit)) || (UnitGetPropertyFixed(lv_internalPickedUnit, c_unitPropCarriedVespene, c_unitPropCurrent) > 0.0))) {
+                UnitGroupAdd(lv_extractingDrones, lv_internalPickedUnit);
+            }
+            else {
+            }
+        }
+        while ((UnitGroupCount(lv_extractingDrones, c_unitCountAlive) < 2) && (lv_timeout > 0)) {
+            lv_timeout -= 1;
+            auto01BF5A6F_g = libNtve_gf_ConvertUnitToUnitGroup(UnitGroupRandomUnit(lv_droneCandidates, c_unitCountAlive));
+            auto01BF5A6F_u = 1;
+            for ( ; auto01BF5A6F_u <= UnitGroupCount(auto01BF5A6F_g, c_unitCountAll) ; auto01BF5A6F_u += BoolToInt(lv_internalPickedUnit == UnitGroupUnit(auto01BF5A6F_g, auto01BF5A6F_u)) ) {
+                lv_internalPickedUnit = UnitGroupUnit(auto01BF5A6F_g, auto01BF5A6F_u);
+                if ((((OrderGetAbilityCommand(UnitOrder(lv_internalPickedUnit, 0)) == AbilityCommand("DroneHarvest", 0)) && (OrderGetTargetUnit(UnitOrder(lv_internalPickedUnit, 0)) != lv_pickedUnit)) || (UnitGetPropertyFixed(lv_internalPickedUnit, c_unitPropCarriedVespene, c_unitPropCurrent) <= 0.0))) {
+                    UnitGroupAdd(lv_extractingDrones, lv_internalPickedUnit);
+                    UnitIssueOrder(lv_internalPickedUnit, OrderTargetingUnit(AbilityCommand("DroneHarvest", 0), lv_pickedUnit), c_orderQueueReplace);
+                }
+                else {
+                }
+            }
+        }
+        lv_timeout = 8;
+        while ((UnitGroupCount(lv_extractingDrones, c_unitCountAlive) > 2) && (lv_timeout > 0)) {
+            lv_timeout -= 1;
+            autoAAB287D0_g = libNtve_gf_ConvertUnitToUnitGroup(UnitGroupRandomUnit(lv_extractingDrones, c_unitCountAlive));
+            autoAAB287D0_u = 1;
+            for ( ; autoAAB287D0_u <= UnitGroupCount(autoAAB287D0_g, c_unitCountAll) ; autoAAB287D0_u += BoolToInt(lv_internalPickedUnit == UnitGroupUnit(autoAAB287D0_g, autoAAB287D0_u)) ) {
+                lv_internalPickedUnit = UnitGroupUnit(autoAAB287D0_g, autoAAB287D0_u);
+                if ((((OrderGetAbilityCommand(UnitOrder(lv_internalPickedUnit, 0)) == AbilityCommand("DroneHarvest", 0)) && (OrderGetTargetUnit(UnitOrder(lv_internalPickedUnit, 0)) == lv_pickedUnit)) || (UnitGetPropertyFixed(lv_internalPickedUnit, c_unitPropCarriedVespene, c_unitPropCurrent) > 0.0))) {
+                    UnitGroupRemove(lv_extractingDrones, lv_internalPickedUnit);
+                    UnitIssueOrder(lv_internalPickedUnit, OrderTargetingUnit(AbilityCommand("DroneHarvest", 0), UnitGroupClosestToPoint(UnitGroup("MineralField", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), UnitGetPosition(lv_pickedUnit))), c_orderQueueReplace);
+                }
+                else {
+                }
+            }
+        }
+        UnitGroupClear(lv_droneCandidates);
+        UnitGroupClear(lv_extractingDrones);
+    }
+}
+
+void gf_OverlordFill (int lp_player, point lp_point, unit lp_townHall) {
+    int init_i;
+
+    unitgroup auto2E09634B_g;
+    int auto2E09634B_u;
+
+    // Variable Declarations
+    unit lv_pickedUnit;
+    unitgroup[4] lv_unitGroup;
+
+    // Variable Initialization
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        lv_unitGroup[init_i] = UnitGroupEmpty();
+    }
+
+    // Implementation
+    UnitGroupAddUnitGroup(lv_unitGroup[0], gf_GetUnitsonSameLevel(0, 10.0, "MineralField", lp_townHall));
+    UnitGroupAddUnitGroup(lv_unitGroup[1], gf_GetUnitsonSameLevel(0, 10.0, "VespeneGeyser", lp_townHall));
+    UnitGroupAddUnitGroup(lv_unitGroup[2], UnitGroup("Overlord", lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    if ((((UnitGroupCount(lv_unitGroup[0], c_unitCountAlive) * 2) + (UnitGroupCount(lv_unitGroup[1], c_unitCountAlive) * 3)) > (UnitGroupCount(lv_unitGroup[2], c_unitCountAlive) * 8)) && (PlayerGetPropertyInt(lp_player, c_playerPropSuppliesMade) < 200)) {
+        auto2E09634B_g = UnitGroup("Larva", lp_player, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), CeilingI((((UnitGroupCount(lv_unitGroup[0], c_unitCountAlive) * 2) + (UnitGroupCount(lv_unitGroup[1], c_unitCountAlive) * 3)) / 8.0)));
+        auto2E09634B_u = 1;
+        for ( ; auto2E09634B_u <= UnitGroupCount(auto2E09634B_g, c_unitCountAll) ; auto2E09634B_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(auto2E09634B_g, auto2E09634B_u)) ) {
+            lv_pickedUnit = UnitGroupUnit(auto2E09634B_g, auto2E09634B_u);
+            UnitIssueOrder(lv_pickedUnit, Order(AbilityCommand("LarvaTrain", 2)), c_orderQueueReplace);
+        }
     }
     else {
     }
+}
+
+void gf_EconomyCheck (point lp_point) {
+    unitgroup auto9D1FFF89_g;
+    int auto9D1FFF89_u;
+
+    // Variable Declarations
+    unitgroup lv_droneCandidates;
+    unitgroup lv_extractingDrones;
+    unit lv_pickedUnit;
+    unit lv_internalPickedUnit;
+    int lv_player;
+    unit lv_townHall;
+    int lv_timeout;
+
+    // Variable Initialization
+    lv_droneCandidates = UnitGroupEmpty();
+    lv_extractingDrones = UnitGroupEmpty();
+    lv_player = UnitGetOwner(UnitGroupClosestToPoint(UnitGroup("Hatchery", c_playerAny, RegionCircle(lp_point, 1.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point));
+    lv_timeout = 8;
+
+    // Implementation
+    lv_townHall = gf_GetTownHall(lp_point, false);
+    if ((lv_townHall != null)) {
+        gf_OverlordFill(lv_player, lp_point, lv_townHall);
+        gf_DroneFill(lv_player, lp_point, lv_townHall);
+        gf_CreateQueen(lv_player, lp_point, lv_townHall);
+        gf_ExtractorConstruct(lv_player, lp_point, lv_townHall);
+        auto9D1FFF89_g = gf_GetUnitsonSameLevel(lv_player, 10.0, "Queen", lv_townHall);
+        auto9D1FFF89_u = 1;
+        for ( ; auto9D1FFF89_u <= UnitGroupCount(auto9D1FFF89_g, c_unitCountAll) ; auto9D1FFF89_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(auto9D1FFF89_g, auto9D1FFF89_u)) ) {
+            lv_pickedUnit = UnitGroupUnit(auto9D1FFF89_g, auto9D1FFF89_u);
+            UnitIssueOrder(lv_pickedUnit, OrderTargetingUnit(AbilityCommand("SpawnLarva", 0), lv_townHall), c_orderQueueReplace);
+        }
+        gf_ExtractorHarvesters(lv_townHall);
+    }
+    else {
+    }
+}
+
+unit gf_GetTownHall (point lp_point, bool lp_boolean) {
+    // Variable Declarations
+    unit lv_gotTownHall;
+
+    // Variable Initialization
+
+    // Implementation
+    if ((lp_boolean == true)) {
+        lv_gotTownHall = UnitGroupClosestToPoint(UnitGroup("Hatchery", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point);
+        if ((lv_gotTownHall == null)) {
+            lv_gotTownHall = UnitGroupClosestToPoint(UnitGroup("Lair", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point);
+            if ((lv_gotTownHall == null)) {
+                lv_gotTownHall = UnitGroupClosestToPoint(UnitGroup("Hive", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point);
+            }
+            else {
+            }
+        }
+        else {
+        }
+    }
+    else {
+        lv_gotTownHall = UnitGroupClosestToPoint(UnitGroup("Hatchery", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point);
+        if ((lv_gotTownHall == null)) {
+            lv_gotTownHall = UnitGroupClosestToPoint(UnitGroup("Lair", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point);
+            if ((lv_gotTownHall == null)) {
+                lv_gotTownHall = UnitGroupClosestToPoint(UnitGroup("Hive", c_playerAny, RegionCircle(lp_point, 10.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point);
+            }
+            else {
+            }
+        }
+        else {
+        }
+    }
+    return lv_gotTownHall;
+}
+
+unitgroup gf_GetUnitsonSameLevel (int lp_player, fixed lp_radius, string lp_unitType, unit lp_unit) {
+    unitgroup autoBCC30E5F_g;
+    int autoBCC30E5F_u;
+
+    // Variable Declarations
+    unitgroup lv_unitGroup;
+    unit lv_pickedUnit;
+
+    // Variable Initialization
+    lv_unitGroup = UnitGroupEmpty();
+
+    // Implementation
+    autoBCC30E5F_g = UnitGroup(lp_unitType, lp_player, RegionCircle(UnitGetPosition(lp_unit), lp_radius), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoBCC30E5F_u = 1;
+    for ( ; autoBCC30E5F_u <= UnitGroupCount(autoBCC30E5F_g, c_unitCountAll) ; autoBCC30E5F_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(autoBCC30E5F_g, autoBCC30E5F_u)) ) {
+        lv_pickedUnit = UnitGroupUnit(autoBCC30E5F_g, autoBCC30E5F_u);
+        if ((CliffLevel(UnitGetPosition(lv_pickedUnit)) == CliffLevel(UnitGetPosition(lp_unit)))) {
+            UnitGroupAdd(lv_unitGroup, lv_pickedUnit);
+        }
+        else {
+        }
+    }
+    return lv_unitGroup;
+}
+
+unitgroup gf_GetNonConstructingDrones (int lp_player) {
+    unitgroup auto8E5BBD22_g;
+    int auto8E5BBD22_u;
+
+    // Variable Declarations
+    unitgroup lv_unitGroup;
+    unit lv_pickedUnit;
+
+    // Variable Initialization
+    lv_unitGroup = UnitGroupEmpty();
+
+    // Implementation
+    auto8E5BBD22_g = UnitGroup("Drone", lp_player, null, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto8E5BBD22_u = 1;
+    for ( ; auto8E5BBD22_u <= UnitGroupCount(auto8E5BBD22_g, c_unitCountAll) ; auto8E5BBD22_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(auto8E5BBD22_g, auto8E5BBD22_u)) ) {
+        lv_pickedUnit = UnitGroupUnit(auto8E5BBD22_g, auto8E5BBD22_u);
+        if ((AbilityCommandGetAbility(OrderGetAbilityCommand(UnitOrder(lv_pickedUnit, 0))) != "ZergBuild")) {
+            UnitGroupAdd(lv_unitGroup, lv_pickedUnit);
+        }
+        else {
+        }
+    }
+    return lv_unitGroup;
 }
 
 //--------------------------------------------------------------------------------------------------
 // Trigger: Melee Initialization
 //--------------------------------------------------------------------------------------------------
 bool gt_MeleeInitialization_Func (bool testConds, bool runActions) {
+    unitgroup auto0E6456E8_g;
+    int auto0E6456E8_u;
+    playergroup auto99CD7AAF_g;
+    int auto99CD7AAF_p;
+    unitgroup autoDB5B7DD4_g;
+    int autoDB5B7DD4_u;
+    unitgroup auto017680EB_g;
+    int auto017680EB_u;
+    unitgroup auto1DBCB922_g;
+    int auto1DBCB922_u;
+    unitgroup autoD77026AD_g;
+    int autoD77026AD_u;
+
     // Variable Declarations
-    int lv_untitledVariable001;
+    unit lv_townHall;
+    unit lv_pickedUnit;
+    int lv_pickedPlayer;
 
     // Variable Initialization
 
@@ -196,19 +653,50 @@ bool gt_MeleeInitialization_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UnitGroupLoopBegin(UnitGroup("Extractor", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        UnitKill(UnitGroupLoopCurrent());
-        AIAddBully(UnitGetOwner(UnitGroupLoopCurrent()), "Drone", UnitGetPosition(UnitGroupLoopCurrent()), -1);
-        AIAddBully(UnitGetOwner(UnitGroupLoopCurrent()), "Drone", UnitGetPosition(UnitGroupLoopCurrent()), -1);
-        AIAddBully(UnitGetOwner(UnitGroupLoopCurrent()), "Drone", UnitGetPosition(UnitGroupLoopCurrent()), -1);
-    }
-    UnitGroupLoopEnd();
-    AIDeclareTown(9, 0, UnitGetPosition(UnitFromId(79)));
-    AIDeclareTown(10, 0, UnitGetPosition(UnitFromId(43)));
     PlayerModifyPropertyInt(9, c_playerPropMinerals, c_playerPropOperSetTo, 400);
     PlayerModifyPropertyInt(10, c_playerPropMinerals, c_playerPropOperSetTo, 400);
-    CampaignInitAI();
+    auto0E6456E8_g = UnitGroup(null, 0, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto0E6456E8_u = 1;
+    for ( ; auto0E6456E8_u <= UnitGroupCount(auto0E6456E8_g, c_unitCountAll) ; auto0E6456E8_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(auto0E6456E8_g, auto0E6456E8_u)) ) {
+        lv_pickedUnit = UnitGroupUnit(auto0E6456E8_g, auto0E6456E8_u);
+        if ((UnitTypeGetCost(UnitGetType(lv_pickedUnit), c_unitCostVespene) > 0)) {
+            TextTagCreate((StringExternal("Param/Value/9CEB584F") + IntToText(UnitTypeGetCost(UnitGetType(lv_pickedUnit), c_unitCostMinerals)) + StringExternal("Param/Value/EAFCC339") + IntToText(UnitTypeGetCost(UnitGetType(lv_pickedUnit), c_unitCostVespene)) + StringExternal("Param/Value/50077778")), 12, UnitGetPosition(lv_pickedUnit), 2.0, true, false, PlayerGroupAll());
+        }
+        else {
+            TextTagCreate((StringExternal("Param/Value/19B06399") + IntToText(UnitTypeGetCost(UnitGetType(lv_pickedUnit), c_unitCostMinerals)) + StringExternal("Param/Value/8348E782")), 12, UnitGetPosition(lv_pickedUnit), 1.6, true, false, PlayerGroupAll());
+        }
+        TextTagAttachToUnit(TextTagLastCreated(), lv_pickedUnit, 1.0);
+        UnitBehaviorAddPlayer(lv_pickedUnit, "DisableAbils", 0, 1);
+    }
+    auto99CD7AAF_g = GameAttributePlayersForTeam(1); 
+    auto99CD7AAF_p = 1;
+    for ( ; auto99CD7AAF_p <= PlayerGroupCount(auto99CD7AAF_g) ; auto99CD7AAF_p += BoolToInt(lv_pickedPlayer == PlayerGroupPlayer(auto99CD7AAF_g, auto99CD7AAF_p)) ) {
+        lv_pickedPlayer = PlayerGroupPlayer(auto99CD7AAF_g, auto99CD7AAF_p);
+        PlayerSetAlliance(0, c_allianceIdControl, lv_pickedPlayer, true);
+    }
+    autoDB5B7DD4_g = UnitGroup("Hive", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoDB5B7DD4_u = 1;
+    for ( ; autoDB5B7DD4_u <= UnitGroupCount(autoDB5B7DD4_g, c_unitCountAll) ; autoDB5B7DD4_u += BoolToInt(lv_townHall == UnitGroupUnit(autoDB5B7DD4_g, autoDB5B7DD4_u)) ) {
+        lv_townHall = UnitGroupUnit(autoDB5B7DD4_g, autoDB5B7DD4_u);
+        auto017680EB_g = gf_GetUnitsonSameLevel(UnitGetOwner(lv_townHall), 10.0, "Drone", lv_townHall);
+        auto017680EB_u = 1;
+        for ( ; auto017680EB_u <= UnitGroupCount(auto017680EB_g, c_unitCountAll) ; auto017680EB_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(auto017680EB_g, auto017680EB_u)) ) {
+            lv_pickedUnit = UnitGroupUnit(auto017680EB_g, auto017680EB_u);
+            UnitIssueOrder(lv_pickedUnit, OrderTargetingUnit(AbilityCommand("DroneHarvest", 0), UnitGroupClosestToPoint(gf_GetUnitsonSameLevel(0, 10.0, "MineralField", lv_townHall), UnitGetPosition(lv_pickedUnit))), c_orderQueueReplace);
+        }
+    }
+    auto1DBCB922_g = UnitGroup("Hatchery", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto1DBCB922_u = 1;
+    for ( ; auto1DBCB922_u <= UnitGroupCount(auto1DBCB922_g, c_unitCountAll) ; auto1DBCB922_u += BoolToInt(lv_townHall == UnitGroupUnit(auto1DBCB922_g, auto1DBCB922_u)) ) {
+        lv_townHall = UnitGroupUnit(auto1DBCB922_g, auto1DBCB922_u);
+        autoD77026AD_g = gf_GetUnitsonSameLevel(UnitGetOwner(lv_townHall), 10.0, "Drone", lv_townHall);
+        autoD77026AD_u = 1;
+        for ( ; autoD77026AD_u <= UnitGroupCount(autoD77026AD_g, c_unitCountAll) ; autoD77026AD_u += BoolToInt(lv_pickedUnit == UnitGroupUnit(autoD77026AD_g, autoD77026AD_u)) ) {
+            lv_pickedUnit = UnitGroupUnit(autoD77026AD_g, autoD77026AD_u);
+            UnitIssueOrder(lv_pickedUnit, OrderTargetingUnit(AbilityCommand("DroneHarvest", 0), UnitGroupClosestToPoint(gf_GetUnitsonSameLevel(0, 10.0, "MineralField", lv_townHall), UnitGetPosition(lv_pickedUnit))), c_orderQueueReplace);
+        }
+    }
+    TriggerExecute(gt_EconomicSustain, true, true);
     return true;
 }
 
@@ -216,6 +704,62 @@ bool gt_MeleeInitialization_Func (bool testConds, bool runActions) {
 void gt_MeleeInitialization_Init () {
     gt_MeleeInitialization = TriggerCreate("gt_MeleeInitialization_Func");
     TriggerAddEventMapInit(gt_MeleeInitialization);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Drone Birthed
+//--------------------------------------------------------------------------------------------------
+bool gt_DroneBirthed_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnitProgressUnit()) == "Drone"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitIssueOrder(EventUnitProgressUnit(), OrderTargetingUnit(AbilityCommand("DroneHarvest", 0), UnitGroupRandomUnit(gf_GetUnitsonSameLevel(0, 10.0, "MineralField", EventUnitProgressUnit()), c_unitCountAlive)), c_orderQueueReplace);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_DroneBirthed_Init () {
+    gt_DroneBirthed = TriggerCreate("gt_DroneBirthed_Func");
+    TriggerAddEventUnitTrainProgress(gt_DroneBirthed, null, c_unitProgressStageComplete);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Reconstruct building
+//--------------------------------------------------------------------------------------------------
+bool gt_Reconstructbuilding_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!(((UnitGetType(EventUnit()) == "SpineCrawler") || (UnitGetType(EventUnit()) == "SporeCrawler") || (UnitGetType(EventUnit()) == "EvolutionChamber") || (UnitGetType(EventUnit()) == "SpawningPool")))) {
+            return false;
+        }
+
+        if (!(((UnitGetOwner(EventUnit()) == 9) || (UnitGetOwner(EventUnit()) == 10)))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_BuildStructure(UnitGetPosition(EventUnit()), UnitGetType(EventUnit()), EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Reconstructbuilding_Init () {
+    gt_Reconstructbuilding = TriggerCreate("gt_Reconstructbuilding_Func");
+    TriggerAddEventUnitDied(gt_Reconstructbuilding, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -227,10 +771,6 @@ bool gt_CreateInitialForces_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_CreateBullies(10, 9, "Zergling", PointFromId(315));
-    gf_CreateBullies(10, 9, "Zergling", PointFromId(316));
-    gf_CreateBullies(10, 10, "Zergling", PointFromId(324));
-    gf_CreateBullies(10, 10, "Zergling", PointFromId(325));
     TriggerEnable(gt_AttackWave, true);
     return true;
 }
@@ -252,14 +792,6 @@ bool gt_CreateSecondaryForces_Func (bool testConds, bool runActions) {
 
     AIAddBully(9, "LurkerDenMP", PointFromId(175), -1);
     AIAddBully(10, "LurkerDenMP", PointFromId(264), -1);
-    gf_CreateBullies(4, 9, "Zergling", PointFromId(315));
-    gf_CreateBullies(4, 9, "Zergling", PointFromId(316));
-    gf_CreateBullies(4, 10, "Zergling", PointFromId(324));
-    gf_CreateBullies(4, 10, "Zergling", PointFromId(325));
-    gf_CreateBullies(3, 9, "Hydralisk", PointFromId(315));
-    gf_CreateBullies(3, 9, "Hydralisk", PointFromId(316));
-    gf_CreateBullies(3, 10, "Hydralisk", PointFromId(324));
-    gf_CreateBullies(3, 10, "Hydralisk", PointFromId(325));
     return true;
 }
 
@@ -353,17 +885,23 @@ bool gt_EconomicSustain_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_EconomyCheck(PointFromId(267), 0, 0);
-    gf_EconomyCheck(PointFromId(266), 0, 0);
-    gf_EconomyCheck(PointFromId(320), 0, 0);
-    gf_EconomyCheck(PointFromId(320), 0, 0);
+    UnitGroupLoopBegin(UnitGroup("Hive", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        gf_EconomyCheck(UnitGetPosition(UnitGroupLoopCurrent()));
+    }
+    UnitGroupLoopEnd();
+    UnitGroupLoopBegin(UnitGroup("Hatchery", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        gf_EconomyCheck(UnitGetPosition(UnitGroupLoopCurrent()));
+    }
+    UnitGroupLoopEnd();
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_EconomicSustain_Init () {
     gt_EconomicSustain = TriggerCreate("gt_EconomicSustain_Func");
-    TriggerAddEventTimePeriodic(gt_EconomicSustain, 30.0, c_timeGame);
+    TriggerAddEventTimePeriodic(gt_EconomicSustain, 25.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -375,15 +913,15 @@ bool gt_Expand_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_Expand(PointFromId(266), 3, 9, 0);
-    gf_Expand(PointFromId(319), 3, 10, 0);
+    gf_ChooseExpandLocation(9);
+    gf_ChooseExpandLocation(10);
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_Expand_Init () {
     gt_Expand = TriggerCreate("gt_Expand_Func");
-    TriggerAddEventTimeElapsed(gt_Expand, 180.0, c_timeGame);
+    TriggerAddEventTimePeriodic(gt_Expand, 300.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -391,6 +929,8 @@ void gt_Expand_Init () {
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
     gt_MeleeInitialization_Init();
+    gt_DroneBirthed_Init();
+    gt_Reconstructbuilding_Init();
     gt_CreateInitialForces_Init();
     gt_CreateSecondaryForces_Init();
     gt_AttackWave_Init();
@@ -403,5 +943,6 @@ void InitTriggers () {
 //--------------------------------------------------------------------------------------------------
 void InitMap () {
     InitLibs();
+    InitGlobals();
     InitTriggers();
 }

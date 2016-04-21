@@ -4,28 +4,57 @@
         <Model value="Assets\Effects\Zerg\RoachMissileEx1B\RoachMissileEx1B.m3"/>
         <EditorCategories value="Race:Zerg"/>
     </CModel>
+    <CModel id="Cerebrate" parent="Unit" Race="Zerg">
+        <Radius value="2.000000"/>
+        <ScaleMax value="0.700000,0.700000,0.700000"/>
+        <ScaleMin value="0.700000,0.700000,0.700000"/>
+        <SelectionRadius value="1.900000"/>
+        <ShadowRadius value="1.900000"/>
+    </CModel>
+    <CModel id="HeroLarva" parent="Larva">
+        <Model value="Assets\Units\Zerg\LarvalQueen\LarvalQueen.m3"/>
+    </CModel>
+    <CModel id="NoxiousCloud" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\MiasmaliskPoisonCloud\MiasmaliskPoisonCloud.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
+    <CModel id="HeroQueen" parent="Queen">
+        <Model value="Assets\Units\Zerg\Zagara\Zagara.m3"/>
+    </CModel>
+    <CModel id="SwarmQueenDeath" parent="QueenDeath">
+        <Model value="Assets\Units\Zerg\ZagaraDeath\ZagaraDeath.m3"/>
+    </CModel>
+    <CModel id="HeroHydralisk" parent="Hydralisk">
+        <Model value="Assets\Units\Zerg\HydraliskEx1A\HydraliskEx1A.m3"/>
+    </CModel>
+    <CModel id="HeroRoach" parent="Roach">
+        <Model value="Assets\Units\Zerg\RoachEx1B\RoachEx1B.m3"/>
+    </CModel>
+    <CModel id="HeroHydraliskDeath" parent="HydraliskDeath">
+        <Model value="Assets\Units\Zerg\HydraliskEx1ADeath\HydraliskEx1ADeath.m3"/>
+    </CModel>
+    <CModel id="HeroUltralisk" parent="Ultralisk">
+        <Model value="Assets\Units\Zerg\UltraliskEx1B\UltraliskEx1B.m3"/>
+        <Lighting value="HeroUltralisk"/>
+    </CModel>
+    <CModel id="HeroUltraliskDeath" parent="UltraliskDeath">
+        <Model value="Assets\Units\Zerg\UltraliskEx1BDeath\UltraliskEx1BDeath.m3"/>
+    </CModel>
     <CModel id="VileAcidSalivaSlow" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Zerg\VileRoachDebuff\VileRoachDebuff.m3"/>
         <EditorCategories value="Race:Zerg"/>
         <ScaleMax value="0.500000,0.500000,0.500000"/>
         <ScaleMin value="0.500000,0.500000,0.500000"/>
     </CModel>
-    <CModel id="HeroRoach" parent="Unit" Race="Zerg">
-        <Model value="Assets\Units\Zerg\RoachEx1B\RoachEx1B.m3"/>
-        <RequiredAnims value="Assets\Units\Zerg\Roach_SwarmAnims\Roach_SwarmAnims.m3a"/>
-        <Occlusion value="Show"/>
-        <PlanetPanelCamera value="Star2CameraMid04"/>
-        <Radius value="0.450000"/>
-        <ScaleMax value="1.100000,1.100000,1.100000"/>
-        <ScaleMin value="1.100000,1.100000,1.100000"/>
-        <SelectionRadius value="0.541500"/>
-        <ShadowRadius value="0.541500"/>
-        <SquibTypeDefault value="Flesh"/>
-        <TechPurchaseCamera value="Star2CameraMid04"/>
-        <Tipability value="0.750000"/>
-        <TipabilityLength value="0.800000"/>
-        <TipabilityWidth value="0.800000"/>
-        <UnitGlossaryCamera value="Star2CameraMid04"/>
+    <CModel id="HeroZergling" parent="Zergling">
+        <Model value="Assets\Units\Zerg\ZerglingEx1A\ZerglingEx1A.m3"/>
+    </CModel>
+    <CModel id="ZergLineCursorSplat" parent="ZergAOECone">
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
+    <CModel id="HeroZerglingDeath" parent="ZerglingDeath">
+        <Model value="Assets\Units\Zerg\ZerglingEx1ADeath\ZerglingEx1ADeath.m3"/>
+        <Lighting value="HeroZerglingDeath"/>
     </CModel>
     <CModel id="HeroRoachDeath" parent="UnitDeath">
         <Model value="Assets\Units\Zerg\RoachEx1BDeath\RoachEx1BDeath.m3"/>
@@ -33,94 +62,5 @@
         <EditorCategories value="Race:Zerg"/>
         <Occlusion value="Show"/>
     </CModel>
-    <CModel id="HeroHydralisk" parent="Unit" Race="Zerg">
-        <Model value="Assets\Units\Zerg\HydraliskEx1A\HydraliskEx1A.m3"/>
-        <RequiredAnims value="Assets\Units\Zerg\Hydralisk_SwarmAnims\Hydralisk_SwarmAnims.m3a"/>
-        <AttachProps Id="Ref_Weapon">
-            <Keys index="SetA" value="0"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon Right">
-            <Keys index="SetA" value="1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon Left">
-            <Keys index="SetA" value="1"/>
-        </AttachProps>
-        <Events>
-            <Anim value="Attack,Cover,00"/>
-            <Name value="HydraliskAttackImpactMelee"/>
-            <Type value="Sound"/>
-            <Time value="0.500000"/>
-        </Events>
-        <Events>
-            <Anim value="Attack,Cover,00"/>
-            <Name value="HydraliskAttackImpactMelee"/>
-            <Type value="Sound"/>
-            <Time value="0.550000"/>
-        </Events>
-        <Events>
-            <Anim value="Attack,Cover,01"/>
-            <Name value="HydraliskAttackImpactMelee"/>
-            <Type value="Sound"/>
-            <Time value="0.230000"/>
-        </Events>
-        <Events>
-            <Anim value="Attack,Cover,01"/>
-            <Name value="HydraliskAttackImpactMelee"/>
-            <Type value="Sound"/>
-            <Time value="0.400000"/>
-        </Events>
-        <Occlusion value="Show"/>
-        <PlanetPanelCamera value="Star2CameraMid08"/>
-        <Radius value="0.600000"/>
-        <ScaleMax value="0.750000,0.750000,0.750000"/>
-        <ScaleMin value="0.750000,0.750000,0.750000"/>
-        <SelectionRadius value="0.571000"/>
-        <ShadowRadius value="0.571000"/>
-        <SquibTypeDefault value="Flesh"/>
-        <TechPurchaseCamera value="Star2CameraMid08"/>
-        <Tipability value="0.750000"/>
-        <TipabilityLength value="0.800000"/>
-        <TipabilityWidth value="0.800000"/>
-        <UnitGlossaryCamera value="Star2CameraMid08"/>
-    </CModel>
-    <CModel id="HeroHydraliskDeath" parent="UnitDeath" Race="Zerg">
-        <Model value="Assets\Units\Zerg\HydraliskEx1ADeath\HydraliskEx1ADeath.m3"/>
-        <LowQualityModel value="ZergSmallUnitDeathLow"/>
-        <Lighting value="HydraliskDeath"/>
-        <Occlusion value="Show"/>
-    </CModel>
-    <CModel id="HeroZergling" parent="Unit" Race="Zerg">
-        <Model value="Assets\Units\Zerg\ZerglingEx1A\ZerglingEx1A.m3"/>
-        <RequiredAnims value="Assets\Units\Zerg\Zergling_SwarmAnims\Zergling_SwarmAnims.m3a"/>
-        <AttachProps Id="Ref_Weapon Left">
-            <Keys index="Weapon" value="1"/>
-            <Keys index="Work" value="0"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon Right">
-            <Keys index="Weapon" value="1"/>
-        </AttachProps>
-        <Occlusion value="Show"/>
-        <PlanetPanelCamera value="Star2CameraMid05"/>
-        <Radius value="0.300000"/>
-        <ScaleMax value="0.770000,0.770000,0.770000"/>
-        <ScaleMin value="0.770000,0.770000,0.770000"/>
-        <SelectionRadius value="0.441400"/>
-        <ShadowRadius value="0.441400"/>
-        <SquibTypeDefault value="Flesh"/>
-        <TechPurchaseCamera value="Star2CameraMid05"/>
-        <Tipability value="0.750000"/>
-        <TipabilityLength value="0.400000"/>
-        <TipabilityWidth value="0.400000"/>
-        <UnitGlossaryCamera value="Star2CameraMid05"/>
-    </CModel>
-    <CModel id="HeroZerglingDeath" parent="UnitDeath">
-        <Model value="Assets\Units\Zerg\ZerglingEx1ADeath\ZerglingEx1ADeath.m3"/>
-        <LowQualityModel value="ZergSmallUnitDeathLow"/>
-        <EditorCategories value="Race:Zerg"/>
-        <Occlusion value="Show"/>
-    </CModel>
-    <CModel id="ZergLineCursorSplat" parent="Splat">
-        <Model value="Assets\UI\Cursors\ZergAOECone\ZergAOECone.m3"/>
-        <EditorCategories value="Race:Zerg"/>
-    </CModel>
+    <CModel id="CerebratePortrait" parent="Portrait" Race="Zerg"/>
 </Catalog>

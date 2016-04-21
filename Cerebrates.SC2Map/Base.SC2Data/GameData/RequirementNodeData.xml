@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CRequirementCountUnit id="UnitQueen2QueuedOrBetter">
+        <Count Link="HeroQueen"/>
+    </CRequirementCountUnit>
     <CRequirementCountUpgrade id="UpgradeHydralisk2CompleteOnly">
         <Count Link="HeroHydralisk"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="UpgradeHydralisk2QueuedOrBetter">
         <Count Link="HeroHydralisk"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeUltralisk2CompleteOnly">
+        <Count Link="HeroUltralisk"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeUltralisk2QueuedOrBetter">
+        <Count Link="HeroUltralisk"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="UpgradeZergling2CompleteOnly">
         <Count Link="HeroZergling"/>

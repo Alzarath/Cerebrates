@@ -1,18 +1,400 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CActorSimple id="HeroUltraliskBurrowChargeImpactAnim" parent="BurrowChargeImpactAnim">
+        <On index="0" Terms="Behavior.HeroUltraliskBurrowChargeKnockback.On" Send="Create"/>
+        <On index="9" Terms="Behavior.HeroUltraliskBurrowChargeKnockback.Off" Send="TimerSet 0.250000 KnockbackEndDelay"/>
+    </CActorSimple>
+    <CActorRange id="HeroUltraliskBurrowChargeRange" parent="RangeAbil" abil="HeroUltraliskBurrowCharge">
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+        <IconArcLength value="3.250000"/>
+    </CActorRange>
+    <CActorSplat id="HeroHydraliskImpaleCursorSplat" parent="ZergCursorSplat" abil="HeroHydraliskImpale"/>
+    <CActorModel id="HeroRoachAcidSalivaImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.AbilityAcidSalivaDamage.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Model value="RoachMissileImpact"/>
+    </CActorModel>
+    <CActorAction id="HeroHydraliskImpaleAttack" parent="HydraliskImpaleAttack" effectImpact="HeroHydraliskImpaleImpactSearch" effectLaunch="HeroHydraliskImpaleLM">
+        <On index="1" Terms="Effect.HeroHydraliskImpaleImpactSearch.Start; FromEffectTreeDescendant"/>
+        <On index="2" Terms="Effect.HeroHydraliskImpaleImpactSearch.Stop; FromEffectTreeDescendant"/>
+        <On index="6" Terms="Effect.HeroHydraliskImpaleLM.Start; At Caster" Send="Create"/>
+    </CActorAction>
+    <CActorAction id="HeroHydraliskAttack" parent="HydraliskAttack" effectImpact="HeroHydraliskNeedleSpinesDamage" effectLaunch="HeroHydraliskNeedleSpinesLaunchMissile">
+        <On index="1" Terms="Effect.HeroHydraliskNeedleSpinesDamage.Start; FromEffectTreeDescendant"/>
+        <On index="2" Terms="Effect.HeroHydraliskNeedleSpinesDamage.Stop; FromEffectTreeDescendant"/>
+        <On index="6" Terms="Effect.HeroHydraliskNeedleSpinesLaunchMissile.Start; At Caster"/>
+    </CActorAction>
+    <CActorModel id="HeroHydraliskImpaleAttackImpact">
+        <On Terms="Effect.HeroHydraliskImpaleImpactSearch.Start" Send="Create"/>
+        <On Terms="ActorCreation" Send="$Birth 0 0.000000 0.000000 1.500000 AsDuration"/>
+        <On Terms="AnimDone; AnimName Birth" Send="Destroy"/>
+        <HostSiteOps Ops="SOpShadow"/>
+        <Model value="HydraliskImpaleAttackImpact"/>
+    </CActorModel>
+    <CActorModel id="HeroHydraliskImpaleIndicator2" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.HeroHydraliskImpaleLM.Start" Send="Create"/>
+        <On Terms="Effect.HydraliskImpaleImpactSearch.Start" Send="AnimBracketStop BSD"/>
+        <Model value="HydraliskImpaleIndicator"/>
+    </CActorModel>
+    <CActorRange id="HeroHydraliskImpaleRange" parent="RangeAbil" abil="HeroHydraliskImpale">
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+        <IconArcLength value="3.250000"/>
+    </CActorRange>
+    <CActorUnit id="HeroLarva" parent="Larva" unitName="HeroLarva">
+        <On index="0" Terms="UnitBirth.HeroLarva" Send="Create SoundEmitter HeroLarva_Ambience"/>
+        <On index="1" Terms="UnitBirth.HeroLarva"/>
+        <On index="2" Terms="UnitRevive.HeroLarva"/>
+        <On index="3" Terms="UnitRevive.HeroLarva"/>
+        <On index="4" Terms="UnitConstruction.HeroLarva.Start"/>
+        <On index="5" Terms="UnitConstruction.HeroLarva.Finish"/>
+        <On index="65" Terms="AbilMorph.*.Finish; MorphTo HeroLarva" Send="Create"/>
+        <On index="66" Terms="AbilMorph.*.Start; MorphFrom HeroLarva" Send="Destroy"/>
+        <Model value="HeroLarva"/>
+        <Scale value="1.500000"/>
+        <BuildModel value="HeroLarva"/>
+        <PlacementModel value="HeroLarva"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-zerg-larvalqueen.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-hero-larvalqueen.dds"/>
+        <HighlightTooltip value="Unit/Name/HeroLarva"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-larvalqueen.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-zerg-larvalqueen.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorSound id="HeroLarva_Death" parent="Larva_Death">
+        <On index="1" Terms="UnitDeath.HeroLarva; PassChance 25.000000" Send="Create"/>
+    </CActorSound>
+    <CActorAction id="HeroLarvaRelease" parent="LarvaRelease" effectLaunch="HeroLarvaReleaseLM">
+        <On index="6" Terms="Effect.HeroLarvaReleaseLM.Start; At Caster" Send="Create"/>
+    </CActorAction>
+    <CActorRange id="NoxiousCloudRange" parent="RangeBehavior">
+        <EditorCategories value=""/>
+        <On index="1" Terms="SelectionLocalUpdate.NoxiousTumorBurrowed.Start" Send="Create"/>
+        <On index="2" Terms="SelectionLocalUpdate.NoxiousTumorBurrowed.Stop" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphTo NoxiousTumorBurrowed; Selected" Send="Create"/>
+        <On Terms="Abil.BurrowNoxiousTumorDown.TargetOn" Send="Create"/>
+        <On Terms="Abil.BurrowNoxiousTumorDown.TargetOff" Send="Destroy"/>
+        <On Terms="Abil.BurrowNoxiousTumorDown.ButtonHoverOff" Send="Create"/>
+        <On Terms="Abil.BurrowNoxiousTumorDown.ButtonHoverOn" Send="Destroy"/>
+        <Range value="10.000000"/>
+    </CActorRange>
+    <CActorModel id="NoxiousCloud" parent="ModelAnimationStyleContinuous">
+        <On Terms="Behavior.NoxiousCloud.On" Send="Create"/>
+        <On Terms="Behavior.NoxiousCloud.Off" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetTintColor 0,128,0"/>
+        <HostSiteOps Ops="SOpMoveDownByDot35"/>
+        <Scale value="4.000000,4.000000,1.000000"/>
+    </CActorModel>
+    <CActorUnit id="HeroOverlord" parent="OverlordTransport" unitName="HeroOverlord">
+        <On index="0" Terms="UnitBirth.HeroOverlord" Send="Create SoundEmitter HeroOverlord_Ambience"/>
+        <On index="1" Terms="UnitBirth.HeroOverlord"/>
+        <On index="2" Terms="UnitRevive.HeroOverlord"/>
+        <On index="3" Terms="UnitRevive.HeroOverlord"/>
+        <On index="4" Terms="UnitConstruction.HeroOverlord.Start"/>
+        <On index="5" Terms="UnitConstruction.HeroOverlord.Finish"/>
+        <On index="65" removed="1"/>
+        <On index="66" removed="1"/>
+        <On index="67" removed="1"/>
+        <On index="68" removed="1"/>
+        <On index="69" removed="1"/>
+        <On index="70" removed="1"/>
+        <On index="71" removed="1"/>
+        <On index="72" removed="1"/>
+        <On index="73" removed="1"/>
+        <On index="74" removed="1"/>
+        <On index="75" removed="1"/>
+        <On index="76" removed="1"/>
+        <On index="77" removed="1"/>
+        <On index="78" removed="1"/>
+        <On index="79" removed="1"/>
+        <On index="80" removed="1"/>
+        <On index="81" removed="1"/>
+        <On index="82" removed="1"/>
+        <On index="83" removed="1"/>
+        <On index="84" removed="1"/>
+        <HighlightTooltip value="Unit/Name/HeroOverlord"/>
+    </CActorUnit>
+    <CActorModel id="Poisoned" parent="ModelAnimationStyleContinuous">
+        <On Terms="Behavior.Poisoned.On" Send="Create"/>
+        <On Terms="Behavior.Poisoned.Off" Send="Destroy"/>
+        <HostSiteOps Ops="SOpMoveDownByDot35"/>
+        <Model value="NoxiousCloud"/>
+        <Scale value="0.500000,0.500000,1.000000"/>
+    </CActorModel>
+    <CActorUnit id="NoxiousTumor" parent="CreepTumor" unitName="NoxiousTumorHeroQueen">
+        <On index="0" Terms="UnitBirth.NoxiousTumorHeroQueen"/>
+        <On index="1" Terms="UnitBirth.NoxiousTumorHeroQueen"/>
+        <On index="2" Terms="UnitRevive.NoxiousTumorHeroQueen"/>
+        <On index="3" Terms="UnitRevive.NoxiousTumorHeroQueen"/>
+        <On index="4" Terms="UnitConstruction.NoxiousTumorHeroQueen.Start"/>
+        <On index="5" Terms="UnitConstruction.NoxiousTumorHeroQueen.Finish"/>
+        <On index="65" Terms="UnitConstruction.NoxiousTumorBurrowed.Start"/>
+        <On index="66" Terms="UnitConstruction.NoxiousTumorBurrowed.Finish"/>
+        <On index="67" Terms="UnitBirth.NoxiousTumorBurrowed"/>
+        <On index="68" Terms="UnitConstruction.NoxiousTumorHeroQueen.Start" Send="SetScale 0.100000"/>
+        <On index="69" Terms="UnitConstruction.NoxiousTumorHeroQueen.Start" Send="SetScale 1.000000 3.000000"/>
+        <On index="70" Terms="UnitConstruction.NoxiousTumorBurrowed.Start" Send="TimerSet 13.333000 BurrowAnim"/>
+        <On index="71" Terms="UnitConstruction.NoxiousTumorHeroQueen.Start" Send="AnimPlay MorphStart Stand,Morph,Start"/>
+        <On index="72" Terms="AnimDone.*.Complete; AnimName MorphStart" Send="AnimPlay Morph Stand,Morph PlayForever"/>
+        <On index="73" Terms="TimerExpired; TimerName BurrowAnim" Send="AnimPlay MorphEnd Stand,Morph,End PlayForever"/>
+        <On index="74" Terms="TimerExpired; TimerName BurrowAnim" Send="AnimClear Morph"/>
+        <On index="75" Terms="UnitBirth" Send="AnimClear MorphEnd"/>
+        <On index="76" Terms="UnitBirth" Send="AnimPlay Cover Cover PlayForever 0.000000 0.000000"/>
+        <On index="77" Terms="UnitBirth" Send="AnimPlay CoverStart Cover,Start 0 0.000000"/>
+        <On index="78" Terms="AnimDone.*.Complete; AnimName SpellStart" Send="AnimPlay Spell Cover,Spell PlayForever,NonLooping -1.000000 -1.000000 15.000000 AsDuration"/>
+        <On index="79" Terms="ActorCreation" Send="StatusSet NotVisible 0"/>
+        <On index="80" Terms="UnitDeathCustomize; IsStatus NotVisible 1" Send="DeathCustomize Variation0"/>
+        <On index="81" removed="1"/>
+        <On index="82" removed="1"/>
+        <On index="83" removed="1"/>
+        <On index="84" removed="1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
+        <On index="92" removed="1"/>
+        <On index="93" removed="1"/>
+        <On index="94" removed="1"/>
+        <On index="95" removed="1"/>
+        <On index="96" removed="1"/>
+        <On index="97" removed="1"/>
+        <On index="98" removed="1"/>
+        <On index="99" removed="1"/>
+        <On index="100" removed="1"/>
+        <On index="101" removed="1"/>
+        <On index="102" removed="1"/>
+        <HighlightTooltip value="Unit/Name/NoxiousTumor"/>
+    </CActorUnit>
+    <CActorAction id="HeroQueenAcidSpinesAttack" parent="GenericAttack" effectImpact="HeroQueenAcidSpinesDamage" effectLaunch="HeroQueenAcidSpinesLM">
+        <LaunchAttachQuery Methods="Weapon"/>
+        <LaunchAssets Model="AcidSpinesAttackLaunch" Sound="AcidSpines_AttackLaunch"/>
+        <Missile value="AcidSpinesAttackMissile2"/>
+        <ImpactMap index="None" Model="QueenMissileImpact" Sound="AcidSpines_AttackImpact"/>
+        <ImpactPhysics Name="AcidSpinesImpact" MatchKeys="Basic" Physics="QueenAttackDeathForce"/>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorUnit id="HeroQueen" parent="Queen" unitName="HeroQueen">
+        <On index="0" Terms="UnitBirth.HeroQueen"/>
+        <On index="1" Terms="UnitBirth.HeroQueen"/>
+        <On index="2" Terms="UnitRevive.HeroQueen"/>
+        <On index="3" Terms="UnitRevive.HeroQueen"/>
+        <On index="4" Terms="UnitConstruction.HeroQueen.Start"/>
+        <On index="5" Terms="UnitConstruction.HeroQueen.Finish"/>
+        <On index="60" Terms="UnitBirth.HeroQueenBurrowed"/>
+        <On index="61" Terms="UnitBirth.HeroQueenBurrowed"/>
+        <On index="62" Terms="UnitBirth.HeroQueen.Normal"/>
+        <On index="63" Terms="Abil.HeroQueenBuild.WorkerStart"/>
+        <On index="66" Terms="Abil.RapidTransfusion.SourceFinishStart" Send="AnimPlay SpellB Spell,B"/>
+        <On index="67" Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownLarge"/>
+        <On index="68" Terms="AbilMorph.*.Cancel; MorphFrom HeroQueen; MorphTo HeroQueenBurrowed" Send="AnimClear Burrow"/>
+        <On index="69" Terms="AbilMorph.*.Finish; MorphTo HeroQueen; MorphFrom HeroQueenBurrowed" Send="AnimBracketStop Burrow"/>
+        <On index="70" Terms="AbilMorph.*.Finish; MorphTo HeroQueen; MorphFrom HeroQueenBurrowed" Send="AnimClear Burrow"/>
+        <On index="71" Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On index="72" Terms="WeaponStart.HeroQueenAcidSpines.AttackStart" Send="AnimBracketStart Attack Spell,C"/>
+        <On index="73" Terms="WeaponStart.HeroQueenTalons.AttackStart; WeaponTargetDistance LE 1.000000" Send="AnimBracketStart Attack Attack,Cover"/>
+        <On index="74" Terms="WeaponStart.HeroQueenTalons.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On index="75" Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On index="76" Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On index="77" Terms="UnitBirth.HeroQueen" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On index="78" Terms="UnitBirth.HeroQueen" Send="Create QueenCreepBirth"/>
+        <On index="79" Terms="UnitBirth.HeroQueen" Send="Create Queen_Birth"/>
+        <On index="80" Terms="UnitBirth.HeroQueen" Send="Create Queen_Birth2"/>
+        <On index="81" Terms="AbilMorph.*.Finish; MorphTo HeroQueen; MorphFrom HeroQueenBurrowed" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On index="82" Terms="AbilMorph.*.Finish; MorphTo HeroQueenBurrowed; MorphFrom HeroQueen" Send="TerrainSquibDeactivate"/>
+        <On index="83" Terms="WeaponStart.HeroQueenTalonsMissile.AttackStart" Send="AnimBracketStart Attack Spell,C"/>
+        <On index="84" Terms="UnitHeightUpdate.*.Land" Send="Create Queen_Land"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
+        <Model value="HeroQueen"/>
+        <BuildModel value="HeroQueen"/>
+        <DeathArray index="Normal" ModelLink="SwarmQueenDeath"/>
+        <PlacementModel value="HeroQueen"/>
+        <HighlightTooltip value="Unit/Name/HeroQueen"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-zerg-expeditionqueenlevel2.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-broodqueen.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-broodqueen.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-zerg-expeditionqueenlevel2.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorSound id="HeroQueen_Death" parent="SoundOneShot">
+        <On Terms="UnitDeath.HeroQueen; PassChance 25.000000" Send="Create"/>
+        <On Terms="UnitDeath.QueenBurrowed; PassChance 25.000000" Send="Create"/>
+        <Sound value="Queen_Death"/>
+    </CActorSound>
     <CActorModel id="RaptorJumpDustModel" parent="ModelAnimationStyleOneShot">
         <FogVisibility value="Visible"/>
-        <On Terms="Behavior.HotSRaptorJump.LandUp" Send="Create"/>
-        <On Terms="Behavior.HotSRaptorJump.LandDown" Send="Create"/>
-        <On Terms="Effect.HotSRaptorLeapRemove.Start; At Caster" Send="Create"/>
+        <On Terms="Behavior.HeroZerglingJump.LandUp" Send="Create"/>
+        <On Terms="Behavior.HeroZerglingJump.LandDown" Send="Create"/>
+        <On Terms="Effect.HeroZerglingLeapRemove.Start; At Caster" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpShadow" HoldPosition="1" HoldRotation="1"/>
         <Model value="JumpLandDust"/>
         <AutoScaleFactor value="1.000000"/>
     </CActorModel>
     <CActorSound id="Raptor_Jump" parent="SoundOneShot">
-        <On Terms="Behavior.HotSRaptorJump.Launch" Send="Create"/>
+        <On Terms="Behavior.HeroZerglingJump.Launch" Send="Create"/>
     </CActorSound>
+    <CActorUnit id="HeroRavager" parent="Ravager" unitName="HeroRavager">
+        <On index="0" Terms="UnitBirth.HeroRavager" Send="Create SoundEmitter HeroRavager_Ambience"/>
+        <On index="1" Terms="UnitBirth.HeroRavager"/>
+        <On index="2" Terms="UnitRevive.HeroRavager"/>
+        <On index="3" Terms="UnitRevive.HeroRavager"/>
+        <On index="4" Terms="UnitConstruction.HeroRavager.Start"/>
+        <On index="5" Terms="UnitConstruction.HeroRavager.Finish"/>
+        <On index="65" Terms="UnitBirth.HeroRavagerBurrowed" Send="Create"/>
+        <On index="66" Terms="UnitBirth.HeroRavagerBurrowed" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
+        <On index="70" Terms="AbilMorph.*.Cancel; MorphFrom HeroRavager; MorphTo HeroRavagerBurrowed" Send="AnimClear Burrow"/>
+        <On index="71" Terms="AbilMorph.*.Finish; MorphTo HeroRavager; MorphFrom HeroRavagerBurrowed" Send="AnimBracketStop Burrow"/>
+        <On index="72" Terms="Abil.HeroRavagerCorrosiveBile.SourceCastStart" Send="$Spell"/>
+        <On index="73" Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Spell"/>
+        <On index="74" Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Birth"/>
+        <On index="75" removed="1"/>
+        <On index="76" removed="1"/>
+        <EventDataFootprint index="0" Model="HeroRavagerFootprint"/>
+        <DeathArray index="Normal" VoiceLink="HeroRavagerDeathVoice"/>
+        <GroupSoundArray index="What" value="HeroRavager_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="HeroRavager_GroupYes"/>
+        <GroupSoundArray index="Attack" value="HeroRavager_GroupAttack"/>
+        <GroupSoundArray index="Board" value="HeroRavager_GroupBoard"/>
+        <HighlightTooltip value="Unit/Name/HeroRavager"/>
+        <SoundArray index="Birth" value="HeroRavager_Birth"/>
+        <SoundArray index="Help" value="HeroRavager_Help"/>
+        <SoundArray index="Movement" value="HeroRavager_Movement"/>
+        <SoundArray index="Turning" value="HeroRavager_Turning"/>
+        <SoundArray index="Board" value="HeroRavager_Board"/>
+        <SoundArray index="Click" value="HeroRavager_Click"/>
+        <SoundArray index="ClickError" value="HeroRavager_ClickError"/>
+        <SoundArray index="Highlight" value="HeroRavager_Highlight"/>
+    </CActorUnit>
+    <CActorAction id="HeroRavagerAttack" parent="RavagerAttack" effectLaunch="HeroRavagerWeaponLM">
+        <On index="6" Terms="Effect.HeroRavagerWeaponLM.Start; At Caster" Send="Create"/>
+    </CActorAction>
+    <CActorAction id="HeroRavagerCorrosiveBileAttackDown" parent="RavagerCorrosiveBileAttackDown" effectImpact="HeroRavagerCorrosiveBileSearch" effectLaunch="HeroRavagerCorrosiveBileLaunchDown">
+        <On index="1" Terms="Effect.HeroRavagerCorrosiveBileSearch.Start; FromEffectTreeDescendant"/>
+        <On index="2" Terms="Effect.HeroRavagerCorrosiveBileSearch.Stop; FromEffectTreeDescendant"/>
+        <On index="6" Terms="Effect.HeroRavagerCorrosiveBileLaunchDown.Start; At Caster" Send="Create"/>
+    </CActorAction>
+    <CActorAction id="HeroRavagerCorrosiveBileAttackUp" parent="RavagerCorrosiveBileAttackUp" effectLaunch="HeroRavagerCorrosiveBileLaunchUp">
+        <On index="6" Terms="Effect.HeroRavagerCorrosiveBileLaunchUp.Start; At Caster" Send="Create"/>
+    </CActorAction>
+    <CActorForceSphere id="HeroRavagerCorrosiveBileImpactForce" parent="RavagerCorrosiveBileImpactForce">
+        <On index="0" Terms="Effect.HeroRavagerCorrosiveBileSearch.Start" Send="Create"/>
+    </CActorForceSphere>
+    <CActorModel id="HeroRavagerCorrosiveBilePrecursor" parent="RavagerCorrosiveBilePrecursor">
+        <On index="3" Terms="Effect.HeroRavagerCorrosiveBileCP.Start" Send="Create"/>
+    </CActorModel>
+    <CActorSplat id="HeroRavagerCorrosiveBileCursorSplat" parent="ZergCursorSplat" abil="HeroRavagerCorrosiveBile"/>
+    <CActorRange id="HeroRavagerCorrosiveBileRange" parent="RangeAbil" abil="HeroRavagerCorrosiveBile">
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+        <IconArcLength value="3.250000"/>
+    </CActorRange>
+    <CActorModel id="SquibRapidTransfusion" parent="ModelAnimationStyleOneShot">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="Effect.RapidTransfusionCP.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Model value="SquibTransfusion"/>
+    </CActorModel>
+    <CActorUnit id="HeroUltralisk" parent="Ultralisk" unitName="HeroUltralisk">
+        <On index="0" Terms="UnitBirth.HeroUltralisk"/>
+        <On index="1" Terms="UnitBirth.HeroUltralisk"/>
+        <On index="2" Terms="UnitRevive.HeroUltralisk"/>
+        <On index="3" Terms="UnitRevive.HeroUltralisk"/>
+        <On index="4" Terms="UnitConstruction.HeroUltralisk.Start"/>
+        <On index="5" Terms="UnitConstruction.HeroUltralisk.Finish"/>
+        <On index="60" Terms="UnitBirth.HeroUltraliskBurrowed"/>
+        <On index="61" Terms="UnitBirth.HeroUltraliskBurrowed"/>
+        <On index="62" Terms="AbilMorph.*.Cancel; MorphFrom HeroUltralisk; MorphTo HeroUltraliskBurrowed"/>
+        <On index="63" Terms="AbilMorph.*.Finish; MorphTo HeroUltralisk; MorphFrom HeroUltraliskBurrowed"/>
+        <On index="64" Terms="AbilMorph.*.Finish; MorphTo HeroUltralisk; MorphFrom HeroUltraliskBurrowed"/>
+        <On index="66" Terms="WeaponStart.HeroUltraliskKaiserBlades.AttackStart; ValidateUnit CleaveResearched"/>
+        <On index="67" Terms="WeaponStart.HeroUltraliskKaiserBlades.AttackStart"/>
+        <On index="73" Terms="UnitBirth.HeroUltralisk"/>
+        <On index="74" Terms="AbilMorph.*.Finish; MorphTo HeroUltralisk; MorphFrom HeroUltraliskBurrowed"/>
+        <On index="75" Terms="AbilMorph.*.Finish; MorphTo HeroUltraliskBurrowed; MorphFrom HeroUltralisk"/>
+        <On index="80" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="TimerSet 0.100000 BurrowChargeFXMP"/>
+        <On index="81" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="AnimClear Fidget"/>
+        <On index="82" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="AnimBaselineStop"/>
+        <On index="83" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="AnimPlay BurrowChargeDown Burrow"/>
+        <On index="84" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="AnimPlay Burrow Walk,Burrow PlayForever"/>
+        <On index="85" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="Create BurrowChargeDownSound"/>
+        <On index="86" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="Create BurrowChargeSprintSound"/>
+        <On index="87" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="TimerSet 0.500000 BurrowChargingStateMP"/>
+        <On index="88" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="StatusSet BurrowCharging 1"/>
+        <On index="90" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="TimerSet 0.600000 ChargeFailTimerMP"/>
+        <On index="91" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="StatusSet ChargeFail 1"/>
+        <On index="92" Terms="Behavior.HeroUltraliskBurrowCharging.On" Send="StatusSet ChargeFail 0"/>
+        <On index="100" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Send="AnimClear Burrow"/>
+        <On index="101" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Send="AnimClear BurrowChargeDown"/>
+        <On index="102" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Send="AnimPlay BurrowChargeUp Spell,C"/>
+        <On index="103" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Send="AnimBaselineStart"/>
+        <On index="104" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Send="Create BurrowChargeUpSound"/>
+        <On index="105" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Send="StatusSet BurrowCharging 0"/>
+        <On index="106" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Target="BurrowChargeSprintSound" Send="Destroy"/>
+        <On index="107" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Send="TimerSet 0.500000 AnimClearCheckDelay"/>
+        <On index="111" removed="1"/>
+        <On index="112" removed="1"/>
+        <On index="113" removed="1"/>
+        <On index="114" removed="1"/>
+        <On index="115" removed="1"/>
+        <On index="116" removed="1"/>
+        <Model value="HeroUltralisk"/>
+        <BuildModel value="HeroUltralisk"/>
+        <DeathArray index="Normal" ModelLink="HeroUltraliskDeath"/>
+        <PlacementModel value="HeroUltralisk"/>
+        <HighlightTooltip value="Unit/Name/HeroUltralisk"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-zerg-ultraliskex1b.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-zerg-ultraliskex1b.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorAction id="HeroQueenTalonsLMAttack" parent="GenericAttack" effectImpact="HeroQueenTalons" effectLaunch="HeroQueenTalonsMissileLM">
+        <LaunchAttachQuery Methods="Weapon"/>
+        <LaunchAssets Sound="AcidSpines_AttackLaunch"/>
+        <Missile value="TalonsLMAttackMissile"/>
+        <ImpactMap index="None" Model="QueenMissileImpact" Sound="AcidSpines_AttackImpact"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactPhysics Name="AcidSpinesImpact" MatchKeys="Basic" Physics="QueenAttackDeathForce"/>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorSound id="RapidTransfusionSound" parent="SoundOneShot">
+        <On Terms="Effect.RapidTransfusionCP.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <Sound value="Queen_Transfusion"/>
+    </CActorSound>
+    <CActorModel id="HeroUltraliskBurrowChargeImpact" parent="UltraliskBurrowChargeImpact">
+        <On index="3" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start" Send="Create"/>
+        <On index="4" removed="1"/>
+    </CActorModel>
+    <CActorSplat id="HeroUltraliskBurrowChargeCursorSplat" parent="ZergCursorSplat" abil="HeroUltraliskBurrowCharge"/>
+    <CActorSplat id="HeroUltraliskBurrowedSplat" parent="UltraliskBurrowedSplat">
+        <On index="7" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Send="Create"/>
+        <On index="8" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Send="TimerSet 5.000000 DelayDestroy"/>
+        <On index="9" Terms="Effect.HeroUltraliskBurrowChargeTargetSearchArea.Start; At Caster" Send="RefClear ::Host"/>
+        <On index="10" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="Create"/>
+        <On index="11" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="TimerSet 5.000000 DelayDestroy"/>
+        <On index="12" Terms="Abil.HeroUltraliskBurrowCharge.SourceCastStart" Send="RefClear ::Host"/>
+    </CActorSplat>
+    <CActorForceSphere id="HeroUltraliskChargeDeathForce" parent="UltraliskChargeDeathForce">
+        <On index="1" Terms="Effect.HeroUltraliskBurrowChargeImpactSet.Stop; At Caster" Send="Create"/>
+    </CActorForceSphere>
     <CActorArc id="VileAcidSalivaCursorSplat" parent="GuideVisualArc" abil="VileAcidSaliva">
         <Model value="ZergLineCursorSplat"/>
         <Radius value="8.750000"/>
@@ -26,13 +408,13 @@
         <On index="5" Terms="UnitConstruction.HeroHydralisk.Finish"/>
         <On index="61" Terms="WeaponStart.HeroHydraliskNeedleSpines.AttackStart; WeaponTargetElevation GE 20.000000"/>
         <On index="62" Terms="WeaponStart.HeroHydraliskNeedleSpines.AttackStart; WeaponTargetElevation LE -20.000000"/>
-        <On index="63" Terms="WeaponStart.HeroHydraliskMelee.AttackStart"/>
+        <On index="63" Terms="WeaponStart.HeroHydraliskClaws.AttackStart"/>
         <On index="64" Terms="WeaponStart.HeroHydraliskNeedleSpines.AttackStart"/>
         <On index="65" Terms="WeaponStop.HeroHydraliskNeedleSpines.AttackStop"/>
         <On index="66" Terms="WeaponStop.HeroHydraliskNeedleSpines.AttackStop"/>
         <On index="67" Terms="WeaponStop.HeroHydraliskNeedleSpines.AttackStop"/>
-        <On index="69" Terms="WeaponStart.HeroHydraliskMelee.AttackStart; AnimPlaying AttackCover Cover,00"/>
-        <On index="70" Terms="WeaponStart.HeroHydraliskMelee.AttackStart; AnimPlaying AttackCover Cover,01"/>
+        <On index="69" Terms="WeaponStart.HeroHydraliskClaws.AttackStart; AnimPlaying AttackCover Cover,00"/>
+        <On index="70" Terms="WeaponStart.HeroHydraliskClaws.AttackStart; AnimPlaying AttackCover Cover,01"/>
         <On index="72" Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownMedium"/>
         <On index="73" Terms="AbilMorph.*.Cancel; MorphFrom HunterKiller; MorphTo HunterKillerBurrowed" Send="AnimClear Burrow"/>
         <On index="74" Terms="AbilMorph.*.Finish; MorphTo HunterKiller; MorphFrom HunterKillerBurrowed" Send="AnimBracketStop Burrow"/>
@@ -44,7 +426,7 @@
         <On index="80" Terms="AbilMorph.*.Finish; MorphTo HunterKiller; MorphFrom HunterKillerBurrowed" Send="TerrainSquibActivateGroup RippleStandard"/>
         <On index="81" Terms="AbilMorph.*.Finish; MorphTo HunterKillerBurrowed; MorphFrom HunterKiller" Send="TerrainSquibDeactivate"/>
         <On index="82" Terms="UnitHeightUpdate.*.Land" Send="Create Hydra_Land"/>
-        <On index="83" removed="1"/>
+        <On index="83" Terms="Abil.HeroHydraliskImpale.SourceCastStart" Send="AnimPlay AttackCover Attack,Cover,00"/>
         <On index="84" removed="1"/>
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
@@ -142,24 +524,18 @@
         <On Terms="Effect.DigesterCreepSprayPersistCreatePersistent.Start; At Caster" Send="Create Spell_CreepSpray_Loop"/>
         <On Terms="Effect.DigesterCreepSprayPersistCreatePersistent.Stop; At Caster" Send="AnimBracketStop Work"/>
         <On Terms="Effect.DigesterCreepSprayPersistCreatePersistent.Stop; At Caster" Target="Spell_CreepSpray_Loop" Send="Destroy"/>
-        <Model value="NydusCanalCreeper"/>
-        <BuildModel value="NydusCreeperRumble"/>
         <DeathArray index="Normal" ModelLink="NydusCanalCreeperDeath" SoundLink="" VoiceLink="CreepTower_Death"/>
         <DeathArray index="Disintegrate" ModelLink="NydusCanalCreeperDeathAcid" SoundLink="Uni_DeathFXAcid"/>
         <DeathArray index="Fire" ModelLink="NydusCanalCreeperDeathFire" SoundLink="Uni_DeathFXFireLarge"/>
         <DeathArray index="UnderConstruction" ModelLink="ZergBuildingDeath" SoundLink="Zerg_ExplosionLarge"/>
-        <PlacementModel value="NydusCanalCreeperPlacement"/>
         <PlacementSound value="Zerg_BuildingPlacement"/>
-        <PlacementActorModel value="PlacementModel"/>
-        <PlaceholderActorModel value="PlaceholderModel"/>
-        <PortraitModel value="ZergBuildingEx2_Portrait"/>
+        <PortraitModel value="CerebratePortrait"/>
         <BarOffset value="115"/>
         <BarWidth value="85"/>
         <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Zerg-NydusCreepTower.dds"/>
+            <Image value="Assets\Textures\wireframe-zerg-cerebrate.dds"/>
         </GroupIcon>
-        <GroupSoundArray index="What" value=""/>
-        <HeroIcon value="Assets\Textures\Wireframe-Zerg-NydusCreepTower.dds"/>
+        <HeroIcon value="Assets\Textures\wireframe-zerg-cerebrate.dds"/>
         <LifeArmorIcon value="Assets\Textures\btn-armor-zerg-building.dds"/>
         <NameOffset value="70"/>
         <SoundArray index="Birth" value=""/>
@@ -167,12 +543,14 @@
         <SoundArray index="What" value="CreepTower_What"/>
         <SoundArray index="Yes" value="CreepTower_What"/>
         <SoundArray index="Construction" value="Zerg_RockBuildingMorph_What"/>
-        <UnitFlags index="ShowBlobShadow" value="0"/>
-        <UnitIcon value="Assets\Textures\btn-unit-zerg-nyduscreeptower.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-cerebrate.dds"/>
         <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Zerg-NydusCreepTower.dds"/>
+            <Image value="Assets\Textures\wireframe-zerg-cerebrate.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorMissile id="HeroRoachAcidSalivaMissile" parent="GenericAttackMissile" unitName="WeaponAcidSalivaAbility">
+        <Model value="AbilityAcidSalivaWeapon"/>
+    </CActorMissile>
     <CActorUnit id="HeroRoach" parent="Roach" unitName="HeroRoach">
         <On index="0" Terms="UnitBirth.HeroRoach"/>
         <On index="1" Terms="UnitBirth.HeroRoach"/>
@@ -182,8 +560,8 @@
         <On index="5" Terms="UnitConstruction.HeroRoach"/>
         <On index="60" Terms="UnitMovementUpdate.HeroRoachBurrowed.Stand"/>
         <On index="61" Terms="UnitMovementUpdate.HeroRoachBurrowed.Walk"/>
-        <On index="65" Terms="WeaponStart.HeroRoachMelee.AttackStart"/>
-        <On index="66" Terms="WeaponStop.HeroRoachMelee.AttackStop"/>
+        <On index="65" Terms="WeaponStart.HeroRoachClaws.AttackStart"/>
+        <On index="66" Terms="WeaponStop.HeroRoachClaws.AttackStop"/>
         <On index="68" Terms="UnitBirth.HeroRoachBurrowed"/>
         <On index="70" Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownMedium"/>
         <On index="71" Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="AnimClear Fidget"/>
@@ -210,17 +588,18 @@
         <HighlightTooltip value="Unit/Name/HeroRoach"/>
         <UnitIcon value="Assets\Textures\btn-unit-zerg-roach-vile.dds"/>
     </CActorUnit>
-    <CActorMissile id="HeroRoachAttackMissile" parent="GenericAttackMissile" unitName="WeaponAcidSalivaAbility">
-        <Model value="AbilityAcidSalivaWeapon"/>
-    </CActorMissile>
+    <CActorSound id="HeroRoachAcidSalivaImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.AbilityAcidSalivaDamage.Start" Send="Create"/>
+        <Sound value="Roach_AttackImpactRanged"/>
+    </CActorSound>
     <CActorAction id="HeroRoachAttack" parent="GenericAttack" effectImpact="AbilityAcidSalivaDamage" effectLaunch="AbilityAcidSalivaLM">
         <LaunchAttachQuery Methods="Head"/>
         <LaunchAssets Sound="Roach_AttackLaunchRanged"/>
-        <ImpactMap index="None" Model="RoachMissileImpact" Sound="Roach_AttackImpactRanged"/>
         <ImpactPhysics Name="AcidSalivaImpact" MatchKeys="Basic" Physics="RoachAttackDeathForce"/>
         <AcquisitionYawHalfArc value="10.000000"/>
         <AcquisitionPitchHalfArc value="15.000000"/>
         <AccuracyHalfArc value="15.000000"/>
+        <Missile value="HeroRoachAcidSalivaMissile"/>
     </CActorAction>
     <CActorModel id="VileAcidSalivaSlow" parent="ModelAnimationStyleContinuous">
         <On Terms="Behavior.AcidSalivaSlowed.On" Send="Create"/>
@@ -228,7 +607,7 @@
         <On Terms="Behavior.AcidSalivaSlowedHeroic.On" Send="Create"/>
         <On Terms="Behavior.AcidSalivaSlowedHeroic.Off" Send="AnimBracketStop BSD"/>
     </CActorModel>
-    <CActorAction id="VileMeleeAttack" parent="GenericAttack" effectAttack="HeroRoachUMelee">
+    <CActorAction id="VileMeleeAttack" parent="GenericAttack" effectAttack="HeroRoachClawsDamage">
         <LaunchAssets Model="RoachMeleeAttackLaunch" Sound="RoachMeleeAttackLaunch"/>
         <Beam value="RoachMeleeAttackBeam"/>
         <Missile value="RoachMeleeAttackMissile"/>
@@ -263,10 +642,10 @@
         <AttackAnimName value="AttackCover"/>
     </CActorAction>
     <CActorSound id="VileAttackStart" parent="SoundOneShot">
-        <On Terms="WeaponStart.HeroRoachMelee.AttackStart" Send="Create"/>
+        <On Terms="WeaponStart.HeroRoachClaws.AttackStart" Send="Create"/>
         <Sound value="Roach_AttackLaunchMelee"/>
     </CActorSound>
-    <CActorSound id="Roach_Death2" parent="SoundOneShot">
+    <CActorSound id="HeroRoach_Death" parent="SoundOneShot">
         <On Terms="UnitDeath.Roach2; PassChance 25.000000" Send="Create"/>
         <On Terms="UnitDeath.RoachBurrowed; PassChance 25.000000" Send="Create"/>
         <Sound value="Roach_Death"/>

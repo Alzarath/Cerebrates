@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Regions>
+    <region id="1">
+        <name value="Center"/>
+        <shape type="circle">
+            <center value="80,48.125"/>
+            <radius value="7.001"/>
+        </shape>
+    </region>
+</Regions>

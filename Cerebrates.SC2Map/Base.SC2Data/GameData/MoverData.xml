@@ -5,8 +5,8 @@
         <MotionPhases index="0">
             <Driver value="AdaptableParabola"/>
             <Acceleration value="0"/>
-            <MinSpeed value="10"/>
-            <MaxSpeed value="10"/>
+            <MinSpeed value="16"/>
+            <MaxSpeed value="16"/>
             <ClearanceAcceleration value="75"/>
             <ActorTracking value="Actual"/>
             <Outro value="0"/>

@@ -14,6 +14,7 @@
 <Actor id="ZergCarcasses" Variations="6"/>
 <Actor id="ZergCurbs" Variations="2"/>
 <Actor id="ZergBonePileSmall" Variations="0,1"/>
+<Behavior id="DisableAbils"/>
 <Terrain id="DesertWorld"/>
 <Unit id="Hatchery"/>
 <Unit id="Extractor"/>
@@ -25,14 +26,21 @@
 <Unit id="Drone"/>
 <Unit id="Zergling"/>
 <Unit id="Overlord"/>
-<Unit id="Hydralisk"/>
+<Unit id="Infestor"/>
 <Unit id="Queen"/>
 <Unit id="CreepTumorBurrowed"/>
 <Unit id="MineralField" Variations="0,1,2,3,4,5,6,7,8,9"/>
 <Unit id="VespeneGeyser"/>
+<Unit id="SwarmHostMP"/>
 <Unit id="LurkerMPBurrowed"/>
+<Unit id="DefilerMP"/>
 <Unit id="QueenMP"/>
-<Unit id="Cerebrate"/>
 <Unit id="HeroHydralisk"/>
+<Unit id="HeroRoach"/>
+<Unit id="HeroQueen"/>
+<Unit id="HeroRavager"/>
 <Unit id="HeroZergling"/>
+<Unit id="HeroOverlord"/>
+<Unit id="Cerebrate"/>
+<Unit id="HeroUltralisk"/>
 </Preload>

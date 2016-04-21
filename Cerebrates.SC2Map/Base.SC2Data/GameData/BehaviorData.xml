@@ -25,6 +25,28 @@
             </Cost>
         </DamageResponse>
     </CBehaviorBuff>
+    <CBehaviorBuff id="HeroUltraliskBurrowChargeKnockback" parent="BurrowChargeMPKnockback">
+        <Name value="Behavior/Name/HeroUltraliskBurrowChargeKnockback2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HeroHydraliskMuscularDistensionBuff">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-muscularaugments.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <MaxStackCount value="7"/>
+        <Duration value="4"/>
+        <Modification AttackSpeedMultiplier="1.05"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HeroUltraliskBurrowCharging" parent="BurrowChargingRevD">
+        <Name value="Behavior/Name/HeroUltraliskBurrowCharging2"/>
+        <Modification>
+            <WeaponDisableArray index="0" value="HeroUltraliskKaiserBlades"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Frenzy2">
+        <Alignment value="Positive"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-creepmove.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="HotSRaptorCharging">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-charge.dds"/>
@@ -38,9 +60,9 @@
             <WeaponDisableArray value="HotSRaptorClaws"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorJump id="HotSRaptorJump">
+    <CBehaviorJump id="HeroZerglingJump">
         <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <TriggerHeightDeltaMin value="1.5"/>
         <TriggerHeightDeltaMax value="4.5"/>
         <InitiateRangeUp value="0.5"/>
@@ -64,6 +86,34 @@
         <Birth value="CreepGrowthCerebrateStart"/>
         <Grown value="CreepGrowthCerebrate"/>
     </CBehaviorCreepSource>
+    <CBehaviorBuff id="NoxiousCloud">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-poisonnova.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Period value="1"/>
+        <PeriodicEffect value="NoxiousCloudSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Poisoned">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-poisonnova.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="4"/>
+        <Period value="1"/>
+        <PeriodicEffect value="NoxiousCloudDamage"/>
+        <Modification>
+            <StateFlags index="SuppressLifeRegen" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HeroUltraliskTPrecursorBurrowChargeImpact" parent="PrecursorBurrowChargeImpact">
+        <Name value="Behavior/Name/HeroUltraliskTPrecursorBurrowChargeImpact2"/>
+        <Tooltip value="Behavior/Tooltip/HeroUltraliskTPrecursorBurrowChargeImpact2"/>
+    </CBehaviorBuff>
+    <CBehaviorSpawn id="SpawnHeroLarva" parent="SpawnLarva">
+        <Name value="Behavior/Name/SpawnHeroLarva2"/>
+        <Tooltip value="Behavior/Tooltip/SpawnHeroLarva"/>
+        <InfoArray index="0" Unit="HeroLarva" MaxCount="3" Delay="15"/>
+        <InfoArray index="1" removed="1"/>
+    </CBehaviorSpawn>
     <CBehaviorBuff id="VileAcidSaliva">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Period value="0.0625"/>

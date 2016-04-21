@@ -2,54 +2,11 @@
 <PlacedObjects Version="27">
     <ObjectUnit Id="127" Position="36.5,48,0" Rotation="0.523" Scale="1,1,1" UnitType="Cerebrate" Player="9"/>
     <ObjectUnit Id="373" Position="123.5,48,0" Rotation="0.523" Scale="1,1,1" UnitType="Cerebrate" Player="10"/>
-    <ObjectUnit Id="1" Position="125.5,62.5,0" Scale="1,1,1" UnitType="CreepTumorBurrowed" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="40" Position="125.5,33.5,0" Scale="1,1,1" UnitType="CreepTumorBurrowed" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="120" Position="34.5,62.5,0" Scale="1,1,1" UnitType="CreepTumorBurrowed" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="154" Position="34.5,33.5,0" Scale="1,1,1" UnitType="CreepTumorBurrowed" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
+    <ObjectUnit Id="1" Position="125.5,62.5,0" Scale="1,1,1" UnitType="CreepTumorBurrowed" Player="10"/>
+    <ObjectUnit Id="40" Position="125.5,33.5,0" Scale="1,1,1" UnitType="CreepTumorBurrowed" Player="10"/>
+    <ObjectUnit Id="120" Position="34.5,62.5,0" Scale="1,1,1" UnitType="CreepTumorBurrowed" Player="9"/>
+    <ObjectUnit Id="154" Position="34.5,33.5,0" Scale="1,1,1" UnitType="CreepTumorBurrowed" Player="9"/>
+    <ObjectUnit Id="392" Position="76,45,0" Rotation="2.356" Scale="1,1,1" UnitType="DefilerMP" Player="15"/>
     <ObjectUnit Id="41" Position="21.5,58.5,0" Rotation="3.9567" Scale="1,1,1" UnitType="Drone" Player="9"/>
     <ObjectUnit Id="42" Position="21.5,37.5,0" Rotation="0.6955" Scale="1,1,1" UnitType="Drone" Player="9"/>
     <ObjectUnit Id="236" Position="138,64.5,0" Rotation="5.211" Scale="1,1,1" UnitType="Drone" Player="10"/>
@@ -96,110 +53,32 @@
     <ObjectUnit Id="290" Position="21.5,31.5,0" Rotation="3.8413" Scale="1,1,1" UnitType="Drone" Player="9"/>
     <ObjectUnit Id="291" Position="20,32.5,0" Rotation="1.0732" Scale="1,1,1" UnitType="Drone" Player="9"/>
     <ObjectUnit Id="292" Position="136,50.5,0" Rotation="4.405" Scale="1,1,1" UnitType="Drone" Player="10"/>
-    <ObjectUnit Id="169" Position="31.5,34.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="EvolutionChamber" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="177" Position="128.5,34.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="EvolutionChamber" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="80" Position="24.5,62.5,0" Scale="1,1,1" UnitType="Hatchery" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="119" Position="24.5,33.5,0" Scale="1,1,1" UnitType="Hatchery" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="179" Position="134.5,62.5,0" Scale="1,1,1" UnitType="Hatchery" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="180" Position="134.5,33.5,0" Scale="1,1,1" UnitType="Hatchery" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
+    <ObjectUnit Id="169" Position="31.5,34.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="EvolutionChamber" Player="9"/>
+    <ObjectUnit Id="177" Position="128.5,34.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="EvolutionChamber" Player="10"/>
+    <ObjectUnit Id="80" Position="24.5,62.5,0" Scale="1,1,1" UnitType="Hatchery" Player="9"/>
+    <ObjectUnit Id="119" Position="24.5,33.5,0" Scale="1,1,1" UnitType="Hatchery" Player="9"/>
+    <ObjectUnit Id="179" Position="134.5,62.5,0" Scale="1,1,1" UnitType="Hatchery" Player="10"/>
+    <ObjectUnit Id="180" Position="134.5,33.5,0" Scale="1,1,1" UnitType="Hatchery" Player="10"/>
     <ObjectUnit Id="296" Position="34.5,49.5,0" Rotation="1.9028" Scale="1,1,1" UnitType="HeroHydralisk" Player="9"/>
     <ObjectUnit Id="306" Position="34.5,46.5,0" Rotation="5.0043" Scale="1,1,1" UnitType="HeroHydralisk" Player="9"/>
+    <ObjectUnit Id="323" Position="82,52,0" Rotation="5.4975" Scale="1,1,1" UnitType="HeroHydralisk"/>
     <ObjectUnit Id="376" Position="125.5,49.5,0" Rotation="4.3806" Scale="1,1,1" UnitType="HeroHydralisk" Player="10"/>
     <ObjectUnit Id="377" Position="125.5,46.5,0" Rotation="1.28" Scale="1,1,1" UnitType="HeroHydralisk" Player="10"/>
-    <ObjectUnit Id="298" Position="34.5,51.5,0" Rotation="0.578" Scale="1,1,1" UnitType="HeroZergling" Player="9"/>
-    <ObjectUnit Id="301" Position="34.5,44.5,0" Rotation="1.9953" Scale="1,1,1" UnitType="HeroZergling" Player="9"/>
-    <ObjectUnit Id="374" Position="125.5,51.5,0" Rotation="5.7048" Scale="1,1,1" UnitType="HeroZergling" Player="10"/>
-    <ObjectUnit Id="375" Position="125.5,44.5,0" Rotation="4.2878" Scale="1,1,1" UnitType="HeroZergling" Player="10"/>
-    <ObjectUnit Id="43" Position="133.5,47.5,0" Scale="1,1,1" UnitType="Hive" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
+    <ObjectUnit Id="390" Position="86,47,0" Rotation="3.9265" Scale="1,1,1" UnitType="HeroOverlord"/>
+    <ObjectUnit Id="387" Position="84,45,0" Rotation="3.9267" Scale="1,1,1" UnitType="HeroQueen"/>
+    <ObjectUnit Id="326" Position="79,44,0" Rotation="3.1413" Scale="1,1,1" UnitType="HeroRavager"/>
+    <ObjectUnit Id="318" Position="76,51,0" Rotation="0.7851" Scale="1,1,1" UnitType="HeroRoach"/>
+    <ObjectUnit Id="389" Position="78,52,0" Rotation="0.785" Scale="1,1,1" UnitType="HeroUltralisk">
+        <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="79" Position="26.5,48.5,0" Scale="1,1,1" UnitType="Hive" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
+    <ObjectUnit Id="298" Position="34.5,51.5,0" Rotation="0.5776" Scale="1,1,1" UnitType="HeroZergling" Player="9"/>
+    <ObjectUnit Id="301" Position="34.5,44.5,0" Rotation="1.995" Scale="1,1,1" UnitType="HeroZergling" Player="9"/>
+    <ObjectUnit Id="322" Position="84,51,0" Rotation="5.4975" Scale="1,1,1" UnitType="HeroZergling"/>
+    <ObjectUnit Id="374" Position="125.5,51.5,0" Rotation="5.7045" Scale="1,1,1" UnitType="HeroZergling" Player="10"/>
+    <ObjectUnit Id="375" Position="125.5,44.5,0" Rotation="4.2875" Scale="1,1,1" UnitType="HeroZergling" Player="10"/>
+    <ObjectUnit Id="43" Position="133.5,47.5,0" Scale="1,1,1" UnitType="Hive" Player="10"/>
+    <ObjectUnit Id="79" Position="26.5,48.5,0" Scale="1,1,1" UnitType="Hive" Player="9"/>
+    <ObjectUnit Id="391" Position="74,47,0" Rotation="2.356" Scale="1,1,1" UnitType="Infestor" Player="15"/>
     <ObjectUnit Id="113" Position="73.5,68.5,0" Rotation="5.2446" Scale="1,1,1" UnitType="LurkerMPBurrowed" Player="9"/>
     <ObjectUnit Id="114" Position="73.5,64.5,0" Rotation="3.615" Scale="1,1,1" UnitType="LurkerMPBurrowed" Player="9"/>
     <ObjectUnit Id="115" Position="73.5,60.5,0" Rotation="2.354" Scale="1,1,1" UnitType="LurkerMPBurrowed" Player="9"/>
@@ -324,7 +203,7 @@
     <ObjectUnit Id="111" Position="142,32.5,0" Scale="1,1,1" UnitType="MineralField" Resources="10000"/>
     <ObjectUnit Id="293" Variation="6" Position="137,39.5,0" Scale="1,1,1" UnitType="MineralField" Resources="10000"/>
     <ObjectUnit Id="294" Variation="9" Position="135,39.5,0" Scale="1,1,1" UnitType="MineralField" Resources="10000"/>
-    <ObjectUnit Id="58" Position="138,42,0" Rotation="4.2414" Scale="1,1,1" UnitType="Overlord" Player="10"/>
+    <ObjectUnit Id="58" Position="139.5,44.5,0" Rotation="4.2414" Scale="1,1,1" UnitType="Overlord" Player="10"/>
     <ObjectUnit Id="121" Position="40,63,0" Rotation="1.5427" Scale="1,1,1" UnitType="Overlord" Player="9"/>
     <ObjectUnit Id="168" Position="40,33,0" Rotation="1.5986" Scale="1,1,1" UnitType="Overlord" Player="9"/>
     <ObjectUnit Id="170" Position="24.5,33.5,0" Rotation="10.0786" Scale="1,1,1" UnitType="Overlord" Player="9"/>
@@ -338,7 +217,7 @@
     <ObjectUnit Id="184" Position="141.5,33.5,0" Rotation="5.488" Scale="1,1,1" UnitType="Overlord" Player="10"/>
     <ObjectUnit Id="185" Position="134.5,62.5,0" Rotation="3.519" Scale="1,1,1" UnitType="Overlord" Player="10"/>
     <ObjectUnit Id="186" Position="141.5,62.5,0" Rotation="5.3867" Scale="1,1,1" UnitType="Overlord" Player="10"/>
-    <ObjectUnit Id="188" Position="22,54,0" Rotation="1.0986" Scale="1,1,1" UnitType="Overlord" Player="9"/>
+    <ObjectUnit Id="188" Position="20.5,51.5,0" Rotation="1.0986" Scale="1,1,1" UnitType="Overlord" Player="9"/>
     <ObjectUnit Id="189" Position="20,46,0" Rotation="1.9982" Scale="1,1,1" UnitType="Overlord" Player="9"/>
     <ObjectUnit Id="235" Position="38.5,48,0" Rotation="4.0187" Scale="1,1,1" UnitType="Overlord" Player="9"/>
     <ObjectUnit Id="242" Position="36.5,50,0" Rotation="2.0856" Scale="1,1,1" UnitType="Overlord" Player="9"/>
@@ -356,971 +235,93 @@
     <ObjectUnit Id="193" Position="131,32,0" Rotation="2.2026" Scale="1,1,1" UnitType="Queen" Player="10"/>
     <ObjectUnit Id="233" Position="36.5,48,0" Rotation="4.9033" Scale="1,1,1" UnitType="QueenMP" Player="9"/>
     <ObjectUnit Id="386" Position="123.5,48,0" Rotation="1.381" Scale="1,1,1" UnitType="QueenMP" Player="10"/>
-    <ObjectUnit Id="123" Position="31.5,61.5,0" Scale="1,1,1" UnitType="SpawningPool" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="194" Position="128.5,61.5,0" Scale="1,1,1" UnitType="SpawningPool" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="124" Position="29,62,0" Rotation="9.6584" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="125" Position="34,61,0" Rotation="6.1108" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="134" Position="32,64,0" Rotation="4.9377" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="135" Position="40,59,0" Rotation="9.6552" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="136" Position="40,61,0" Rotation="7.953" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="137" Position="40,63,0" Rotation="9.4243" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="138" Position="40,65,0" Rotation="9.3652" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="139" Position="42,64,0" Rotation="10.7678" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="140" Position="42,62,0" Rotation="10.0786" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="141" Position="42,60,0" Rotation="6.729" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="142" Position="44,63,0" Rotation="10.089" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="143" Position="44,61,0" Rotation="6.2546" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="149" Position="29,34,0" Rotation="10.763" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="150" Position="34,35,0" Rotation="6.4553" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="151" Position="32,32,0" Rotation="9.1984" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="159" Position="40,37,0" Rotation="11.5512" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="160" Position="40,35,0" Rotation="10.8967" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="161" Position="40,33,0" Rotation="11.782" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="162" Position="40,31,0" Rotation="11.841" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="163" Position="42,32,0" Rotation="10.439" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="164" Position="42,34,0" Rotation="8.7717" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="165" Position="42,36,0" Rotation="8.1933" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="166" Position="44,33,0" Rotation="11.1176" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="167" Position="44,35,0" Rotation="8.6677" Scale="1,1,1" UnitType="SpineCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="195" Position="131,62,0" Rotation="2.9104" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="196" Position="126,61,0" Rotation="0.1738" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="197" Position="127,64,0" Rotation="1.3461" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="198" Position="120,59,0" Rotation="2.9133" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="199" Position="120,61,0" Rotation="4.6152" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="200" Position="120,63,0" Rotation="3.144" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="201" Position="120,65,0" Rotation="3.2031" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="202" Position="118,64,0" Rotation="1.8012" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="203" Position="118,62,0" Rotation="2.49" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="204" Position="118,60,0" Rotation="5.8386" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="205" Position="116,63,0" Rotation="2.4797" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="206" Position="116,61,0" Rotation="0.03" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="207" Position="131,34,0" Rotation="1.8063" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="208" Position="126,35,0" Rotation="6.1125" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="209" Position="127,32,0" Rotation="3.37" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="210" Position="120,37,0" Rotation="1.018" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="211" Position="120,35,0" Rotation="1.6726" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="212" Position="120,33,0" Rotation="0.7875" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="213" Position="120,31,0" Rotation="0.7285" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="214" Position="118,32,0" Rotation="2.13" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="215" Position="118,34,0" Rotation="3.797" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="216" Position="118,36,0" Rotation="4.3754" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="217" Position="116,33,0" Rotation="1.4516" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="218" Position="116,35,0" Rotation="3.901" Scale="1,1,1" UnitType="SpineCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="144" Position="31,59,0" Rotation="10.7111" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="145" Position="29,60,0" Rotation="10.6166" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="146" Position="38,60,0" Rotation="5.6716" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="147" Position="38,62,0" Rotation="4.794" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="148" Position="38,64,0" Rotation="9.958" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="152" Position="31,37,0" Rotation="8.1394" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="153" Position="29,36,0" Rotation="8.2341" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="155" Position="38,36,0" Rotation="6.8945" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="156" Position="38,34,0" Rotation="7.7714" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="157" Position="38,32,0" Rotation="11.2482" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="158" Position="38,30,0" Rotation="12.5295" Scale="1,1,1" UnitType="SporeCrawler" Player="9">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="219" Position="129,59,0" Rotation="1.8576" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="220" Position="131,60,0" Rotation="1.9521" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="221" Position="122,60,0" Rotation="0.6127" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="222" Position="122,62,0" Rotation="1.49" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="223" Position="122,64,0" Rotation="2.6105" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
+    <ObjectUnit Id="123" Position="31.5,61.5,0" Scale="1,1,1" UnitType="SpawningPool" Player="9"/>
+    <ObjectUnit Id="194" Position="128.5,61.5,0" Scale="1,1,1" UnitType="SpawningPool" Player="10"/>
+    <ObjectUnit Id="124" Position="29,62,0" Rotation="9.6584" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="125" Position="34,61,0" Rotation="6.1108" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="134" Position="32,64,0" Rotation="4.9377" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="135" Position="40,59,0" Rotation="9.6552" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="136" Position="40,61,0" Rotation="7.953" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="137" Position="40,63,0" Rotation="9.4243" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="138" Position="40,65,0" Rotation="9.3652" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="139" Position="42,64,0" Rotation="10.7678" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="140" Position="42,62,0" Rotation="10.0786" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="141" Position="42,60,0" Rotation="6.729" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="142" Position="44,63,0" Rotation="10.089" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="143" Position="44,61,0" Rotation="6.2546" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="149" Position="29,34,0" Rotation="10.763" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="150" Position="34,35,0" Rotation="6.4553" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="151" Position="32,32,0" Rotation="9.1984" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="159" Position="40,37,0" Rotation="11.5512" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="160" Position="40,35,0" Rotation="10.8967" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="161" Position="40,33,0" Rotation="11.782" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="162" Position="40,31,0" Rotation="11.841" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="163" Position="42,32,0" Rotation="10.439" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="164" Position="42,34,0" Rotation="8.7717" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="165" Position="42,36,0" Rotation="8.1933" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="166" Position="44,33,0" Rotation="11.1176" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="167" Position="44,35,0" Rotation="8.6677" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="195" Position="131,62,0" Rotation="2.9104" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="196" Position="126,61,0" Rotation="0.1738" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="197" Position="127,64,0" Rotation="1.3461" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="198" Position="120,59,0" Rotation="2.9133" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="199" Position="120,61,0" Rotation="4.6152" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="200" Position="120,63,0" Rotation="3.144" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="201" Position="120,65,0" Rotation="3.2031" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="202" Position="118,64,0" Rotation="1.8012" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="203" Position="118,62,0" Rotation="2.49" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="204" Position="118,60,0" Rotation="5.8386" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="205" Position="116,63,0" Rotation="2.4797" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="206" Position="116,61,0" Rotation="0.03" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="207" Position="131,34,0" Rotation="1.8063" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="208" Position="126,35,0" Rotation="6.1125" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="209" Position="127,32,0" Rotation="3.37" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="210" Position="120,37,0" Rotation="1.018" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="211" Position="120,35,0" Rotation="1.6726" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="212" Position="120,33,0" Rotation="0.7875" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="213" Position="120,31,0" Rotation="0.7285" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="214" Position="118,32,0" Rotation="2.13" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="215" Position="118,34,0" Rotation="3.797" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="216" Position="118,36,0" Rotation="4.3754" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="217" Position="116,33,0" Rotation="1.4516" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="218" Position="116,35,0" Rotation="3.901" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="144" Position="31,59,0" Rotation="10.7111" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="145" Position="29,60,0" Rotation="10.6166" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="146" Position="38,60,0" Rotation="5.6716" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="147" Position="38,62,0" Rotation="4.794" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="148" Position="38,64,0" Rotation="9.958" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="152" Position="31,37,0" Rotation="8.1394" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="153" Position="29,36,0" Rotation="8.2341" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="155" Position="38,36,0" Rotation="6.8945" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="156" Position="38,34,0" Rotation="7.7714" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="157" Position="38,32,0" Rotation="11.2482" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="158" Position="38,30,0" Rotation="12.5295" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="219" Position="129,59,0" Rotation="1.8576" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="220" Position="131,60,0" Rotation="1.9521" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="221" Position="122,60,0" Rotation="0.6127" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="222" Position="122,62,0" Rotation="1.49" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="223" Position="122,64,0" Rotation="2.6105" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
     <ObjectUnit Id="224" Position="122,66,0" Rotation="3.8918" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
-    <ObjectUnit Id="225" Position="129,37,0" Rotation="4.429" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="226" Position="131,36,0" Rotation="4.3342" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="227" Position="122,36,0" Rotation="5.6735" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="228" Position="122,34,0" Rotation="4.7966" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="229" Position="122,32,0" Rotation="1.321" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="230" Position="122,30,0" Rotation="0.0402" Scale="1,1,1" UnitType="SporeCrawler" Player="10">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
+    <ObjectUnit Id="225" Position="129,37,0" Rotation="4.429" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="226" Position="131,36,0" Rotation="4.3342" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="227" Position="122,36,0" Rotation="5.6735" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="228" Position="122,34,0" Rotation="4.7966" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="229" Position="122,32,0" Rotation="1.321" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="230" Position="122,30,0" Rotation="0.0402" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="265" Position="38,66,0" Rotation="1.439" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="388" Position="81,44,0" Rotation="3.1413" Scale="1,1,1" UnitType="SwarmHostMP" Player="15"/>
     <ObjectUnit Id="2" Position="54.5,78.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
+    <ObjectUnit Id="19" Position="22.5,41.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
+    <ObjectUnit Id="20" Position="27.5,55.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
     <ObjectUnit Id="30" Position="54.5,17.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
     <ObjectUnit Id="59" Position="105.5,78.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
     <ObjectUnit Id="69" Position="105.5,17.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
-    <ObjectUnit Id="19" Position="22.5,41.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="Extractor" Player="9" Resources="30000">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="20" Position="27.5,55.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="Extractor" Player="9" Resources="30000">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="88" Position="17.5,65.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="Extractor" Player="9" Resources="30000">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="96" Position="17.5,30.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="Extractor" Player="9" Resources="30000">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="104" Position="141.5,65.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="Extractor" Player="10" Resources="30000">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="112" Position="141.5,30.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="Extractor" Player="10" Resources="30000">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="190" Position="137.5,54.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="Extractor" Player="10" Resources="30000">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
-    <ObjectUnit Id="191" Position="132.5,40.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="Extractor" Player="10" Resources="30000">
-        <AIRebuild Index="1" Value="14"/>
-        <AIRebuild Index="2" Value="14"/>
-        <AIRebuild Index="3" Value="14"/>
-        <AIRebuild Index="4" Value="14"/>
-        <AIRebuild Index="5" Value="14"/>
-        <AIRebuild Index="6" Value="14"/>
-        <AIRebuild Index="7" Value="14"/>
-        <AIRebuild Index="8" Value="14"/>
-        <AIRebuild Index="9" Value="14"/>
-        <AIRebuild Index="10" Value="14"/>
-    </ObjectUnit>
+    <ObjectUnit Id="88" Position="17.5,65.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
+    <ObjectUnit Id="96" Position="17.5,30.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
+    <ObjectUnit Id="104" Position="141.5,65.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
+    <ObjectUnit Id="112" Position="141.5,30.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
+    <ObjectUnit Id="190" Position="137.5,54.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
+    <ObjectUnit Id="191" Position="132.5,40.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
     <ObjectDoodad Id="362" Position="80,14.5,9.9995" Rotation="3.0861" Scale="0.9,0.9,0.65" Type="DesertCaveEntrance">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
@@ -1336,10 +337,10 @@
     <ObjectDoodad Id="131" Variation="3" Position="72.6584,36.8498,7.9897" Rotation="0.4138" Scale="1.0827,1.0827,1.0827" Type="MarSaraBones">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="370" Variation="1" Position="77.5344,81.2814,9.9995" Rotation="0.0126" Scale="1,1,1" Type="MarSaraGroundProps">
+    <ObjectDoodad Id="370" Variation="1" Position="77.5344,81.2814,9.9997" Rotation="0.0126" Scale="1,1,1" Type="MarSaraGroundProps">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="371" Variation="2" Position="81.9912,81.4978,9.9995" Rotation="2.4" Scale="1,1,1" Type="MarSaraGroundProps">
+    <ObjectDoodad Id="371" Variation="2" Position="81.9912,81.4978,10" Rotation="2.4" Scale="1,1,1" Type="MarSaraGroundProps">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="364" Position="80,15,9.9995" Rotation="4.7873" Scale="1,1,1" Type="MarSaraMineCart">
@@ -1379,50 +380,54 @@
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="372" Variation="2" Position="83.0397,81.75,9.9995" Rotation="0.0078" Scale="0.7998,0.7998,0.5998" Type="StoreFrontCityProps">
+    <ObjectDoodad Id="372" Variation="2" Position="83.0397,81.75,10" Rotation="0.0078" Scale="0.7998,0.7998,0.5998" Type="StoreFrontCityProps">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="366" Variation="1" Position="80,81.5,9.9995" Scale="1,1,1" Type="TerranButcherPropSmall">
+    <ObjectDoodad Id="366" Variation="1" Position="80,81.5,10" Scale="1,1,1" Type="TerranButcherPropSmall">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="365" Position="78.7456,79.7346,9.9995" Rotation="6.2172" Scale="1,1,1" Type="TerranHalfWall">
+    <ObjectDoodad Id="365" Position="78.7456,79.7346,10" Rotation="6.2172" Scale="1,1,1" Type="TerranHalfWall">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="367" Position="83.7734,80.2814,9.9995" Rotation="0.7192" Scale="1,1,1" Type="TerranHalfWall">
+    <ObjectDoodad Id="367" Position="83.7734,80.2814,10" Rotation="0.7192" Scale="1,1,1" Type="TerranHalfWall">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="368" Position="81.3525,79.7275,9.9995" Rotation="0.029" Scale="1,1,1" Type="TerranHalfWall">
+    <ObjectDoodad Id="368" Position="81.3525,79.7275,10" Rotation="0.029" Scale="1,1,1" Type="TerranHalfWall">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="369" Position="76.5,81,9.9995" Rotation="5.4714" Scale="1,1,1" Type="TerranHalfWall">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="268" Variation="1" Position="99.9624,54.2558,7.9997" Rotation="1.6604" Scale="1.0205,1.0205,1.0205" Type="ZergBonePileSmall"/>
-    <ObjectDoodad Id="321" Position="60.3442,41.8991,8.0056" Rotation="1.2221" Scale="1.0214,1.0214,1.0214" Type="ZergBonePileSmall"/>
-    <ObjectDoodad Id="269" Variation="6" Position="92,42,7.9956" Rotation="5.6223" Scale="1,1,1" Type="ZergCarcasses"/>
-    <ObjectDoodad Id="133" Variation="2" Position="112.609,51.9125,8.0136" Rotation="3.6262" Scale="0.8332,0.8332,0.8332" Type="ZergCurbs"/>
+    <ObjectDoodad Id="268" Variation="1" Position="99.9624,54.2558,7.9997" Rotation="1.6604" Scale="1.0205,1.0205,1.0205" Type="ZergBonePileSmall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="321" Position="60.3442,41.8991,8.0056" Rotation="1.2221" Scale="1.0214,1.0214,1.0214" Type="ZergBonePileSmall">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="269" Variation="6" Position="92,42,7.9956" Rotation="5.6223" Scale="1,1,1" Type="ZergCarcasses">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="133" Variation="2" Position="112.609,51.9125,8.0136" Rotation="3.6262" Scale="0.8332,0.8332,0.8332" Type="ZergCurbs">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
     <ObjectPoint Id="126" Position="80,48,0" Scale="1,1,1" Type="Normal" Name="Player Selector" Color="0,0,0,0"/>
     <ObjectPoint Id="175" Position="26.5,42.5,0" Scale="1,1,1" Type="Normal" Name="Left - Center Lurker Den" Color="0,0,0,0"/>
     <ObjectPoint Id="234" Position="87.5,18.5,0" Scale="1,1,1" Type="Normal" Name="Right - Lower Expansion Creep Tumor" Color="0,0,0,0"/>
+    <ObjectPoint Id="258" Position="24.5,62.5,0" Scale="1,1,1" Type="Normal" Name="Left - Upper Hatchery" Color="0,0,0,0"/>
     <ObjectPoint Id="264" Position="133.5,53.5,0" Scale="1,1,1" Type="Normal" Name="Right - Center Lurker Den" Color="0,0,0,0"/>
-    <ObjectPoint Id="265" Position="78,44,0" Scale="1,1,1" Type="Normal" Name="Player 3 Beacon" Color="0,0,0,0"/>
     <ObjectPoint Id="266" Position="61.5,73.5,0" Scale="1,1,1" Type="Normal" Name="Left - Upper Expansion Hatchery" Color="0,0,0,0"/>
     <ObjectPoint Id="267" Position="61.5,22.5,0" Scale="1,1,1" Type="Normal" Name="Left - Lower Expansion Hatchery" Color="0,0,0,0"/>
     <ObjectPoint Id="297" Position="26.5,48.5,0" Scale="1,1,1" Type="StartLoc" Name="Left - Start Location" Color="0,0,0,0"/>
+    <ObjectPoint Id="299" Position="24.5,33.5,0" Scale="1,1,1" Type="Normal" Name="Left - Lower Hatchery" Color="0,0,0,0"/>
     <ObjectPoint Id="307" Position="133.5,47.5,0" Scale="1,1,1" Type="StartLoc" Name="Right - Start Location" Color="0,0,0,0"/>
-    <ObjectPoint Id="309" Position="75,46,0" Scale="1,1,1" Type="Normal" Name="Player 7 Beacon" Color="0,0,0,0"/>
+    <ObjectPoint Id="308" Position="134.5,62.5,0" Scale="1,1,1" Type="Normal" Name="Right - Upper Hatchery" Color="0,0,0,0"/>
     <ObjectPoint Id="315" Position="41,62,0" Scale="1,1,1" Type="Normal" Name="Left - Upper Waypoint" Color="0,0,0,0"/>
     <ObjectPoint Id="316" Position="41,34,0" Scale="1,1,1" Type="Normal" Name="Left - Lower Waypoint" Color="0,0,0,0"/>
+    <ObjectPoint Id="317" Position="134.5,33.5,0" Scale="1,1,1" Type="Normal" Name="Right - Lower Hatchery" Color="0,0,0,0"/>
     <ObjectPoint Id="319" Position="98.5,73.5,0" Scale="1,1,1" Type="Normal" Name="Right - Upper Expansion Hatchery" Color="0,0,0,0"/>
     <ObjectPoint Id="320" Position="98.5,22.5,0" Scale="1,1,1" Type="Normal" Name="Right - Lower Expansion Hatchery" Color="0,0,0,0"/>
     <ObjectPoint Id="324" Position="119,62,0" Scale="1,1,1" Type="Normal" Name="Right - Upper Waypoint" Color="0,0,0,0"/>
     <ObjectPoint Id="325" Position="119,34,0" Scale="1,1,1" Type="Normal" Name="Right - Lower Waypoint" Color="0,0,0,0"/>
-    <ObjectPoint Id="327" Position="82,44,0" Scale="1,1,1" Type="Normal" Name="Player 4 Beacon" Color="0,0,0,0"/>
-    <ObjectPoint Id="328" Position="85,46,0" Scale="1,1,1" Type="Normal" Name="Player 8 Beacon" Color="0,0,0,0"/>
-    <ObjectPoint Id="329" Position="75,50,0" Scale="1,1,1" Type="Normal" Name="Player 5 Beacon" Color="0,0,0,0"/>
-    <ObjectPoint Id="330" Position="85,50,0" Rotation="5.0886" Scale="1,1,1" Type="Normal" Name="Player 6 Beacon" Color="0,0,0,0"/>
-    <ObjectPoint Id="331" Position="83,52,0" Scale="1,1,1" Type="Normal" Name="Player 2 Beacon" Color="0,0,0,0"/>
-    <ObjectPoint Id="332" Position="77,52,0" Scale="1,1,1" Type="Normal" Name="Player 1 Beacon" Color="0,0,0,0"/>
     <ObjectPoint Id="333" Position="72.5,18.5,0" Scale="1,1,1" Type="Normal" Name="Left - Lower Expansion Creep Tumor" Color="0,0,0,0"/>
     <ObjectPoint Id="334" Position="72.5,77.5,0" Scale="1,1,1" Type="Normal" Name="Left - Upper Expansion Creep Tumor" Color="0,0,0,0"/>
     <ObjectPoint Id="335" Position="87.5,77.5,0" Scale="1,1,1" Type="Normal" Name="Right - Upper Expansion Creep Tumor" Color="0,0,0,0"/>

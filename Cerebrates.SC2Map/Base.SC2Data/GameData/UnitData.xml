@@ -1,5 +1,212 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CUnit id="HeroLarva" parent="Larva">
+        <Name value="Unit/Name/HeroLarva"/>
+        <Description value="Button/Tooltip/HeroLarva"/>
+        <AbilArray index="0" Link="HeroLarvaTrain"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="0" Face="Cancel" AbilCmd="que1,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons index="1" Face="HeroZergling" AbilCmd="HeroLarvaTrain,Train1" Column="0"/>
+            <LayoutButtons index="2" Face="HeroRoach" AbilCmd="HeroLarvaTrain,Train4"/>
+            <LayoutButtons index="3" Face="HeroHydralisk" Type="AbilCmd" AbilCmd="HeroLarvaTrain,Train2" Row="1" Column="0"/>
+            <LayoutButtons index="4" Face="HeroRavager" Type="AbilCmd" AbilCmd="HeroLarvaTrain,Train7" Row="0" Column="2"/>
+            <LayoutButtons index="5" Face="HeroQueen" Type="AbilCmd" AbilCmd="HeroLarvaTrain,Train13" Row="0" Column="4"/>
+            <LayoutButtons index="6" Face="HeroOverlord" Type="AbilCmd" AbilCmd="HeroLarvaTrain,Train14" Row="1" Column="4"/>
+            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="8" removed="1"/>
+            <LayoutButtons index="9" removed="1"/>
+            <LayoutButtons index="10" removed="1"/>
+            <LayoutButtons index="11" removed="1"/>
+            <LayoutButtons index="12" removed="1"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+    </CUnit>
+    <CUnit id="NoxiousTumorHeroQueen" parent="CreepTumorQueen">
+        <Name value="Unit/Name/SpikeTumor"/>
+        <Description value="Button/Tooltip/NoxiousTumor"/>
+        <AbilArray index="1" Link="BurrowNoxiousTumorDown"/>
+    </CUnit>
+    <CUnit id="NoxiousTumorBurrowed" parent="CreepTumorBurrowed">
+        <Name value="Unit/Name/SpikeTumor"/>
+        <Description value="Button/Tooltip/NoxiousTumor"/>
+        <AbilArray index="0" Link="BuildInProgress"/>
+        <AbilArray index="1" removed="1"/>
+        <BehaviorArray Link="NoxiousCloud"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="0" Face="NoxiousCloud" Type="Passive" AbilCmd="" Row="2" Column="0"/>
+            <LayoutButtons index="1" removed="1"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="HeroQueen" parent="Queen">
+        <Name value="Unit/Name/HeroQueen"/>
+        <Description value="Button/Tooltip/HeroQueen"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <Speed value="2.25"/>
+        <SpeedMultiplierCreep value="1.3"/>
+        <AbilArray index="3" Link="HeroQueenBuild"/>
+        <AbilArray index="4" Link="BurrowHeroQueenDown"/>
+        <AbilArray index="5" Link="RapidTransfusion"/>
+        <AbilArray index="6" removed="1"/>
+        <WeaponArray index="0" Link="SpellEfficiency"/>
+        <WeaponArray index="1" Link="HeroQueenAcidSpines"/>
+        <WeaponArray index="2" Link="HeroQueenTalons"/>
+        <WeaponArray Link="HeroQueenTalonsMissile"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="NoxiousTumor" AbilCmd="HeroQueenBuild,Build1"/>
+            <LayoutButtons index="6" Face="RapidTransfusion" AbilCmd="RapidTransfusion,Execute"/>
+            <LayoutButtons index="7" Face="BurrowDown" AbilCmd="BurrowHeroQueenDown,Execute" Column="4"/>
+            <LayoutButtons index="8" removed="1"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <ReviveType value="HeroQueen"/>
+        <CostResource index="Minerals" value="300"/>
+        <LeaderAlias value="HeroQueen"/>
+        <SelectAlias value="HeroQueen"/>
+        <SubgroupAlias value="HeroQueen"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
+        <Food value="0"/>
+        <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+    </CUnit>
+    <CUnit id="HeroQueenBurrowed" parent="QueenBurrowed">
+        <Name value="Unit/Name/HeroQueen"/>
+        <Description value="Button/Tooltip/HeroQueen"/>
+        <AbilArray index="1" Link="BurrowHeroQueenUp"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="1" AbilCmd="BurrowHeroQueenUp,Execute"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <ReviveType value="HeroQueenBurrowed"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <CostResource index="Minerals" value="300"/>
+        <LeaderAlias value="HeroQueen"/>
+        <SelectAlias value="HeroQueenBurrowed"/>
+        <SubgroupAlias value="HeroQueenBurrowed"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
+        <Food value="0"/>
+    </CUnit>
+    <CUnit id="HeroRavager" parent="Ravager">
+        <Name value="Unit/Name/HeroRavager"/>
+        <Description value="Button/Tooltip/HeroRavager"/>
+        <ReviveType value="HeroRavager"/>
+        <LifeStart value="140"/>
+        <LifeMax value="140"/>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="150"/>
+        <AbilArray index="3" Link="BurrowHeroRavagerDown"/>
+        <AbilArray index="4" Link="HeroRavagerCorrosiveBile"/>
+        <WeaponArray index="0" Link="SpellEfficiency"/>
+        <WeaponArray Link="HeroRavagerWeapon"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="BurrowDown" Type="AbilCmd" AbilCmd="BurrowHeroRavagerDown,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="6" Face="HeroRavagerCorrosiveBile" Type="AbilCmd" AbilCmd="HeroRavagerCorrosiveBile,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <LeaderAlias value="HeroRavager"/>
+        <SelectAlias value="HeroRavager"/>
+        <SubgroupAlias value="HeroRavager"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
+        <Food value="0"/>
+        <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+    </CUnit>
+    <CUnit id="HeroRavagerBurrowed" parent="RavagerBurrowed">
+        <Name value="Unit/Name/HeroRavager"/>
+        <Description value="Button/Tooltip/HeroRavagerBurrowed"/>
+        <ReviveType value="HeroRavagerBurrowed"/>
+        <LifeStart value="140"/>
+        <LifeMax value="140"/>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="150"/>
+        <AbilArray index="0" Link="BurrowHeroRavagerUp"/>
+        <AbilArray index="1" Link="HeroRavagerCorrosiveBile"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="1" Face="BurrowUp" Type="AbilCmd" AbilCmd="BurrowHeroRavagerUp,Execute" Row="2" Column="4"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <LeaderAlias value="HeroRavager"/>
+        <SelectAlias value="HeroRavagerBurrowed"/>
+        <SubgroupAlias value="HeroRavagerBurrowed"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
+        <Food value="0"/>
+    </CUnit>
+    <CUnit id="HeroOverlord" parent="OverlordTransport">
+        <Name value="Unit/Name/HeroOverlord"/>
+        <Description value="Button/Tooltip/HeroOverlord"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
+        <Speed value="1.879"/>
+        <Food value="30"/>
+        <CostResource index="Minerals" value="350"/>
+        <AbilArray index="1" Link="HeroOverlordTransport"/>
+        <AbilArray index="3" Link="HeroOverlordGenerateCreep"/>
+        <AbilArray index="4" removed="1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="6" Face="Cancel" Type="AbilCmd" AbilCmd="MorphToOverseer,Cancel" Row="2" Column="4"/>
+            <LayoutButtons index="7" Face="HeroOverlordGenerateCreep" Type="AbilCmd" AbilCmd="HeroOverlordGenerateCreep,On" Row="2" Column="0"/>
+            <LayoutButtons index="8" Face="OverlordTransportLoad" Type="AbilCmd" AbilCmd="HeroOverlordTransport,Load" Row="2" Column="2"/>
+            <LayoutButtons index="9" Face="OverlordTransportUnload" Type="AbilCmd" AbilCmd="HeroOverlordTransport,UnloadAt" Row="2" Column="3"/>
+            <LayoutButtons index="10" Face="HeroOverlordStopGenerateCreep" Type="AbilCmd" AbilCmd="HeroOverlordGenerateCreep,Off" Row="2" Column="0"/>
+            <LayoutButtons index="11" removed="1"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <LeaderAlias value="HeroOverlord"/>
+        <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+        <AIEvaluateAlias value="HeroOverlord"/>
+        <ReviveType value="HeroOverlord"/>
+        <SelectAlias value="HeroOverlord"/>
+        <SubgroupAlias value="HeroOverlord"/>
+        <GlossaryPriority value="201"/>
+    </CUnit>
+    <CUnit id="HeroUltralisk" parent="Ultralisk">
+        <Name value="Unit/Name/HeroUltralisk"/>
+        <Description value="Button/Tooltip/HeroUltralisk"/>
+        <ReviveType value="HeroUltralisk"/>
+        <LifeArmor value="2"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
+        <Food value="0"/>
+        <CostResource index="Minerals" value="450"/>
+        <CostResource index="Vespene" value="300"/>
+        <AbilArray index="3" Link="BurrowHeroUltraliskDown"/>
+        <AbilArray index="4" Link="HeroUltraliskWeaponCooldown"/>
+        <AbilArray Link="HeroUltraliskBurrowCharge"/>
+        <BehaviorArray index="0" Link="Frenzy2"/>
+        <WeaponArray index="0" Link="SpellEfficiency"/>
+        <WeaponArray index="1" Link="HeroUltraliskKaiserBlades"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" AbilCmd="BurrowHeroUltraliskDown,Execute"/>
+            <LayoutButtons index="6" Face="Frenzied" Type="Passive" Behavior="Frenzy2" Row="2" Column="1"/>
+            <LayoutButtons Face="HeroUltraliskBurrowCharge" Type="AbilCmd" AbilCmd="HeroUltraliskBurrowCharge,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <LeaderAlias value="HeroUltralisk"/>
+        <SelectAlias value="HeroUltralisk"/>
+        <SubgroupAlias value="HeroUltralisk"/>
+        <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+    </CUnit>
+    <CUnit id="HeroUltraliskBurrowed" parent="UltraliskBurrowed">
+        <Name value="Unit/Name/HeroUltralisk"/>
+        <Description value="Button/Tooltip/HeroUltralisk"/>
+        <ReviveType value="HeroUltraliskBurrowed"/>
+        <LifeArmor value="2"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
+        <Food value="0"/>
+        <CostResource index="Minerals" value="450"/>
+        <CostResource index="Vespene" value="300"/>
+        <AbilArray index="0" Link="BurrowHeroUltraliskUp"/>
+        <AbilArray Link="HeroUltraliskBurrowCharge"/>
+        <BehaviorArray index="0" Link="Frenzy2"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="1" AbilCmd="BurrowHeroUltraliskUp,Execute"/>
+            <LayoutButtons index="2" Face="Frenzied" Type="Passive" Behavior="Frenzy" Row="2" Column="1"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <LeaderAlias value="HeroUltralisk"/>
+        <SelectAlias value="HeroUltraliskBurrowed"/>
+        <SubgroupAlias value="HeroUltraliskBurrowed"/>
+    </CUnit>
     <CUnit id="WeaponAcidSalivaAbility" parent="MISSILE">
         <Race value="Zerg"/>
         <Mover value="AcidSalivaWeapon"/>
@@ -12,38 +219,51 @@
         <Description value="Button/Tooltip/HeroHydralisk"/>
         <LifeStart value="160"/>
         <LifeMax value="160"/>
-        <LifeArmor value="2"/>
+        <LifeArmor value="1"/>
         <Speed value="2.8125"/>
-        <SpeedMultiplierCreep value="1.2"/>
+        <SpeedMultiplierCreep value="1.3"/>
         <Food value="0"/>
-        <CostResource index="Minerals" value="250"/>
-        <CostResource index="Vespene" value="125"/>
-        <AbilArray index="3" Link="BurrowHunterKillerDown"/>
-        <AbilArray index="4" removed="1"/>
+        <CostResource index="Minerals" value="200"/>
+        <CostResource index="Vespene" value="100"/>
+        <AbilArray index="3" Link="BurrowHeroHydraliskDown"/>
+        <AbilArray index="4" Link="HeroHydraliskImpale"/>
         <AbilArray index="5" removed="1"/>
-        <WeaponArray index="0" Link="HeroHydraliskMelee"/>
-        <WeaponArray index="1" Link="HeroHydraliskNeedleSpines"/>
+        <WeaponArray index="0" Link="SpellEfficiency"/>
+        <WeaponArray index="1" Link="HeroHydraliskClaws"/>
+        <WeaponArray Link="HeroHydraliskNeedleSpines"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" AbilCmd="BurrowHunterKillerDown,Execute"/>
-            <LayoutButtons index="6" removed="1"/>
+            <LayoutButtons index="5" AbilCmd="BurrowHeroHydraliskDown,Execute"/>
+            <LayoutButtons index="6" Face="HeroHydraliskImpale" Type="AbilCmd" AbilCmd="HeroHydraliskImpale,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="HeroHydraliskMuscularDistension" Type="Passive" Row="2" Column="1"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
         <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+        <ReviveType value="HeroHydralisk"/>
+        <LeaderAlias value="HeroHydralisk"/>
+        <SelectAlias value="HeroHydralisk"/>
+        <SubgroupAlias value="HeroHydralisk"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
     </CUnit>
     <CUnit id="HeroHydraliskBurrowed" parent="HydraliskBurrowed">
-        <Name value="Unit/Name/HunterKiller"/>
+        <Name value="Unit/Name/HeroHydralisk"/>
         <Description value="Button/Tooltip/HeroHydralisk"/>
         <LifeStart value="160"/>
         <LifeMax value="160"/>
-        <LifeArmor value="2"/>
+        <LifeArmor value="1"/>
         <Food value="0"/>
-        <CostResource index="Minerals" value="250"/>
-        <CostResource index="Vespene" value="125"/>
-        <AbilArray index="0" Link="BurrowHunterKillerUp"/>
+        <CostResource index="Minerals" value="200"/>
+        <CostResource index="Vespene" value="100"/>
+        <AbilArray index="0" Link="BurrowHeroHydraliskUp"/>
+        <AbilArray Link="HeroHydraliskImpale"/>
         <CardLayouts index="0">
-            <LayoutButtons index="1" AbilCmd="BurrowHunterKillerUp,Execute"/>
+            <LayoutButtons index="1" AbilCmd="BurrowHeroHydraliskUp,Execute"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <ReviveType value="HeroHydraliskBurrowed"/>
+        <LeaderAlias value="HeroHydralisk"/>
+        <SelectAlias value="HeroHydraliskBurrowed"/>
+        <SubgroupAlias value="HeroHydraliskBurrowed"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
     </CUnit>
     <CUnit id="Cerebrate">
         <DeathRevealRadius value="3"/>
@@ -85,12 +305,12 @@
         <AbilArray Link="que5"/>
         <AbilArray Link="Rally"/>
         <AbilArray Link="CerebrateInteract"/>
-        <AbilArray Link="CerebrateTrain"/>
         <BehaviorArray Link="MakeCreepCerebrate"/>
         <BehaviorArray Link="Detector10"/>
+        <BehaviorArray Link="SpawnHeroLarva"/>
         <CardLayouts>
-            <LayoutButtons Face="DevouringOne" Type="AbilCmd" AbilCmd="CerebrateTrain,Train1" Row="0" Column="0"/>
-            <LayoutButtons Face="HunterKiller" Type="AbilCmd" AbilCmd="CerebrateTrain,Train2" Row="0" Column="1"/>
+            <LayoutButtons Face="HeroZergling" Type="AbilCmd" AbilCmd="CerebrateTrain,Train1" Row="0" Column="0"/>
+            <LayoutButtons Face="HeroHydralisk" Type="AbilCmd" AbilCmd="CerebrateTrain,Train2" Row="0" Column="1"/>
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
             <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
         </CardLayouts>
@@ -114,33 +334,44 @@
         <Mover value="CliffJumper"/>
         <Speed value="4.6992"/>
         <Food value="0"/>
-        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Minerals" value="200"/>
         <AbilArray index="3" Link="BurrowHeroZerglingDown"/>
-        <AbilArray index="4" Link="HotSRaptorCharge"/>
+        <AbilArray index="4" Link="HeroZerglingLeap"/>
         <AbilArray index="5" removed="1"/>
-        <BehaviorArray Link="HotSRaptorJump"/>
-        <WeaponArray index="0" Link="HeroZerglingClaws"/>
+        <BehaviorArray Link="HeroZerglingJump"/>
+        <WeaponArray index="0" Link="SpellEfficiency"/>
+        <WeaponArray Link="HeroZerglingClaws"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="BurrowDown" AbilCmd="BurrowHeroZerglingDown,Execute" Column="4"/>
-            <LayoutButtons index="6" Face="HeroZerglingCharge" AbilCmd="HotSRaptorCharge,Execute" Column="0"/>
+            <LayoutButtons index="6" Face="HeroZerglingCharge" AbilCmd="HeroZerglingLeap,Execute" Column="0"/>
             <LayoutButtons Face="HeroZerglingCliffJumper" Type="Passive" Row="2" Column="1"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
         <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+        <ReviveType value="HeroZergling"/>
+        <LeaderAlias value="HeroZergling"/>
+        <SelectAlias value="HeroZergling"/>
+        <SubgroupAlias value="HeroZergling"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
     </CUnit>
     <CUnit id="HeroZerglingBurrowed" parent="ZerglingBurrowed">
-        <Name value="Unit/Name/DevouringOne"/>
+        <Name value="Unit/Name/HeroZergling"/>
         <Description value="Button/Tooltip/HeroZergling"/>
         <LifeStart value="120"/>
         <LifeMax value="120"/>
         <LifeArmor value="1"/>
         <Food value="0"/>
-        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Minerals" value="200"/>
         <AbilArray index="0" Link="UnburrowHeroZerglingUp"/>
         <CardLayouts index="0">
             <LayoutButtons index="1" AbilCmd="UnburrowHeroZerglingUp,Execute"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <ReviveType value="HeroZerglingBurrowed"/>
+        <LeaderAlias value="HeroZergling"/>
+        <SelectAlias value="HeroZerglingBurrowed"/>
+        <SubgroupAlias value="HeroZerglingBurrowed"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
     </CUnit>
     <CUnit id="HeroRoach" parent="Roach">
         <Name value="Unit/Name/HeroRoach"/>
@@ -148,27 +379,48 @@
         <AbilArray index="3" Link="BurrowHeroRoachDown"/>
         <AbilArray index="4" Link="VileAcidSaliva"/>
         <WeaponArray index="0" Link="SpellEfficiency"/>
-        <WeaponArray index="1" Link="HeroRoachMelee"/>
+        <WeaponArray index="1" Link="HeroRoachClaws"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="AcidSaliva" AbilCmd="VileAcidSaliva,Execute" Column="0"/>
-            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="7" Face="BurrowDown" Type="AbilCmd" AbilCmd="BurrowHeroRoachDown,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <CostResource index="Minerals" value="150"/>
         <CostResource index="Vespene" value="50"/>
         <Food value="0"/>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
         <GlossaryCategory value="Unit/Category/ZergHeroes"/>
+        <ReviveType value="HeroRoach"/>
+        <LifeStart value="220"/>
+        <LifeMax value="220"/>
+        <LifeArmor value="2"/>
+        <Speed value="3"/>
+        <LeaderAlias value="HeroRoach"/>
+        <SelectAlias value="HeroRoach"/>
+        <SubgroupAlias value="HeroRoach"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
     </CUnit>
     <CUnit id="HeroRoachBurrowed" parent="RoachBurrowed">
         <Name value="Unit/Name/HeroRoach"/>
         <CostResource index="Minerals" value="150"/>
         <CostResource index="Vespene" value="50"/>
         <AbilArray index="0" Link="BurrowHeroRoachUp"/>
+        <AbilArray Link="VileAcidSaliva"/>
         <CardLayouts index="0">
             <LayoutButtons index="1" AbilCmd="BurrowHeroRoachUp,Execute"/>
         </CardLayouts>
         <Food value="0"/>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <ReviveType value="HeroRoachBurrowed"/>
+        <LifeStart value="220"/>
+        <LifeMax value="220"/>
+        <LifeArmor value="2"/>
+        <Speed value="2.25"/>
+        <Acceleration value="1000"/>
+        <LeaderAlias value="HeroRoach"/>
+        <SelectAlias value="HeroRoachBurrowed"/>
+        <SubgroupAlias value="HeroRoachBurrowed"/>
+        <Description value="Button/Tooltip/HeroRoach"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergHeroArmor"/>
     </CUnit>
     <CUnit id="SporeCrawler">
         <Footprint value="Footprint2x2ZergSpineCrawler"/>

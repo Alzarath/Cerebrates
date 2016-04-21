@@ -5,26 +5,130 @@
         <AlertIcon value="Assets\Textures\btn-ability-zerg-vileacidsaliva.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="HeroZerglingCharge">
-        <Icon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+    <CButton id="HeroHydraliskMuscularDistension">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-evolvemuscularaugments.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-evolvemuscularaugments.dds"/>
         <EditorCategories value="Race:Zerg"/>
-        <HotkeyAlias value="HotSRaptorCharge"/>
     </CButton>
-    <CButton id="HunterKiller">
-        <Icon value="Assets\Textures\btn-unit-zerg-hydralisk.dds"/>
+    <CButton id="HeroUltraliskBurrowCharge" parent="BurrowChargeMP">
+        <Name value="Button/Name/HeroUltraliskBurrowCharge"/>
+        <Tooltip value="Button/Tooltip/HeroUltraliskBurrowCharge"/>
+        <AlertName value="Button/Name/HeroUltraliskBurrowCharge"/>
+        <AlertTooltip value="Button/Tooltip/HeroUltraliskBurrowCharge"/>
+        <Hotkey value="Button/Hotkey/HeroUltraliskBurrowCharge"/>
+    </CButton>
+    <CButton id="HeroHydraliskImpale" parent="Impale">
+        <Name value="Button/Name/HeroHydraliskImpale"/>
+        <Tooltip value="Button/Tooltip/HeroHydraliskImpale"/>
+        <AlertName value="Button/Name/HeroHydraliskImpale"/>
+        <AlertTooltip value="Button/Tooltip/HeroHydraliskImpale"/>
+        <Hotkey value="Button/Hotkey/HeroHydraliskImpale"/>
+    </CButton>
+    <CButton id="HeroOverlordGenerateCreep" parent="GenerateCreep">
+        <Name value="Button/Name/HeroOverlordGenerateCreep"/>
+        <Tooltip value="Button/Tooltip/HeroOverlordGenerateCreep"/>
+        <AlertName value="Button/Name/HeroOverlordGenerateCreep"/>
+        <AlertTooltip value="Button/Tooltip/HeroOverlordGenerateCreep"/>
+        <Hotkey value="Button/Hotkey/HeroOverlordGenerateCreep"/>
+    </CButton>
+    <CButton id="HeroRoach" parent="Roach">
+        <Name value="Button/Name/HeroRoach"/>
+        <Tooltip value="Button/Tooltip/HeroRoach"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-roach-vile.dds"/>
+        <AlertName value="Button/Name/HeroRoach"/>
+        <AlertTooltip value="Button/Tooltip/HeroRoach"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-roach-vile.dds"/>
+        <Hotkey value="Button/Hotkey/HeroRoach"/>
+    </CButton>
+    <CButton id="HeroQueen" parent="Queen">
+        <Name value="Button/Name/HeroQueen"/>
+        <Tooltip value="Button/Tooltip/HeroQueen"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-broodqueen.dds"/>
+        <AlertName value="Button/Name/HeroQueen"/>
+        <AlertTooltip value="Button/Tooltip/HeroQueen"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-broodqueen.dds"/>
+        <Hotkey value="Button/Hotkey/HeroQueen"/>
+    </CButton>
+    <CButton id="NoxiousTumor">
+        <Icon value="Assets\Textures\btn-building-zerg-creeptumor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-zerg-creeptumor.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="HeroHydralisk" parent="Hydralisk">
+        <Name value="Button/Name/HeroHydralisk"/>
+        <Tooltip value="Button/Tooltip/HeroHydralisk"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-hydralisk-impaler.dds"/>
+        <AlertName value="Button/Name/HeroHydralisk"/>
+        <AlertTooltip value="Button/Tooltip/HeroHydralisk"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-hydralisk-impaler.dds"/>
+        <Hotkey value="Button/Hotkey/HeroHydralisk"/>
+    </CButton>
+    <CButton id="HeroZerglingCharge">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hotsmetabolicboost.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hotsmetabolicboost.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="DevouringOne">
+    <CButton id="HeroZergling" parent="Zergling">
+        <Name value="Button/Name/HeroZergling"/>
+        <Tooltip value="Button/Tooltip/HeroZergling"/>
         <Icon value="Assets\Textures\btn-unit-zerg-zergling-raptor.dds"/>
+        <AlertName value="Button/Name/HeroZergling"/>
+        <AlertTooltip value="Button/Tooltip/HeroZergling"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling-raptor.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <Hotkey value="Button/Hotkey/HeroZergling"/>
     </CButton>
     <CButton id="HeroZerglingCliffJumper">
         <Icon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="RaptorCliffJumper"/>
+    </CButton>
+    <CButton id="NoxiousCloud">
+        <Icon value="Assets\Textures\btn-ability-zerg-poisonnova.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="HeroOverlord" parent="Overlord">
+        <Name value="Button/Name/HeroOverlord"/>
+        <Tooltip value="Button/Tooltip/HeroOverlord"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-overlordtransport.dds"/>
+        <AlertName value="Button/Name/HeroOverlord"/>
+        <AlertTooltip value="Button/Tooltip/HeroOverlord"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-overlordtransport.dds"/>
+        <Hotkey value="Button/Hotkey/HeroOverlord"/>
+    </CButton>
+    <CButton id="RapidTransfusion">
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="HeroOverlordStopGenerateCreep" parent="StopGenerateCreep">
+        <Name value="Button/Name/HeroOverlordStopGenerateCreep"/>
+        <Tooltip value="Button/Tooltip/HeroOverlordStopGenerateCreep"/>
+        <AlertName value="Button/Name/HeroOverlordStopGenerateCreep"/>
+        <AlertTooltip value="Button/Tooltip/HeroOverlordStopGenerateCreep"/>
+        <Hotkey value="Button/Hotkey/HeroOverlordStopGenerateCreep"/>
+    </CButton>
+    <CButton id="HeroRavagerCorrosiveBile" parent="RavagerCorrosiveBile">
+        <Name value="Button/Name/HeroRavagerCorrosiveBile"/>
+        <Tooltip value="Button/Tooltip/HeroRavagerCorrosiveBile"/>
+        <AlertName value="Button/Name/HeroRavagerCorrosiveBile"/>
+        <AlertTooltip value="Button/Tooltip/HeroRavagerCorrosiveBile"/>
+        <Hotkey value="Button/Hotkey/HeroRavagerCorrosiveBile"/>
+        <HotkeyAlias value="HeroRavagerCorrosiveBile"/>
+    </CButton>
+    <CButton id="HeroRavager" parent="Roach">
+        <Name value="Button/Name/HeroRavager"/>
+        <Tooltip value="Button/Tooltip/HeroRavager"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-ravager.dds"/>
+        <AlertName value="Button/Name/HeroRavager"/>
+        <AlertTooltip value="Button/Tooltip/HeroRavager"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-ravager.dds"/>
+        <Hotkey value="Button/Hotkey/HeroRavager"/>
+    </CButton>
+    <CButton id="HeroUltralisk">
+        <Icon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="Ultralisk"/>
     </CButton>
 </Catalog>

@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CAbilMorph id="BurrowHunterKillerDown" parent="BurrowHydraliskDown">
-        <Name value="Abil/Name/BurrowHunterKillerDown"/>
-        <InfoArray index="0" Unit="HeroHydraliskBurrowed"/>
-        <CmdButtonArray index="Execute" Requirements=""/>
+    <CAbilMorph id="BurrowHeroUltraliskUp" parent="BurrowUltraliskUp">
+        <Name value="Abil/Name/BurrowHeroUltraliskUp"/>
+        <InfoArray index="0" Unit="HeroUltralisk"/>
     </CAbilMorph>
-    <CAbilMorph id="BurrowHunterKillerUp" parent="BurrowHydraliskUp">
-        <Name value="Abil/Name/BurrowHunterKillerUp"/>
+    <CAbilEffectTarget id="HeroUltraliskBurrowCharge" parent="BurrowChargeRevD">
+        <Name value="Abil/Name/HeroUltraliskBurrowCharge2"/>
+        <Effect index="0" value="HeroUltraliskBurrowChargeInitialSet"/>
+        <CursorEffect index="0" value="HeroUltraliskBurrowChargeTargetSearchArea"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HeroUltraliskBurrowCharge" Requirements=""/>
+    </CAbilEffectTarget>
+    <CAbilMorph id="BurrowNoxiousTumorDown" parent="BurrowCreepTumorDown">
+        <Name value="Abil/Name/BurrowNoxiousTumorDown"/>
+        <InfoArray index="0" Unit="NoxiousTumorBurrowed"/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHeroHydraliskDown" parent="BurrowHydraliskDown">
+        <Name value="Abil/Name/BurrowHeroHydraliskDown"/>
+        <CmdButtonArray index="Execute" Requirements=""/>
+        <InfoArray index="0" Unit="HeroHydraliskBurrowed"/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHeroHydraliskUp" parent="BurrowHydraliskUp">
+        <Name value="Abil/Name/BurrowHeroHydraliskUp"/>
         <InfoArray index="0" Unit="HeroHydralisk"/>
     </CAbilMorph>
     <CAbilMorph id="BurrowHeroZerglingDown" parent="BurrowZerglingDown">
@@ -17,50 +31,152 @@
     <CAbilMorph id="BurrowHeroRoachDown" parent="BurrowRoachDown">
         <Name value="Abil/Name/BurrowHeroRoachDown"/>
         <InfoArray index="0" Unit="HeroRoachBurrowed"/>
+        <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilMorph>
     <CAbilMorph id="BurrowHeroRoachUp" parent="BurrowRoachUp">
         <Name value="Abil/Name/BurrowHeroRoachUp"/>
         <InfoArray index="0" Unit="HeroRoach"/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHeroQueenDown" parent="BurrowQueenDown">
+        <Name value="Abil/Name/BurrowHeroQueenDown"/>
+        <CmdButtonArray index="Execute" Requirements=""/>
+        <InfoArray index="0" Unit="HeroQueenBurrowed"/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHeroQueenUp" parent="BurrowQueenUp">
+        <Name value="Abil/Name/BurrowHeroQueenUp"/>
+        <InfoArray index="0" Unit="HeroQueen"/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHeroRavagerDown" parent="BurrowRavagerDown">
+        <Name value="Abil/Name/BurrowHeroRavagerDown"/>
+        <CmdButtonArray index="Execute" Requirements=""/>
+        <InfoArray index="0" Unit="HeroRavagerBurrowed" RandomDelayMax="0.1"/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHeroUltraliskDown" parent="BurrowUltraliskDown">
+        <Name value="Abil/Name/BurrowHeroUltraliskDown"/>
+        <CmdButtonArray index="Execute" Requirements=""/>
+        <InfoArray index="0" Unit="HeroUltraliskBurrowed"/>
+    </CAbilMorph>
+    <CAbilMorph id="BurrowHeroRavagerUp" parent="BurrowRavagerUp">
+        <Name value="Abil/Name/BurrowHeroRavagerUp"/>
+        <InfoArray index="0" Unit="HeroRavager" RandomDelayMax="0.1"/>
     </CAbilMorph>
     <CAbilInteract id="CerebrateInteract">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Flags index="AutoCast" value="1"/>
         <TargetFilters value="Visible;Player,Neutral,Enemy,Missile,Hidden"/>
     </CAbilInteract>
-    <CAbilTrain id="CerebrateTrain">
-        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
-        <Activity value="UI/Spawning"/>
-        <InfoArray index="Train1" Time="30" Effect="QueenBirth">
-            <Button DefaultButtonFace="DevouringOne">
-                <Flags index="ToSelection" value="1"/>
-            </Button>
-            <Unit value="HeroZergling"/>
+    <CAbilEffectTarget id="HeroHydraliskImpale" parent="Impale">
+        <Name value="Abil/Name/HeroHydraliskImpale"/>
+        <Effect index="0" value="HeroHydraliskImpaleLM"/>
+        <CastIntroTime value="0.25"/>
+        <CursorEffect value="HeroHydraliskImpaleCursorDummy"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HeroHydraliskImpale"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="HeroOverlordAssumeControl">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+    </CAbilEffectTarget>
+    <CAbilBehavior id="HeroOverlordGenerateCreep" parent="GenerateCreep">
+        <Name value="Abil/Name/HeroOverlordGenerateCreep2"/>
+        <CmdButtonArray index="On" Requirements=""/>
+    </CAbilBehavior>
+    <CAbilBuild id="HeroQueenBuild" parent="QueenBuild">
+        <Name value="Abil/Name/HeroQueenBuild"/>
+        <InfoArray index="Build1" Unit="NoxiousTumorHeroQueen">
+            <Button DefaultButtonFace="NoxiousTumor"/>
         </InfoArray>
-        <InfoArray index="Train2" Time="30" Effect="QueenBirth">
-            <Button DefaultButtonFace="HunterKiller"/>
-            <Unit value="HeroHydralisk"/>
-        </InfoArray>
-    </CAbilTrain>
-    <CAbilAugment id="HotSRaptorCharge">
-        <OrderArray index="0">
-            <DisplayType value="Legacy"/>
-            <Color value="255,0,255,0"/>
-            <Model value="Assets\UI\Feedback\WayPointConfirm\WayPointConfirm.m3"/>
-            <LineTexture value="Assets\Textures\WayPointLine.dds"/>
-        </OrderArray>
+    </CAbilBuild>
+    <CAbilAugment id="HeroZerglingLeap">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="HeroZerglingCharge"/>
         <Flags index="AutoCast" value="1"/>
         <Flags index="AutoCastOn" value="1"/>
         <AbilCmd value="attack,Execute"/>
-        <TargetType value="UnitOrPoint"/>
         <Cost>
             <Cooldown Link="HotSRaptorCharge" Location="Unit" TimeUse="8"/>
         </Cost>
-        <Effect value="HotSRaptorLeap"/>
         <AutoCastValidatorArray value="CasterNotHoldingPosition"/>
     </CAbilAugment>
+    <CAbilTransport id="HeroOverlordTransport" parent="OverlordTransport">
+        <Name value="Abil/Name/HeroOverlordTransport"/>
+        <CmdButtonArray index="Load" Requirements=""/>
+        <TargetFilters value="Visible;Neutral,Enemy,Buried,UnderConstruction,Dead,Hidden"/>
+    </CAbilTransport>
+    <CAbilTrain id="HeroLarvaTrain" parent="LarvaTrain">
+        <Name value="Abil/Name/HeroLarvaTrain"/>
+        <InfoArray index="Train1" Time="20">
+            <Button DefaultButtonFace="HeroZergling"/>
+            <Unit index="0" value="HeroZergling"/>
+        </InfoArray>
+        <InfoArray index="Train2" Time="30">
+            <Button DefaultButtonFace="HeroHydralisk" Requirements=""/>
+            <Unit index="0" value="HeroHydralisk"/>
+            <Unit index="1" removed="1"/>
+        </InfoArray>
+        <InfoArray index="Train4" Time="30">
+            <Button DefaultButtonFace="HeroRoach" Requirements=""/>
+            <Unit index="0" value="HeroRoach"/>
+        </InfoArray>
+        <InfoArray index="Train5" Time="40">
+            <Button DefaultButtonFace="HeroUltralisk" Requirements=""/>
+            <Unit index="0" value="HeroUltralisk"/>
+        </InfoArray>
+        <InfoArray index="Train7" Time="30">
+            <Button DefaultButtonFace="HeroRavager" Requirements=""/>
+            <Unit index="0" value="HeroRavager"/>
+        </InfoArray>
+        <InfoArray index="Train8" Time="30">
+            <Button DefaultButtonFace="HeroSwarmHost" Requirements=""/>
+            <Unit value="HeroSwarmHost"/>
+        </InfoArray>
+        <InfoArray index="Train10" Time="30">
+            <Button DefaultButtonFace="HeroInfestor" Requirements=""/>
+            <Unit index="0" value="HeroInfestor"/>
+        </InfoArray>
+        <InfoArray index="Train11" Time="30">
+            <Button DefaultButtonFace="HeroDefiler" Requirements=""/>
+            <Unit index="0" value="HeroDefiler"/>
+        </InfoArray>
+        <InfoArray index="Train13" Time="30">
+            <Button DefaultButtonFace="HeroQueen" Requirements=""/>
+            <Unit index="0" value="HeroQueen"/>
+        </InfoArray>
+        <InfoArray index="Train14" Time="40">
+            <Button DefaultButtonFace="HeroOverlord"/>
+            <Unit value="HeroOverlord"/>
+        </InfoArray>
+    </CAbilTrain>
+    <CAbilEffectTarget id="RapidTransfusion" parent="Transfusion">
+        <Name value="Abil/Name/RapidTransfusion"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="RapidTransfusionCP"/>
+        <Flags index="AutoCast" value="1"/>
+        <Cost index="0">
+            <Vital index="Energy" value="20"/>
+            <Cooldown TimeUse="3"/>
+        </Cost>
+        <AutoCastFilters value="Visible;Neutral,Enemy"/>
+        <AutoCastRange value="7"/>
+    </CAbilEffectTarget>
+    <CAbilEffectInstant id="HeroUltraliskWeaponCooldown" parent="UltraliskWeaponCooldown">
+        <Name value="Abil/Name/HeroUltraliskWeaponCooldown2"/>
+        <Effect index="0" value="HeroUltraliskWeaponCooldown"/>
+        <AINotifyEffect value="HeroUltraliskWeaponCooldown"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="HeroRavagerCorrosiveBile" parent="RavagerCorrosiveBile">
+        <Name value="Abil/Name/HeroRavagerCorrosiveBile2"/>
+        <Effect index="0" value="HeroRavagerCorrosiveBileLaunchSet"/>
+        <Cost index="0">
+            <Charge>
+                <CountMax value="3"/>
+                <CountStart value="3"/>
+                <CountUse value="1"/>
+                <TimeUse value="10"/>
+            </Charge>
+            <Cooldown TimeUse="0"/>
+        </Cost>
+        <PrepTime value="0.3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HeroRavagerCorrosiveBile"/>
+    </CAbilEffectTarget>
     <CAbilMorph id="UnburrowHeroZerglingUp" parent="BurrowZerglingUp">
         <Name value="Abil/Name/UnburrowHeroZerglingUp"/>
         <InfoArray index="0" Unit="HeroZergling"/>
