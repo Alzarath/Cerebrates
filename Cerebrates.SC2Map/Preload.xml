@@ -35,6 +35,7 @@
 <Unit id="LurkerMPBurrowed"/>
 <Unit id="DefilerMP"/>
 <Unit id="QueenMP"/>
+<Unit id="HeroUltralisk"/>
 <Unit id="HeroHydralisk"/>
 <Unit id="HeroRoach"/>
 <Unit id="HeroQueen"/>
@@ -42,5 +43,4 @@
 <Unit id="HeroZergling"/>
 <Unit id="HeroOverlord"/>
 <Unit id="Cerebrate"/>
-<Unit id="HeroUltralisk"/>
 </Preload>

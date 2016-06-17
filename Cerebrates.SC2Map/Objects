@@ -204,15 +204,15 @@
     <ObjectUnit Id="293" Variation="6" Position="137,39.5,0" Scale="1,1,1" UnitType="MineralField" Resources="10000"/>
     <ObjectUnit Id="294" Variation="9" Position="135,39.5,0" Scale="1,1,1" UnitType="MineralField" Resources="10000"/>
     <ObjectUnit Id="58" Position="139.5,44.5,0" Rotation="4.2414" Scale="1,1,1" UnitType="Overlord" Player="10"/>
-    <ObjectUnit Id="121" Position="40,63,0" Rotation="1.5427" Scale="1,1,1" UnitType="Overlord" Player="9"/>
-    <ObjectUnit Id="168" Position="40,33,0" Rotation="1.5986" Scale="1,1,1" UnitType="Overlord" Player="9"/>
+    <ObjectUnit Id="121" Position="42,62,0" Rotation="1.5427" Scale="1,1,1" UnitType="Overlord" Player="9"/>
+    <ObjectUnit Id="168" Position="42,34,0" Rotation="1.5986" Scale="1,1,1" UnitType="Overlord" Player="9"/>
     <ObjectUnit Id="170" Position="24.5,33.5,0" Rotation="10.0786" Scale="1,1,1" UnitType="Overlord" Player="9"/>
     <ObjectUnit Id="171" Position="18.5,33.5,0" Rotation="13.3652" Scale="1,1,1" UnitType="Overlord" Player="9"/>
     <ObjectUnit Id="172" Position="24.5,62.5,0" Rotation="2.7646" Scale="1,1,1" UnitType="Overlord" Player="9"/>
     <ObjectUnit Id="173" Position="18.5,62.5,0" Rotation="0.8964" Scale="1,1,1" UnitType="Overlord" Player="9"/>
     <ObjectUnit Id="178" Position="140,50,0" Rotation="5.1403" Scale="1,1,1" UnitType="Overlord" Player="10"/>
-    <ObjectUnit Id="181" Position="120,63,0" Rotation="4.74" Scale="1,1,1" UnitType="Overlord" Player="10"/>
-    <ObjectUnit Id="182" Position="120,33,0" Rotation="4.6845" Scale="1,1,1" UnitType="Overlord" Player="10"/>
+    <ObjectUnit Id="181" Position="118,62,0" Rotation="4.74" Scale="1,1,1" UnitType="Overlord" Player="10"/>
+    <ObjectUnit Id="182" Position="118,34,0" Rotation="4.6845" Scale="1,1,1" UnitType="Overlord" Player="10"/>
     <ObjectUnit Id="183" Position="134.5,33.5,0" Rotation="2.4904" Scale="1,1,1" UnitType="Overlord" Player="10"/>
     <ObjectUnit Id="184" Position="141.5,33.5,0" Rotation="5.488" Scale="1,1,1" UnitType="Overlord" Player="10"/>
     <ObjectUnit Id="185" Position="134.5,62.5,0" Rotation="3.519" Scale="1,1,1" UnitType="Overlord" Player="10"/>
@@ -240,10 +240,10 @@
     <ObjectUnit Id="124" Position="29,62,0" Rotation="9.6584" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
     <ObjectUnit Id="125" Position="34,61,0" Rotation="6.1108" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
     <ObjectUnit Id="134" Position="32,64,0" Rotation="4.9377" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
-    <ObjectUnit Id="135" Position="40,59,0" Rotation="9.6552" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
-    <ObjectUnit Id="136" Position="40,61,0" Rotation="7.953" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
-    <ObjectUnit Id="137" Position="40,63,0" Rotation="9.4243" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
-    <ObjectUnit Id="138" Position="40,65,0" Rotation="9.3652" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="135" Position="33,53,0" Rotation="2.4794" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="136" Position="33,43,0" Rotation="0.9165" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
+    <ObjectUnit Id="137" Position="127,43,0" Rotation="5.6196" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
+    <ObjectUnit Id="138" Position="127,53,0" Rotation="3.9025" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="139" Position="42,64,0" Rotation="10.7678" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
     <ObjectUnit Id="140" Position="42,62,0" Rotation="10.0786" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
     <ObjectUnit Id="141" Position="42,60,0" Rotation="6.729" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
@@ -252,10 +252,6 @@
     <ObjectUnit Id="149" Position="29,34,0" Rotation="10.763" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
     <ObjectUnit Id="150" Position="34,35,0" Rotation="6.4553" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
     <ObjectUnit Id="151" Position="32,32,0" Rotation="9.1984" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
-    <ObjectUnit Id="159" Position="40,37,0" Rotation="11.5512" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
-    <ObjectUnit Id="160" Position="40,35,0" Rotation="10.8967" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
-    <ObjectUnit Id="161" Position="40,33,0" Rotation="11.782" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
-    <ObjectUnit Id="162" Position="40,31,0" Rotation="11.841" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
     <ObjectUnit Id="163" Position="42,32,0" Rotation="10.439" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
     <ObjectUnit Id="164" Position="42,34,0" Rotation="8.7717" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
     <ObjectUnit Id="165" Position="42,36,0" Rotation="8.1933" Scale="1,1,1" UnitType="SpineCrawler" Player="9"/>
@@ -264,10 +260,6 @@
     <ObjectUnit Id="195" Position="131,62,0" Rotation="2.9104" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="196" Position="126,61,0" Rotation="0.1738" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="197" Position="127,64,0" Rotation="1.3461" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
-    <ObjectUnit Id="198" Position="120,59,0" Rotation="2.9133" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
-    <ObjectUnit Id="199" Position="120,61,0" Rotation="4.6152" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
-    <ObjectUnit Id="200" Position="120,63,0" Rotation="3.144" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
-    <ObjectUnit Id="201" Position="120,65,0" Rotation="3.2031" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="202" Position="118,64,0" Rotation="1.8012" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="203" Position="118,62,0" Rotation="2.49" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="204" Position="118,60,0" Rotation="5.8386" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
@@ -276,10 +268,6 @@
     <ObjectUnit Id="207" Position="131,34,0" Rotation="1.8063" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="208" Position="126,35,0" Rotation="6.1125" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="209" Position="127,32,0" Rotation="3.37" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
-    <ObjectUnit Id="210" Position="120,37,0" Rotation="1.018" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
-    <ObjectUnit Id="211" Position="120,35,0" Rotation="1.6726" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
-    <ObjectUnit Id="212" Position="120,33,0" Rotation="0.7875" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
-    <ObjectUnit Id="213" Position="120,31,0" Rotation="0.7285" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="214" Position="118,32,0" Rotation="2.13" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="215" Position="118,34,0" Rotation="3.797" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="216" Position="118,36,0" Rotation="4.3754" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
@@ -287,28 +275,24 @@
     <ObjectUnit Id="218" Position="116,35,0" Rotation="3.901" Scale="1,1,1" UnitType="SpineCrawler" Player="10"/>
     <ObjectUnit Id="144" Position="31,59,0" Rotation="10.7111" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
     <ObjectUnit Id="145" Position="29,60,0" Rotation="10.6166" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
-    <ObjectUnit Id="146" Position="38,60,0" Rotation="5.6716" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
-    <ObjectUnit Id="147" Position="38,62,0" Rotation="4.794" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
-    <ObjectUnit Id="148" Position="38,64,0" Rotation="9.958" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="146" Position="40,61,0" Rotation="5.6716" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="147" Position="40,63,0" Rotation="4.794" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="148" Position="40,65,0" Rotation="9.958" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
     <ObjectUnit Id="152" Position="31,37,0" Rotation="8.1394" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
     <ObjectUnit Id="153" Position="29,36,0" Rotation="8.2341" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
-    <ObjectUnit Id="155" Position="38,36,0" Rotation="6.8945" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
-    <ObjectUnit Id="156" Position="38,34,0" Rotation="7.7714" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
-    <ObjectUnit Id="157" Position="38,32,0" Rotation="11.2482" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
-    <ObjectUnit Id="158" Position="38,30,0" Rotation="12.5295" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="155" Position="40,35,0" Rotation="6.8945" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="156" Position="40,33,0" Rotation="7.7714" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="157" Position="40,31,0" Rotation="11.2482" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
     <ObjectUnit Id="219" Position="129,59,0" Rotation="1.8576" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
     <ObjectUnit Id="220" Position="131,60,0" Rotation="1.9521" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
-    <ObjectUnit Id="221" Position="122,60,0" Rotation="0.6127" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
-    <ObjectUnit Id="222" Position="122,62,0" Rotation="1.49" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
-    <ObjectUnit Id="223" Position="122,64,0" Rotation="2.6105" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
-    <ObjectUnit Id="224" Position="122,66,0" Rotation="3.8918" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="221" Position="120,61,0" Rotation="0.6127" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="222" Position="120,63,0" Rotation="1.49" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="223" Position="120,65,0" Rotation="2.6105" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
     <ObjectUnit Id="225" Position="129,37,0" Rotation="4.429" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
     <ObjectUnit Id="226" Position="131,36,0" Rotation="4.3342" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
-    <ObjectUnit Id="227" Position="122,36,0" Rotation="5.6735" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
-    <ObjectUnit Id="228" Position="122,34,0" Rotation="4.7966" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
-    <ObjectUnit Id="229" Position="122,32,0" Rotation="1.321" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
-    <ObjectUnit Id="230" Position="122,30,0" Rotation="0.0402" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
-    <ObjectUnit Id="265" Position="38,66,0" Rotation="1.439" Scale="1,1,1" UnitType="SporeCrawler" Player="9"/>
+    <ObjectUnit Id="227" Position="120,35,0" Rotation="5.6735" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="228" Position="120,33,0" Rotation="4.7966" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
+    <ObjectUnit Id="229" Position="120,31,0" Rotation="1.321" Scale="1,1,1" UnitType="SporeCrawler" Player="10"/>
     <ObjectUnit Id="388" Position="81,44,0" Rotation="3.1413" Scale="1,1,1" UnitType="SwarmHostMP" Player="15"/>
     <ObjectUnit Id="2" Position="54.5,78.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
     <ObjectUnit Id="19" Position="22.5,41.5,0" Scale="1,1,1" UnitType="VespeneGeyser" Resources="30000"/>
@@ -364,19 +348,19 @@
     <ObjectDoodad Id="304" Variation="17" Position="97.95,49.88,7.9858" Rotation="4.2392" Scale="0.5998,0.5998,0.5998" Type="RockGiant" TeamColor="11">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="305" Variation="1" Position="89,87,11.599" Rotation="6.1857" Scale="1.1044,1.1044,1.1044" Type="RockTower">
+    <ObjectDoodad Id="305" Variation="1" Position="89,87,11.434" Rotation="6.1857" Scale="1.1044,1.1044,1.1044" Type="RockTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="359" Position="71,87,11.4743" Rotation="5.5595" Scale="0.9057,0.9057,0.9057" Type="RockTower">
+    <ObjectDoodad Id="359" Position="71,87,11.4118" Rotation="5.5595" Scale="0.9057,0.9057,0.9057" Type="RockTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="360" Variation="2" Position="57,89,11.8991" Rotation="5.6728" Scale="0.8693,0.8693,0.8693" Type="RockTower">
+    <ObjectDoodad Id="360" Variation="2" Position="57,89,11.7294" Rotation="5.6728" Scale="0.8693,0.8693,0.8693" Type="RockTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="361" Variation="1" Position="108,91,11.5495" Rotation="3.435" Scale="0.7998,0.7998,0.7998" Type="RockTower">
+    <ObjectDoodad Id="361" Variation="1" Position="108,91,11.4428" Rotation="3.435" Scale="0.7998,0.7998,0.7998" Type="RockTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
